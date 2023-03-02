@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Misc/NumeralDisplay.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/HUD/hud_lives.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Audio/SFX/Misc/Score.wav" type="AudioStream" id=17]
 [ext_resource path="res://Graphics/HUD/hud_gametimeover.png" type="Texture" id=18]
 [ext_resource path="res://Audio/Soundtrack/8. SWD_GameOver.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Shaders/WaterEffect.tres" type="Material" id=20]
 
 [sub_resource type="CanvasItemMaterial" id=4]
 blend_mode = 2
@@ -980,7 +981,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 32.0
-margin_right = 21856.0
+margin_right = 22016.0
 margin_bottom = 64.0
 texture = ExtResource( 8 )
 stretch_mode = 2
@@ -1122,6 +1123,16 @@ stream = ExtResource( 19 )
 bus = "Music"
 
 [node name="Water" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="WaterEffect" type="ColorRect" parent="Water"]
+visible = false
+material = ExtResource( 20 )
+margin_right = 384.0
+margin_bottom = 220.0
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Water"]
+copy_mode = 2
 
 [node name="WaterOverlay" type="ColorRect" parent="Water"]
 visible = false
@@ -1130,9 +1141,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -160.0
+margin_left = -192.0
 margin_top = -112.0
-margin_right = 160.0
+margin_right = 192.0
 margin_bottom = 112.0
 
 [node name="ElecFlash" type="ColorRect" parent="Water/WaterOverlay"]

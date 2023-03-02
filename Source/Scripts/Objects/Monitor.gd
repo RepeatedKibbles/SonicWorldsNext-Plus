@@ -7,7 +7,7 @@ var yspeed = 0
 var playerTouch = null
 var isActive = true
 export (int, "Ring", "Speed Shoes", "Invincibility", "Shield", "Elec Shield", "Fire Shield",
-"Bubble Shield", "Super", "Blue Ring", "Boost", "1up") var item = 0
+"Bubble Shield", "Super", "Blue Ring", "Boost", "1up", "Eggman") var item = 0
 var Explosion = preload("res://Entities/Misc/BadnickSmoke.tscn")
 
 
@@ -23,6 +23,8 @@ func _process(_delta):
 	# update for editor
 	if (Engine.is_editor_hint()):
 		$Item.frame = item+2
+	if item == 11:
+		$Item.frame = item+6
 
 func destroy():
 	# skip if not activated
@@ -82,6 +84,8 @@ func destroy():
 			Global.lives += 1
 			Global.effectTheme.volume_db = -100
 			Global.music.volume_db = -100
+		11: # Eggman
+			playerTouch.hit_player(global_position)
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():

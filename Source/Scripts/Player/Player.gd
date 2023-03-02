@@ -638,7 +638,7 @@ func _physics_process(delta):
 	# collid with solids if not knuckles layer
 	set_collision_mask_bit(18,!character == CHARACTERS.KNUCKLES)
 	# collid with solids if not rolling or not knuckles layer
-	set_collision_mask_bit(20,(character != CHARACTERS.KNUCKLES and !attacking))
+	set_collision_mask_bit(20,(character != CHARACTERS.KNUCKLES and !attacking and (!super and not character != CHARACTERS.SONIC or not character != CHARACTERS.TAILS)))
 	# damage mask bit
 	set_collision_layer_bit(19,attacking)
 	
@@ -940,7 +940,7 @@ func set_hitbox(mask = Vector2.ZERO, forcePoseChange = false):
 func set_shield(setShieldID):
 	magnetShape.disabled = true
 	# verify not in water and shield compatible
-	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC):
+	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC) and !super and !$InvincibilityBarrier.visible:
 		return false
 	
 	shield = setShieldID

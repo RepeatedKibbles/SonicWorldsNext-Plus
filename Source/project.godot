@@ -45,6 +45,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Sonic Worlds Next"
+config/description="4:3 = 320x224
+16:9 = 384x216"
 run/main_scene="res://Scene/Main.tscn"
 boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
@@ -242,6 +244,10 @@ ui_reset={
 2d_physics/layer_20="Damage Entities"
 2d_physics/layer_21="Solid if not Rolling or not Knuckles"
 2d_physics/layer_22="Crusher"
+
+[mono]
+
+project/assembly_name="Sonic Worlds Next"
 
 [rendering]
 

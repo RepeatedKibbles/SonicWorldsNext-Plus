@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Shaders/WaterEffect.gdshader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/wave_speed = 3.0
+shader_param/wave_freq = 10.0
+shader_param/wave_width = 1.0
