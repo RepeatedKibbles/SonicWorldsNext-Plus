@@ -10376,6 +10376,18 @@
             <para>Hints that an image is compressed using lossless compression.</para>
             </summary>
         </member>
+        <member name="F:Godot.PropertyHint.TypeString">
+            <summary>
+            <para>Hint that a property represents a particular type. If a property is <c>TYPE_STRING</c>, allows to set a type from the create dialog. If you need to create an <see cref="T:Godot.Collections.Array"/> to contain elements of a specific type, the <c>hint_string</c> must encode nested types using <c>":"</c> and <c>"/"</c> for specifying <see cref="T:Godot.Resource"/> types. For instance:</para>
+            <para><code>
+            hint_string = "%s:" % [TYPE_INT] # Array of inteters.
+            hint_string = "%s:%s:" % [TYPE_ARRAY, TYPE_REAL] # Two-dimensional array of floats.
+            hint_string = "%s/%s:Resource" % [TYPE_OBJECT, TYPE_OBJECT] # Array of resources.
+            hint_string = "%s:%s/%s:Resource" % [TYPE_ARRAY, TYPE_OBJECT, TYPE_OBJECT] # Two-dimensional array of resources.
+            </code></para>
+            <para>Note: The final colon is required to specify for properly detecting built-in types.</para>
+            </summary>
+        </member>
         <member name="F:Godot.PropertyUsageFlags.Storage">
             <summary>
             <para>The property is serialized and saved in the scene file (default).</para>
@@ -15291,7 +15303,7 @@
         </member>
         <member name="M:Godot.AudioStreamGeneratorPlayback.GetFramesAvailable">
             <summary>
-            <para>Returns the number of audio data frames left to play. If this returned number reaches <c>0</c>, the audio will stop playing until frames are added again. Therefore, make sure your script can always generate and push new audio frames fast enough to avoid audio cracking.</para>
+            <para>Returns the number of frames that can be pushed to the audio sample data buffer without overflowing it. If the result is <c>0</c>, the buffer is full.</para>
             </summary>
         </member>
         <member name="M:Godot.AudioStreamGeneratorPlayback.ClearBuffer">
@@ -15798,23 +15810,23 @@
         </member>
         <member name="T:Godot.BackBufferCopy">
             <summary>
-            <para>Node for back-buffering the currently-displayed screen. The region defined in the BackBufferCopy node is buffered with the content of the screen it covers, or the entire screen according to the copy mode set. Use the <c>texture(SCREEN_TEXTURE, ...)</c> function in your shader scripts to access the buffer.</para>
-            <para>Note: Since this node inherits from <see cref="T:Godot.Node2D"/> (and not <see cref="T:Godot.Control"/>), anchors and margins won't apply to child <see cref="T:Godot.Control"/>-derived nodes. This can be problematic when resizing the window. To avoid this, add <see cref="T:Godot.Control"/>-derived nodes as siblings to the BackBufferCopy node instead of adding them as children.</para>
+            <para>Node for back-buffering the currently-displayed screen. The region defined in the <see cref="T:Godot.BackBufferCopy"/> node is buffered with the content of the screen it covers, or the entire screen according to the copy mode set. Use the <c>texture(SCREEN_TEXTURE, ...)</c> function in your shader scripts to access the buffer.</para>
+            <para>Note: Since this node inherits from <see cref="T:Godot.Node2D"/> (and not <see cref="T:Godot.Control"/>), anchors and margins won't apply to child <see cref="T:Godot.Control"/>-derived nodes. This can be problematic when resizing the window. To avoid this, add <see cref="T:Godot.Control"/>-derived nodes as siblings to the <see cref="T:Godot.BackBufferCopy"/> node instead of adding them as children.</para>
             </summary>
         </member>
         <member name="F:Godot.BackBufferCopy.CopyModeEnum.Disabled">
             <summary>
-            <para>Disables the buffering mode. This means the BackBufferCopy node will directly use the portion of screen it covers.</para>
+            <para>Disables the buffering mode. This means the <see cref="T:Godot.BackBufferCopy"/> node will directly use the portion of screen it covers.</para>
             </summary>
         </member>
         <member name="F:Godot.BackBufferCopy.CopyModeEnum.Rect">
             <summary>
-            <para>BackBufferCopy buffers a rectangular region.</para>
+            <para><see cref="T:Godot.BackBufferCopy"/> buffers a rectangular region.</para>
             </summary>
         </member>
         <member name="F:Godot.BackBufferCopy.CopyModeEnum.Viewport">
             <summary>
-            <para>BackBufferCopy buffers the entire screen.</para>
+            <para><see cref="T:Godot.BackBufferCopy"/> buffers the entire screen.</para>
             </summary>
         </member>
         <member name="P:Godot.BackBufferCopy.CopyMode">
@@ -15824,7 +15836,7 @@
         </member>
         <member name="P:Godot.BackBufferCopy.Rect">
             <summary>
-            <para>The area covered by the BackBufferCopy. Only used if <see cref="P:Godot.BackBufferCopy.CopyMode"/> is <see cref="F:Godot.BackBufferCopy.CopyModeEnum.Rect"/>.</para>
+            <para>The area covered by the <see cref="T:Godot.BackBufferCopy"/>. Only used if <see cref="P:Godot.BackBufferCopy.CopyMode"/> is <see cref="F:Godot.BackBufferCopy.CopyModeEnum.Rect"/>.</para>
             </summary>
         </member>
         <member name="T:Godot.BakedLightmap">
@@ -21845,6 +21857,7 @@
         <member name="T:Godot.CylinderShape">
             <summary>
             <para>Cylinder shape for collisions.</para>
+            <para>Note: When using GodotPhysics instead of the default Bullet physics engine, there are several known bugs with cylinder collision shapes. Using <see cref="T:Godot.CapsuleShape"/> or <see cref="T:Godot.BoxShape"/> instead is recommended.</para>
             </summary>
         </member>
         <member name="P:Godot.CylinderShape.Height">
@@ -22391,7 +22404,7 @@
         </member>
         <member name="P:Godot.Environment.BackgroundEnergy">
             <summary>
-            <para>The power of the light emitted by the background.</para>
+            <para>The power of the light emitted by the background. This affects the sky brightness, the ambient light (if <see cref="P:Godot.Environment.AmbientLightSkyContribution"/> is greater than <c>0.0</c>) and specular light from the sky.</para>
             </summary>
         </member>
         <member name="P:Godot.Environment.BackgroundCanvasMaxLayer">
@@ -26906,6 +26919,7 @@
             <para><c>hotspot</c> must be within <c>image</c>'s size.</para>
             <para>Note: <see cref="T:Godot.AnimatedTexture"/>s aren't supported as custom mouse cursors. If using an <see cref="T:Godot.AnimatedTexture"/>, only the first frame will be displayed.</para>
             <para>Note: Only images imported with the Lossless, Lossy or Uncompressed compression modes are supported. The Video RAM compression mode can't be used for custom cursors.</para>
+            <para>Note: On the web platform, the maximum allowed cursor image size is 128×128. Cursor images larger than 32×32 will also only be displayed if the mouse cursor image is entirely located within the page for <a href="https://chromestatus.com/feature/5825971391299584">security reasons</a>.</para>
             </summary>
             <param name="hotspot">If the parameter is null, then the default value is new Vector2(0, 0)</param>
         </member>
@@ -28901,6 +28915,7 @@
         <member name="P:Godot.Light.LightSize">
             <summary>
             <para>The size of the light in Godot units. Only considered in baked lightmaps and only if <see cref="P:Godot.Light.LightBakeMode"/> is set to <see cref="F:Godot.Light.BakeMode.All"/>. Increasing this value will make the shadows appear blurrier. This can be used to simulate area lights to an extent.</para>
+            <para>Note: <see cref="P:Godot.Light.LightSize"/> is not affected by <see cref="P:Godot.Spatial.Scale"/> (the light's scale or its parent's scale).</para>
             </summary>
         </member>
         <member name="P:Godot.Light.LightNegative">
@@ -31406,6 +31421,7 @@
             <summary>
             <para>3D agent that is used in navigation to reach a location while avoiding static and dynamic obstacles. The dynamic obstacles are avoided using RVO (Reciprocal Velocity Obstacles) collision avoidance. The agent needs navigation data to work correctly. By default this node will register to the default <see cref="T:Godot.World"/> navigation map. If this node is a child of a <see cref="T:Godot.Navigation"/> node it will register to the navigation map of the navigation node or the function <see cref="M:Godot.NavigationAgent.SetNavigation(Godot.Node)"/> can be used to set the navigation node directly. <see cref="T:Godot.NavigationAgent"/> is physics safe.</para>
             <para>Note: After <see cref="M:Godot.NavigationAgent.SetTargetLocation(Godot.Vector3)"/> is used it is required to use the <see cref="M:Godot.NavigationAgent.GetNextLocation"/> function once every physics frame to update the internal path logic of the NavigationAgent. The returned vector position from this function should be used as the next movement position for the agent's parent Node.</para>
+            <para>Note: By default, the expensive calculations for avoidance are done in a thread. In HTML5 exports without thread support, they will be done on the main thread, which can lead to performance issues.</para>
             </summary>
         </member>
         <member name="P:Godot.NavigationAgent.PathDesiredDistance">
@@ -31553,6 +31569,7 @@
             <summary>
             <para>2D agent that is used in navigation to reach a location while avoiding static and dynamic obstacles. The dynamic obstacles are avoided using RVO (Reciprocal Velocity Obstacles) collision avoidance. The agent needs navigation data to work correctly. By default this node will register to the default <see cref="T:Godot.World2D"/> navigation map. If this node is a child of a <see cref="T:Godot.Navigation2D"/> node it will register to the navigation map of the navigation node or the function <see cref="M:Godot.NavigationAgent2D.SetNavigation(Godot.Node)"/> can be used to set the navigation node directly. <see cref="T:Godot.NavigationAgent2D"/> is physics safe.</para>
             <para>Note: After <see cref="M:Godot.NavigationAgent2D.SetTargetLocation(Godot.Vector2)"/> is used it is required to use the <see cref="M:Godot.NavigationAgent2D.GetNextLocation"/> function once every physics frame to update the internal path logic of the NavigationAgent. The returned vector position from this function should be used as the next movement position for the agent's parent Node.</para>
+            <para>Note: By default, the expensive calculations for avoidance are done in a thread. In HTML5 exports without thread support, they will be done on the main thread, which can lead to performance issues.</para>
             </summary>
         </member>
         <member name="P:Godot.NavigationAgent2D.PathDesiredDistance">
@@ -32193,6 +32210,7 @@
             <para>For two regions to be connected to each other, they must share a similar edge. An edge is considered connected to another if both of its two vertices are at a distance less than <see cref="P:Godot.Navigation.EdgeConnectionMargin"/> to the respective other edge's vertex.</para>
             <para>To use the collision avoidance system, you may use agents. You can set an agent's target velocity, then the servers will emit a callback with a modified velocity.</para>
             <para>Note: The collision avoidance system ignores regions. Using the modified velocity as-is might lead to pushing and agent outside of a navigable area. This is a limitation of the collision avoidance system, any more complex situation may require the use of the physics engine.</para>
+            <para>Note: By default, the expensive calculations for avoidance are done in a thread. In HTML5 exports without thread support, they will be done on the main thread, which can lead to performance issues.</para>
             <para>This server keeps tracks of any call and executes them during the sync phase. This means that you can request any change to the map, using any thread, without worrying.</para>
             </summary>
         </member>
@@ -33093,6 +33111,7 @@
         <member name="P:Godot.OmniLight.OmniRange">
             <summary>
             <para>The light's radius. Note that the effectively lit area may appear to be smaller depending on the <see cref="P:Godot.OmniLight.OmniAttenuation"/> in use. No matter the <see cref="P:Godot.OmniLight.OmniAttenuation"/> in use, the light will never reach anything outside this radius.</para>
+            <para>Note: <see cref="P:Godot.OmniLight.OmniRange"/> is not affected by <see cref="P:Godot.Spatial.Scale"/> (the light's scale or its parent's scale).</para>
             </summary>
         </member>
         <member name="P:Godot.OmniLight.OmniAttenuation">
@@ -38853,17 +38872,20 @@
         </member>
         <member name="M:Godot.RegEx.Search(System.String,System.Int32,System.Int32)">
             <summary>
-            <para>Searches the text for the compiled pattern. Returns a <see cref="T:Godot.RegExMatch"/> container of the first matching result if found, otherwise <c>null</c>. The region to search within can be specified without modifying where the start and end anchor would be.</para>
+            <para>Searches the text for the compiled pattern. Returns a <see cref="T:Godot.RegExMatch"/> container of the first matching result if found, otherwise <c>null</c>.</para>
+            <para>The region to search within can be specified with <c>offset</c> and <c>end</c>. This is useful when searching for another match in the same <c>subject</c> by calling this method again after a previous success. Setting these parameters differs from passing over a shortened string. For example, the start anchor <c>^</c> is not affected by <c>offset</c>, and the character before <c>offset</c> will be checked for the word boundary <c>\b</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.RegEx.SearchAll(System.String,System.Int32,System.Int32)">
             <summary>
-            <para>Searches the text for the compiled pattern. Returns an array of <see cref="T:Godot.RegExMatch"/> containers for each non-overlapping result. If no results were found, an empty array is returned instead. The region to search within can be specified without modifying where the start and end anchor would be.</para>
+            <para>Searches the text for the compiled pattern. Returns an array of <see cref="T:Godot.RegExMatch"/> containers for each non-overlapping result. If no results were found, an empty array is returned instead.</para>
+            <para>The region to search within can be specified with <c>offset</c> and <c>end</c>. This is useful when searching for another match in the same <c>subject</c> by calling this method again after a previous success. Setting these parameters differs from passing over a shortened string. For example, the start anchor <c>^</c> is not affected by <c>offset</c>, and the character before <c>offset</c> will be checked for the word boundary <c>\b</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.RegEx.Sub(System.String,System.String,System.Boolean,System.Int32,System.Int32)">
             <summary>
-            <para>Searches the text for the compiled pattern and replaces it with the specified string. Escapes and backreferences such as <c>$1</c> and <c>$name</c> are expanded and resolved. By default, only the first instance is replaced, but it can be changed for all instances (global replacement). The region to search within can be specified without modifying where the start and end anchor would be.</para>
+            <para>Searches the text for the compiled pattern and replaces it with the specified string. Escapes and backreferences such as <c>$1</c> and <c>$name</c> are expanded and resolved. By default, only the first instance is replaced, but it can be changed for all instances (global replacement).</para>
+            <para>The region to search within can be specified with <c>offset</c> and <c>end</c>. This is useful when searching for another match in the same <c>subject</c> by calling this method again after a previous success. Setting these parameters differs from passing over a shortened string. For example, the start anchor <c>^</c> is not affected by <c>offset</c>, and the character before <c>offset</c> will be checked for the word boundary <c>\b</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.RegEx.IsValid">
@@ -40334,6 +40356,7 @@
         <member name="F:Godot.SceneTree.GroupCallFlags.Unique">
             <summary>
             <para>Call a group only once even if the call is executed many times.</para>
+            <para>Note: Arguments are not taken into account when deciding whether the call is unique or not. Therefore when the same method is called with different arguments, only the first call will be performed.</para>
             </summary>
         </member>
         <member name="F:Godot.SceneTree.StretchMode.Disabled">
@@ -41871,6 +41894,7 @@
             <summary>
             <para>Scale part of the local transformation.</para>
             <para>Note: Mixed negative scales in 3D are not decomposable from the transformation matrix. Due to the way scale is represented with transformation matrices in Godot, the scale values will either be all positive or all negative.</para>
+            <para>Note: Not all nodes are visually scaled by the <see cref="P:Godot.Spatial.Scale"/> property. For example, <see cref="T:Godot.Light"/>s are not visually affected by <see cref="P:Godot.Spatial.Scale"/>.</para>
             </summary>
         </member>
         <member name="P:Godot.Spatial.GlobalTransform">
@@ -43243,6 +43267,7 @@
         <member name="P:Godot.SpotLight.SpotRange">
             <summary>
             <para>The maximal range that can be reached by the spotlight. Note that the effectively lit area may appear to be smaller depending on the <see cref="P:Godot.SpotLight.SpotAttenuation"/> in use. No matter the <see cref="P:Godot.SpotLight.SpotAttenuation"/> in use, the light will never reach anything outside this range.</para>
+            <para>Note: <see cref="P:Godot.SpotLight.SpotRange"/> is not affected by <see cref="P:Godot.Spatial.Scale"/> (the light's scale or its parent's scale).</para>
             </summary>
         </member>
         <member name="P:Godot.SpotLight.SpotAttenuation">
@@ -43253,6 +43278,7 @@
         <member name="P:Godot.SpotLight.SpotAngle">
             <summary>
             <para>The spotlight's angle in degrees.</para>
+            <para>Note: <see cref="P:Godot.SpotLight.SpotAngle"/> is not affected by <see cref="P:Godot.Spatial.Scale"/> (the light's scale or its parent's scale).</para>
             </summary>
         </member>
         <member name="P:Godot.SpotLight.SpotAngleAttenuation">
@@ -49357,7 +49383,7 @@
             <summary>
             <para>A Viewport creates a different view into the screen, or a sub-view inside another viewport. Children 2D Nodes will display on it, and children Camera 3D nodes will render on it too.</para>
             <para>Optionally, a viewport can have its own 2D or 3D world, so they don't share what they draw with other viewports.</para>
-            <para>If a viewport is a child of a <see cref="T:Godot.ViewportContainer"/>, it will automatically take up its size, otherwise it must be set manually.</para>
+            <para>If a viewport is a child of a <see cref="T:Godot.ViewportContainer"/>, the viewport will automatically take up the container's size, otherwise it must be set manually.</para>
             <para>Viewports can also choose to be audio listeners, so they generate positional audio depending on a 2D or 3D camera child of it.</para>
             <para>Also, viewports can be assigned to different screens in case the devices have multiple screens.</para>
             <para>Finally, viewports can also behave as render targets, in which case they will not be visible unless the associated texture is used to draw.</para>
@@ -49596,7 +49622,8 @@
         </member>
         <member name="P:Godot.Viewport.Debanding">
             <summary>
-            <para>If <c>true</c>, uses a fast post-processing filter to make banding significantly less visible. In some cases, debanding may introduce a slightly noticeable dithering pattern. It's recommended to enable debanding only when actually needed since the dithering pattern will make lossless-compressed screenshots larger.</para>
+            <para>If <c>true</c>, uses a fast post-processing filter to make banding significantly less visible in 3D. 2D rendering is not affected by debanding unless the <see cref="P:Godot.Environment.BackgroundMode"/> is <see cref="F:Godot.Environment.BGMode.Canvas"/>. In this case, <see cref="P:Godot.Viewport.Usage"/> must also be set to <see cref="F:Godot.Viewport.UsageEnum.Usage3d"/>. See also .</para>
+            <para>In some cases, debanding may introduce a slightly noticeable dithering pattern. It's recommended to enable debanding only when actually needed since the dithering pattern will make lossless-compressed screenshots larger.</para>
             <para>Note: Only available on the GLES3 backend. <see cref="P:Godot.Viewport.Hdr"/> must also be <c>true</c> for debanding to be effective.</para>
             </summary>
         </member>
@@ -49621,7 +49648,7 @@
         </member>
         <member name="P:Godot.Viewport.Disable3d">
             <summary>
-            <para>If <c>true</c>, the viewport will disable 3D rendering. For actual disabling use <c>usage</c>.</para>
+            <para>If <c>true</c>, the viewport will disable 3D rendering. To actually disable allocation of 3D buffers, set <see cref="P:Godot.Viewport.Usage"/> instead.</para>
             </summary>
         </member>
         <member name="P:Godot.Viewport.Keep3dLinear">
@@ -49631,7 +49658,7 @@
         </member>
         <member name="P:Godot.Viewport.Usage">
             <summary>
-            <para>The rendering mode of viewport.</para>
+            <para>The viewport's rendering mode. This controls which buffers are allocated for the viewport (2D only, or 2D + 3D). 2D-only options can reduce memory usage and improve performance slightly, especially on low-end devices.</para>
             <para>Note: If set to <see cref="F:Godot.Viewport.UsageEnum.Usage2d"/> or <see cref="F:Godot.Viewport.UsageEnum.Usage2dNoSampling"/>, <see cref="P:Godot.Viewport.Hdr"/> will have no effect when enabled since HDR is not supported for 2D.</para>
             </summary>
         </member>
@@ -49847,7 +49874,7 @@
         </member>
         <member name="T:Godot.ViewportContainer">
             <summary>
-            <para>A <see cref="T:Godot.Container"/> node that holds a <see cref="T:Godot.Viewport"/>, automatically setting its size.</para>
+            <para>A <see cref="T:Godot.Container"/> node that holds a <see cref="T:Godot.Viewport"/>, automatically setting the viewport's size.</para>
             <para>Note: Changing a ViewportContainer's <see cref="P:Godot.Control.RectScale"/> will cause its contents to appear distorted. To change its visual size without causing distortion, adjust the node's margins instead (if it's not already in a container).</para>
             </summary>
         </member>
@@ -50051,6 +50078,17 @@
             <summary>
             <para>The render layer(s) this <see cref="T:Godot.VisualInstance"/> is drawn on.</para>
             <para>This object will only be visible for <see cref="T:Godot.Camera"/>s whose cull mask includes the render object this <see cref="T:Godot.VisualInstance"/> is set to.</para>
+            </summary>
+        </member>
+        <member name="P:Godot.VisualInstance.SortingOffset">
+            <summary>
+            <para>The sorting offset used by this <see cref="T:Godot.VisualInstance"/>. Adjusting it to a higher value will make the <see cref="T:Godot.VisualInstance"/> reliably draw on top of other <see cref="T:Godot.VisualInstance"/>s that are otherwise positioned at the same spot.</para>
+            </summary>
+        </member>
+        <member name="P:Godot.VisualInstance.SortingUseAabbCenter">
+            <summary>
+            <para>If <c>true</c>, the object is sorted based on the <see cref="T:Godot.AABB"/> center. Sorted based on the global position otherwise.</para>
+            <para>The <see cref="T:Godot.AABB"/> center based sorting is generally more accurate for 3D models. The position based sorting instead allows to better control the drawing order when working with <see cref="T:Godot.Particles"/> and <see cref="T:Godot.CPUParticles"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.VisualInstance.SetBase(Godot.RID)">
@@ -59091,6 +59129,7 @@
             <para>- <c>OS.shell_open("https://godotengine.org")</c> opens the default web browser on the official Godot website.</para>
             <para>- <c>OS.shell_open("mailto:example@example.com")</c> opens the default email client with the "To" field set to <c>example@example.com</c>. See <a href="https://datatracker.ietf.org/doc/html/rfc2368">RFC 2368 - The <c>mailto</c> URL scheme</a> for a list of fields that can be added.</para>
             <para>Use <see cref="M:Godot.ProjectSettings.GlobalizePath(System.String)"/> to convert a <c>res://</c> or <c>user://</c> path into a system path for use with this method.</para>
+            <para>Note: Use <c>String.percent_encode</c> to encode characters within URLs in a URL-safe, portable way. This is especially required for line breaks. Otherwise, <see cref="M:Godot.OS.ShellOpen(System.String)"/> may not work correctly in a project exported to the Web platform.</para>
             <para>Note: This method is implemented on Android, iOS, HTML5, Linux, macOS and Windows.</para>
             </summary>
         </member>
@@ -59433,19 +59472,19 @@
         </member>
         <member name="M:Godot.OS.GetConfigDir">
             <summary>
-            <para>Returns the global user configuration directory according to the operating system's standards. On desktop platforms, this path can be overridden by setting the <c>XDG_CONFIG_HOME</c> environment variable before starting the project. See <a href="$DOCS_URL/tutorials/io/data_paths.html">File paths in Godot projects</a> in the documentation for more information. See also <see cref="M:Godot.OS.GetCacheDir"/> and <see cref="M:Godot.OS.GetDataDir"/>.</para>
+            <para>Returns the global user configuration directory according to the operating system's standards. On Linux, this path can be overridden by setting the <c>XDG_CONFIG_HOME</c> environment variable before starting the project. See <a href="$DOCS_URL/tutorials/io/data_paths.html">File paths in Godot projects</a> in the documentation for more information. See also <see cref="M:Godot.OS.GetCacheDir"/> and <see cref="M:Godot.OS.GetDataDir"/>.</para>
             <para>Not to be confused with <see cref="M:Godot.OS.GetUserDataDir"/>, which returns the project-specific user data path.</para>
             </summary>
         </member>
         <member name="M:Godot.OS.GetDataDir">
             <summary>
-            <para>Returns the global user data directory according to the operating system's standards. On desktop platforms, this path can be overridden by setting the <c>XDG_DATA_HOME</c> environment variable before starting the project. See <a href="$DOCS_URL/tutorials/io/data_paths.html">File paths in Godot projects</a> in the documentation for more information. See also <see cref="M:Godot.OS.GetCacheDir"/> and <see cref="M:Godot.OS.GetConfigDir"/>.</para>
+            <para>Returns the global user data directory according to the operating system's standards. On Linux, this path can be overridden by setting the <c>XDG_DATA_HOME</c> environment variable before starting the project. See <a href="$DOCS_URL/tutorials/io/data_paths.html">File paths in Godot projects</a> in the documentation for more information. See also <see cref="M:Godot.OS.GetCacheDir"/> and <see cref="M:Godot.OS.GetConfigDir"/>.</para>
             <para>Not to be confused with <see cref="M:Godot.OS.GetUserDataDir"/>, which returns the project-specific user data path.</para>
             </summary>
         </member>
         <member name="M:Godot.OS.GetCacheDir">
             <summary>
-            <para>Returns the global cache data directory according to the operating system's standards. On desktop platforms, this path can be overridden by setting the <c>XDG_CACHE_HOME</c> environment variable before starting the project. See <a href="$DOCS_URL/tutorials/io/data_paths.html">File paths in Godot projects</a> in the documentation for more information. See also <see cref="M:Godot.OS.GetConfigDir"/> and <see cref="M:Godot.OS.GetDataDir"/>.</para>
+            <para>Returns the global cache data directory according to the operating system's standards. On Linux, this path can be overridden by setting the <c>XDG_CACHE_HOME</c> environment variable before starting the project. See <a href="$DOCS_URL/tutorials/io/data_paths.html">File paths in Godot projects</a> in the documentation for more information. See also <see cref="M:Godot.OS.GetConfigDir"/> and <see cref="M:Godot.OS.GetDataDir"/>.</para>
             <para>Not to be confused with <see cref="M:Godot.OS.GetUserDataDir"/>, which returns the project-specific user data path.</para>
             </summary>
         </member>
