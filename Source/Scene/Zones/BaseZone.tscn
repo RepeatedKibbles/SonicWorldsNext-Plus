@@ -1557,7 +1557,7 @@ position = Vector2( 9872, 40 )
 
 [node name="GHZWaterfall" parent="." instance=ExtResource( 59 )]
 position = Vector2( 1088, 752 )
-z_index = 10
+z_index = -40
 width = 6.0
 height = 13.0
 
