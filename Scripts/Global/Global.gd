@@ -136,7 +136,7 @@ func reset_values():
 	score = 0
 	continues = 0
 	levelTime = 0
-	emeralds = 128
+	emeralds = 0
 	specialStageID = 0
 	checkPoints = []
 	checkPointTime = 0
