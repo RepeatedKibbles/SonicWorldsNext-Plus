@@ -653,7 +653,7 @@ position = Vector2(6800, 1328)
 position = Vector2(6848, 1416)
 
 [node name="BoundrySetter2" parent="Entity" instance=ExtResource("17_vgt3l")]
-position = Vector2(9512, 64)
+position = Vector2(9503, 64)
 leftBoundry = 9024
 rightBoundry = 10400.0
 
