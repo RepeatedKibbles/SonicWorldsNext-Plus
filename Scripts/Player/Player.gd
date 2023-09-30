@@ -672,7 +672,7 @@ func _physics_process(delta):
 	# collide with solids if not knuckles layer
 	set_collision_mask_value(19,!character == CHARACTERS.KNUCKLES)
 	# collide with solids if not rolling or not knuckles layer
-	set_collision_mask_value(21,(character != CHARACTERS.KNUCKLES and !attacking and (!isSuper and not STATES.AMYHAMMER)))
+	set_collision_mask_value(21,(character != CHARACTERS.KNUCKLES and !attacking and (!isSuper and not character != CHARACTERS.SONIC or not character != CHARACTERS.TAILS or not character != CHARACTERS.AMY) and currentState != STATES.AMYHAMMER))
 	# damage mask bit
 	set_collision_layer_value(20,attacking)
 	# water surface running
