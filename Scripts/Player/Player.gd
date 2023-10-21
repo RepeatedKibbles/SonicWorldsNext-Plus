@@ -150,6 +150,8 @@ var centerReference = null # center reference is a center reference point used f
 var lastActiveAnimation = ""
 var defaultSpriteOffset = Vector2.ZERO
 
+# Camera
+# onready var camera = get_node_or_null("Camera")
 var camera = Camera2D.new()
 var camDist = Vector2(32,64)
 var camLookDist = [-104,88] # Up and Down
@@ -670,7 +672,7 @@ func _physics_process(delta):
 	# collide with solids if not knuckles layer
 	set_collision_mask_value(19,!character == CHARACTERS.KNUCKLES)
 	# collide with solids if not rolling or not knuckles layer
-	set_collision_mask_value(21,(character != CHARACTERS.KNUCKLES and !attacking))
+	set_collision_mask_value(21,(character != CHARACTERS.KNUCKLES and !attacking and (!isSuper and not character != CHARACTERS.SONIC or not character != CHARACTERS.TAILS or not character != CHARACTERS.AMY) and currentState != STATES.AMYHAMMER))
 	# damage mask bit
 	set_collision_layer_value(20,attacking)
 	# water surface running
@@ -994,7 +996,7 @@ func set_hitbox(mask = Vector2.ZERO, forcePoseChange = false):
 func set_shield(setShieldID):
 	magnetShape.disabled = true
 	# verify not in water and shield compatible
-	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC):
+	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC) and !isSuper and !$InvincibilityBarrier.visible:
 		return false
 	
 	shield = setShieldID
