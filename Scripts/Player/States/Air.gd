@@ -206,7 +206,7 @@ func _physics_process(delta):
 					parent.lock_camera(16.0/60.0)
 					
 					# drop dash dust
-					var dust = parent.Particle.instantiate()
+					var dust = parent.DropDashDust.instantiate()
 					dust.play("DropDash")
 					dust.global_position = parent.global_position+Vector2(0,2).rotated(parent.rotation)
 					dust.scale.x = parent.direction

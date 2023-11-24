@@ -112,6 +112,8 @@ var Bubble = preload("res://Entities/Misc/Bubbles.tscn")
 var CountDown = preload("res://Entities/Misc/CountDownTimer.tscn")
 var RotatingParticle = preload("res://Entities/Misc/RotatingParticle.tscn")
 
+var DropDashDust = preload("res://Entities/Misc/DropDashDust.tscn")
+
 var superSprite = load("res://Graphics/Players/SuperSonic.png")
 @onready var normalSprite = $Sonic/Sprite2D.texture
 var playerPal = preload("res://Shaders/PlayerPalette.tres")
