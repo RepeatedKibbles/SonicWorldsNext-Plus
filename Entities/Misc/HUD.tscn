@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bn4id4yr1lron" path="res://Graphics/HUD/hud_results_text.png" id="10_ddlv5"]
 [ext_resource type="Texture2D" uid="uid://bbm5bncrd1o4k" path="res://Graphics/HUD/LevelCards/EdgePattern.png" id="10_xpi0a"]
 [ext_resource type="Material" uid="uid://uh2c8jbp8qwd" path="res://Shaders/WaterPalette.tres" id="13_1ly2g"]
-[ext_resource type="Shader" path="res://Shaders/WaterEffect.gdshader" id="15_w3r8j"]
+[ext_resource type="Shader" path="res://Shaders/WaterEffect.gdshader" id="15_5o6dt"]
 [ext_resource type="AudioStream" uid="uid://dh4rsaka62ph4" path="res://Audio/SFX/Gimmicks/Switch.wav" id="16"]
 [ext_resource type="AudioStream" uid="uid://clgobastngtvy" path="res://Audio/SFX/Misc/Score.wav" id="17"]
 
@@ -817,8 +817,8 @@ _data = {
 "RESET": SubResource("10")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_70n51"]
-shader = ExtResource("15_w3r8j")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sfq2s"]
+shader = ExtResource("15_5o6dt")
 shader_parameter/wave_speed = 3.0
 shader_parameter/wave_freq = 10.0
 shader_parameter/wave_width = 1.0
@@ -832,9 +832,9 @@ layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
+offset_left = 16.0
 offset_top = -24.0
-offset_right = 72.0
+offset_right = 80.0
 offset_bottom = -8.0
 grow_vertical = 0
 
@@ -855,9 +855,9 @@ text = "0"
 [node name="Counters" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 8.0
+offset_left = 16.0
 offset_top = 8.0
-offset_right = 48.0
+offset_right = 56.0
 offset_bottom = 48.0
 
 [node name="Text" type="Sprite2D" parent="Counters"]
@@ -867,26 +867,30 @@ region_enabled = true
 region_rect = Rect2(0, 0, 40, 48)
 
 [node name="ScoreNumber" type="Label" parent="Counters/Text"]
-offset_left = 48.0
-offset_right = 48.0
+offset_left = 40.0
+offset_right = 96.0
+offset_bottom = 19.0
 theme_override_fonts/font = ExtResource("6_synv7")
 text = "0"
+horizontal_alignment = 2
 
 [node name="TimeNumbers" type="Label" parent="Counters/Text"]
 offset_left = 32.0
 offset_top = 16.0
-offset_right = 40.0
+offset_right = 72.0
 offset_bottom = 35.0
 theme_override_fonts/font = ExtResource("6_synv7")
-text = "00:00"
+text = "0:00"
+horizontal_alignment = 2
 
 [node name="RingCount" type="Label" parent="Counters/Text"]
-offset_left = 48.0
+offset_left = 40.0
 offset_top = 32.0
-offset_right = 56.0
+offset_right = 72.0
 offset_bottom = 51.0
 theme_override_fonts/font = ExtResource("6_synv7")
 text = "0"
+horizontal_alignment = 2
 
 [node name="Time" type="Sprite2D" parent="Counters/Text"]
 visible = false
@@ -971,7 +975,7 @@ vframes = 2
 [node name="PatternLeft" type="Control" parent="LevelCard"]
 anchors_preset = 0
 anchor_bottom = 1.0
-offset_bottom = 14368.0
+offset_bottom = 14592.0
 
 [node name="PatternLeft" type="TextureRect" parent="LevelCard/PatternLeft"]
 layout_mode = 1
@@ -995,7 +999,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_top = -32.0
-offset_bottom = 14080.0
+offset_bottom = 14304.0
 
 [node name="PatternRight" type="TextureRect" parent="LevelCard/RightRatio/PatternRight"]
 layout_mode = 1
@@ -1004,9 +1008,9 @@ anchor_left = 1.0
 anchor_top = 0.003
 anchor_right = 1.0
 anchor_bottom = 0.003
-offset_top = -11.008
-offset_right = 4256.0
-offset_bottom = 244.992
+offset_top = -11.68
+offset_right = 4608.0
+offset_bottom = 244.32
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("10_xpi0a")
@@ -1157,7 +1161,7 @@ layer = 0
 
 [node name="WaterEffect" type="ColorRect" parent="Water"]
 visible = false
-material = SubResource("ShaderMaterial_70n51")
+material = SubResource("ShaderMaterial_sfq2s")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

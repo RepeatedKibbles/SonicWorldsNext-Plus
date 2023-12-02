@@ -152,8 +152,6 @@ var centerReference = null # center reference is a center reference point used f
 var lastActiveAnimation = ""
 var defaultSpriteOffset = Vector2.ZERO
 
-# Camera
-# onready var camera = get_node_or_null("Camera")
 var camera = Camera2D.new()
 var camDist = Vector2(32,64)
 var camLookDist = [-104,88] # Up and Down
@@ -936,6 +934,9 @@ func is_left_held():
 	
 func is_right_held():
 	return inputs[INPUTS.XINPUT] > 0
+	
+func get_state():
+	return currentState
 
 func set_state(newState, forceMask = Vector2.ZERO):
 	

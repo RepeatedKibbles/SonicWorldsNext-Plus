@@ -184,15 +184,16 @@ colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1)
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("2")
+speed = 1
 
 [node name="BackCog" type="Sprite2D" parent="."]
-position = Vector2(156, -39)
+position = Vector2(156, 72)
 texture = ExtResource("2_qt26u")
 region_enabled = true
 region_rect = Rect2(114, 21, 52, 54)
 
 [node name="BigCog" type="Sprite2D" parent="."]
-position = Vector2(-64, 108)
+position = Vector2(84, 108)
 texture = ExtResource("2_qt26u")
 region_enabled = true
 region_rect = Rect2(0, 0, 97, 97)
@@ -210,34 +211,34 @@ region_enabled = true
 region_rect = Rect2(181, 29, 39, 38)
 
 [node name="Worlds" type="Sprite2D" parent="."]
-position = Vector2(-130, 125)
+position = Vector2(175, 125)
 texture = ExtResource("2_qt26u")
 region_enabled = true
 region_rect = Rect2(2, 173, 182, 36)
 
 [node name="Arrow1" type="Sprite2D" parent="Worlds"]
 z_index = -1
-position = Vector2(78.8056, 0)
+position = Vector2(95, 0)
 texture = ExtResource("2_qt26u")
 region_enabled = true
 region_rect = Rect2(190, 173, 17, 36)
 
 [node name="Arrow2" type="Sprite2D" parent="Worlds"]
 z_index = -1
-position = Vector2(75.8055, 0)
+position = Vector2(107, 0)
 texture = ExtResource("2_qt26u")
 region_enabled = true
 region_rect = Rect2(214, 173, 15, 36)
 
 [node name="Arrow3" type="Sprite2D" parent="Worlds"]
 z_index = -1
-position = Vector2(64.8055, 0)
+position = Vector2(117, 0)
 texture = ExtResource("2_qt26u")
 region_enabled = true
 region_rect = Rect2(235, 173, 12, 36)
 
 [node name="Sonic" type="Sprite2D" parent="."]
-position = Vector2(411, 98)
+position = Vector2(191, 98)
 texture = ExtResource("2_qt26u")
 region_enabled = true
 region_rect = Rect2(150, 107, 140, 38)
@@ -250,7 +251,7 @@ region_enabled = true
 region_rect = Rect2(243, 37, 21, 22)
 
 [node name="Next" type="Sprite2D" parent="."]
-position = Vector2(-65, 163)
+position = Vector2(223, 163)
 texture = ExtResource("2_qt26u")
 region_enabled = true
 region_rect = Rect2(142, 235, 128, 33)
@@ -268,12 +269,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-scale = Vector2(1, 1e-05)
 pivot_offset = Vector2(0, 70)
 color = Color(0.533333, 0.533333, 0.533333, 1)
 
 [node name="Labels" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -315,12 +314,15 @@ vertical_alignment = 2
 
 [node name="PressStart" type="Control" parent="CanvasLayer/Labels"]
 modulate = Color(1, 0.831373, 0, 1)
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = 25.0
 offset_top = -24.0
+offset_right = 25.0
 grow_horizontal = 2
 grow_vertical = 0
 

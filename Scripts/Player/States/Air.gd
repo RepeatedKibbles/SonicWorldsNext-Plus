@@ -26,7 +26,7 @@ func _process(_delta):
 		# Shield actions
 		elif ((parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION2] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1) and !parent.abilityUsed and isJump):
 			# Super actions
-			if parent.isSuper and (parent.character == parent.CHARACTERS.SONIC):
+			if parent.isSuper and (parent.character == parent.CHARACTERS.SONIC or parent.character == parent.CHARACTERS.AMY):
 				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and amy only)
 			# Normal actions
 			else:
@@ -118,6 +118,7 @@ func _process(_delta):
 						# play hammer sound
 						parent.sfx[30].play()
 						# play dropDash sound
+						parent.animator.play("dropDash")
 						parent.animator.play("dropDash")
 						# double jump
 						parent.movement.y = -5.5*60.0
