@@ -119,7 +119,6 @@ func _process(_delta):
 						parent.sfx[30].play()
 						# play dropDash sound
 						parent.animator.play("dropDash")
-						parent.animator.play("dropDash")
 						# double jump
 						parent.movement.y = -5.5*60.0
 						
