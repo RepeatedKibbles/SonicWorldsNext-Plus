@@ -212,10 +212,10 @@ region_enabled = true
 region_rect = Rect2(488, 8, 32, 40)
 
 [node name="CharacterAnimations" type="AnimationPlayer" parent="UI/Labels/CharacterOrigin"]
-autoplay = "Animate"
 libraries = {
 "": SubResource("AnimationLibrary_wio08")
 }
+autoplay = "Animate"
 
 [node name="Control" type="Control" parent="UI/Labels"]
 layout_mode = 1
@@ -239,6 +239,7 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 8
 text = "Sonic and Tails"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -254,6 +255,7 @@ offset_right = 59.5
 offset_bottom = 26.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 8
 text = "Base zone act 1"
 vertical_alignment = 1
 uppercase = true

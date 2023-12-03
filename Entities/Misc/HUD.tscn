@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c30uceea18q1w"]
+[gd_scene load_steps=33 format=3 uid="uid://c30uceea18q1w"]
 
 [ext_resource type="Texture2D" uid="uid://dloxtqer7p78l" path="res://Graphics/HUD/hud_lives.png" id="2_cfvjc"]
 [ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="2_xy7bp"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bbm5bncrd1o4k" path="res://Graphics/HUD/LevelCards/EdgePattern.png" id="10_xpi0a"]
 [ext_resource type="Material" uid="uid://uh2c8jbp8qwd" path="res://Shaders/WaterPalette.tres" id="13_1ly2g"]
 [ext_resource type="Shader" path="res://Shaders/WaterEffect.gdshader" id="15_5o6dt"]
+[ext_resource type="Texture2D" uid="uid://60ak1q0xrn1s" path="res://Graphics/HUD/hud_gametimeover.png" id="15_ksgr5"]
 [ext_resource type="AudioStream" uid="uid://dh4rsaka62ph4" path="res://Audio/SFX/Gimmicks/Switch.wav" id="16"]
+[ext_resource type="AudioStream" uid="uid://dnyw7remih6op" path="res://Audio/Soundtrack/8. SWD_GameOver.ogg" id="16_c8jlc"]
 [ext_resource type="AudioStream" uid="uid://clgobastngtvy" path="res://Audio/SFX/Misc/Score.wav" id="17"]
 
 [sub_resource type="Animation" id="5"]
@@ -139,7 +141,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 2, 1),
 "update": 0,
-"values": [203.0, 203.0, 0]
+"values": [203.0, 203.0, 0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -151,7 +153,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 2, 1),
 "update": 0,
-"values": [0.0, 0.0, -203]
+"values": [0.0, 0.0, -203.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -506,7 +508,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.5, 1.5),
 "transitions": PackedFloat32Array(1, 0.5, 1),
 "update": 0,
-"values": [0, 0, 203.0]
+"values": [0.0, 0.0, 203.0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -542,7 +544,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0, 0.5, 1.5),
 "transitions": PackedFloat32Array(1, 0.5, 1),
 "update": 0,
-"values": [-203, -203, 0.0]
+"values": [-203.0, -203.0, 0.0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -847,9 +849,10 @@ vframes = 7
 [node name="LifeText" type="Label" parent="LifeCounter/Icon"]
 offset_left = 32.0
 offset_top = 8.0
-offset_right = 32.0
-offset_bottom = 8.0
+offset_right = 40.0
+offset_bottom = 16.0
 theme_override_fonts/font = ExtResource("3_eauoj")
+theme_override_font_sizes/font_size = 8
 text = "0"
 
 [node name="Counters" type="Control" parent="."]
@@ -935,7 +938,8 @@ anchor_bottom = 1.0
 color = Color(0, 0, 0, 1)
 
 [node name="Banner" type="TextureRect" parent="LevelCard"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -189.0
@@ -952,6 +956,7 @@ offset_top = 64.0
 offset_right = 156.0
 offset_bottom = 110.0
 theme_override_fonts/font = ExtResource("7_uj3el")
+theme_override_font_sizes/font_size = 43
 text = "BASE"
 uppercase = true
 
@@ -962,6 +967,7 @@ offset_top = 108.0
 offset_right = 156.0
 offset_bottom = 154.0
 theme_override_fonts/font = ExtResource("7_uj3el")
+theme_override_font_sizes/font_size = 43
 text = "ZONE"
 uppercase = true
 
@@ -975,7 +981,7 @@ vframes = 2
 [node name="PatternLeft" type="Control" parent="LevelCard"]
 anchors_preset = 0
 anchor_bottom = 1.0
-offset_bottom = 14592.0
+offset_bottom = 15264.0
 
 [node name="PatternLeft" type="TextureRect" parent="LevelCard/PatternLeft"]
 layout_mode = 1
@@ -999,7 +1005,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_top = -32.0
-offset_bottom = 14304.0
+offset_bottom = 14976.0
 
 [node name="PatternRight" type="TextureRect" parent="LevelCard/RightRatio/PatternRight"]
 layout_mode = 1
@@ -1008,9 +1014,9 @@ anchor_left = 1.0
 anchor_top = 0.003
 anchor_right = 1.0
 anchor_bottom = 0.003
-offset_top = -11.68
-offset_right = 4608.0
-offset_bottom = 244.32
+offset_top = -13.696
+offset_right = 5683.2
+offset_bottom = 242.304
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("10_xpi0a")
@@ -1018,17 +1024,17 @@ stretch_mode = 1
 
 [node name="CardMover" type="AnimationPlayer" parent="LevelCard"]
 process_mode = 1
-autoplay = "Slider"
-speed_scale = 4.0
 libraries = {
 "": SubResource("AnimationLibrary_15hsr")
 }
+autoplay = "Slider"
+speed_scale = 3.85
 
 [node name="CardPlayer" type="AnimationPlayer" parent="LevelCard"]
-autoplay = "Start"
 libraries = {
 "": SubResource("AnimationLibrary_fgko3")
 }
+autoplay = "Start"
 
 [node name="LevelClear" type="Control" parent="."]
 process_mode = 1
@@ -1049,6 +1055,7 @@ offset_top = 56.0
 offset_right = -103.0
 offset_bottom = 82.0
 theme_override_fonts/font = ExtResource("10_8dyi8")
+theme_override_font_sizes/font_size = 23
 text = "SONIC got"
 uppercase = true
 
@@ -1059,6 +1066,7 @@ offset_top = 80.0
 offset_right = -137.0
 offset_bottom = 106.0
 theme_override_fonts/font = ExtResource("10_8dyi8")
+theme_override_font_sizes/font_size = 23
 text = "through"
 uppercase = true
 
@@ -1138,12 +1146,14 @@ grow_vertical = 2
 [node name="Game" type="Sprite2D" parent="GameOver"]
 position = Vector2(-256, 0)
 scale = Vector2(1, 1e-05)
+texture = ExtResource("15_ksgr5")
 offset = Vector2(-40, 0)
 vframes = 3
 
 [node name="Over" type="Sprite2D" parent="GameOver"]
 position = Vector2(256, 0)
 scale = Vector2(1, 1e-05)
+texture = ExtResource("15_ksgr5")
 offset = Vector2(40, 0)
 vframes = 3
 frame = 2
@@ -1154,6 +1164,7 @@ libraries = {
 }
 
 [node name="GameOverMusic" type="AudioStreamPlayer" parent="GameOver"]
+stream = ExtResource("16_c8jlc")
 bus = &"Music"
 
 [node name="Water" type="CanvasLayer" parent="."]
