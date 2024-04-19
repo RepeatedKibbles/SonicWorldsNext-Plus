@@ -8,7 +8,7 @@ func physics_collision(body, _hitVector):
 	body.movement = (body.global_position-global_position).normalized()*7*60.0
 	
 	if body.currentState == body.STATES.JUMP: # set the state to air
-		body.set_state(body.STATES.AIR)
+		body.set_state(body.STATES.JUMP)
 	
 	$Bumper.play("default")
 	
