@@ -7,7 +7,7 @@ var yspeed = 0
 var playerTouch = null
 var isActive = true
 @export_enum("Ring", "Speed Shoes", "Invincibility", "Shield", "Elec Shield", "Fire Shield",
-"Bubble Shield", "Super", "Blue Ring", "Boost", "1up", "Eggman") var item = 0
+"Bubble Shield", "Super", "Blue Ring", "Boost", "1up","Eggman") var item = 0
 var Explosion = preload("res://Entities/Misc/BadnickSmoke.tscn")
 
 
@@ -83,9 +83,8 @@ func destroy():
 		6: # Bubble
 			playerTouch.set_shield(playerTouch.SHIELDS.BUBBLE)
 		7: # Super
-			if Global.emeralds >= 127:
-				playerTouch.rings += 50
-			if !playerTouch.get("isSuper") and Global.emeralds >= 127:
+			playerTouch.rings += 50
+			if !playerTouch.get("isSuper"):
 				playerTouch.set_state(playerTouch.STATES.SUPER)
 			else:
 				if not Global.emeralds >= 127:

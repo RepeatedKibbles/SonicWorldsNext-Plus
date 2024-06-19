@@ -22,7 +22,8 @@ func _process(delta):
 	elif(parent.spindashPower < dashPower):
 		parent.animator.play("run")
 	else:
-		parent.animator.play("peelOut")
+		if not parent.water:
+			parent.animator.play("peelOut")
 
 	# using peelout in water section
 	if parent.water:

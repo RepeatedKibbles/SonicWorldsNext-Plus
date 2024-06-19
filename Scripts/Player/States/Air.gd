@@ -27,7 +27,7 @@ func _process(_delta):
 		elif ((parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION2] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1) and !parent.abilityUsed and isJump):
 			# Super actions
 			if parent.isSuper and parent.character == parent.CHARACTERS.SONIC:
-				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and Amy only)
+				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and amy only)
 			# Normal actions
 			else:
 				match (parent.character):
@@ -247,6 +247,8 @@ func state_exit():
 	if (parent.shield == parent.SHIELDS.NONE):
 		parent.shieldSprite.visible = false
 		parent.shieldSprite.stop()
+	if parent.ground:
+		parent.movement.y = min(parent.movement.y,0)
 	parent.poleGrabID = null
 	parent.shieldSprite.get_node("InstaShieldHitbox/HitBox").set_deferred("disabled",true)
 	parent.enemyCounter = 0

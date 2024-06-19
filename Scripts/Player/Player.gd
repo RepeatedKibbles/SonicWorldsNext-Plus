@@ -111,7 +111,6 @@ var Particle = preload("res://Entities/Misc/GenericParticle.tscn")
 var Bubble = preload("res://Entities/Misc/Bubbles.tscn")
 var CountDown = preload("res://Entities/Misc/CountDownTimer.tscn")
 var RotatingParticle = preload("res://Entities/Misc/RotatingParticle.tscn")
-
 var DropDashDust = preload("res://Entities/Misc/DropDashDust.tscn")
 
 var superSprite = load("res://Graphics/Players/SuperSonic.png")

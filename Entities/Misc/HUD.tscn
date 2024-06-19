@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://bn4id4yr1lron" path="res://Graphics/HUD/hud_results_text.png" id="10_ddlv5"]
 [ext_resource type="Texture2D" uid="uid://bbm5bncrd1o4k" path="res://Graphics/HUD/LevelCards/EdgePattern.png" id="10_xpi0a"]
 [ext_resource type="Material" uid="uid://uh2c8jbp8qwd" path="res://Shaders/WaterPalette.tres" id="13_1ly2g"]
-[ext_resource type="Texture2D" uid="uid://60ak1q0xrn1s" path="res://Graphics/HUD/hud_gametimeover.png" id="15_evi74"]
-[ext_resource type="Shader" path="res://Shaders/WaterEffect.gdshader" id="15_lh4fs"]
+[ext_resource type="Shader" path="res://Shaders/WaterEffect.gdshader" id="15_ailxy"]
+[ext_resource type="AudioStream" uid="uid://dnyw7remih6op" path="res://Audio/Soundtrack/8. SWD_GameOver.ogg" id="15_q5nud"]
+[ext_resource type="Texture2D" uid="uid://60ak1q0xrn1s" path="res://Graphics/HUD/hud_gametimeover.png" id="15_qr0uq"]
 [ext_resource type="AudioStream" uid="uid://dh4rsaka62ph4" path="res://Audio/SFX/Gimmicks/Switch.wav" id="16"]
-[ext_resource type="AudioStream" uid="uid://dnyw7remih6op" path="res://Audio/Soundtrack/8. SWD_GameOver.ogg" id="16_hddn2"]
 [ext_resource type="AudioStream" uid="uid://clgobastngtvy" path="res://Audio/SFX/Misc/Score.wav" id="17"]
 
 [sub_resource type="Animation" id="5"]
@@ -675,8 +675,8 @@ _data = {
 "RESET": SubResource("10")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocggf"]
-shader = ExtResource("15_lh4fs")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_noiid"]
+shader = ExtResource("15_ailxy")
 shader_parameter/wave_speed = 3.0
 shader_parameter/wave_freq = 10.0
 shader_parameter/wave_width = 1.0
@@ -866,7 +866,7 @@ anchor_top = 0.003
 anchor_right = 1.0
 anchor_bottom = 0.003
 offset_top = -12.352
-offset_right = 4832.0
+offset_right = 4576.0
 offset_bottom = 243.648
 grow_horizontal = 0
 grow_vertical = 2
@@ -874,12 +874,11 @@ texture = ExtResource("10_xpi0a")
 stretch_mode = 1
 
 [node name="CardMover" type="AnimationPlayer" parent="LevelCard"]
-process_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_15hsr")
 }
 autoplay = "Slider"
-speed_scale = 1.78206
+speed_scale = 4.0
 
 [node name="CardPlayer" type="AnimationPlayer" parent="LevelCard"]
 libraries = {
@@ -997,14 +996,14 @@ grow_vertical = 2
 [node name="Game" type="Sprite2D" parent="GameOver"]
 position = Vector2(-256, 0)
 scale = Vector2(1, 1e-05)
-texture = ExtResource("15_evi74")
+texture = ExtResource("15_qr0uq")
 offset = Vector2(-40, 0)
 vframes = 3
 
 [node name="Over" type="Sprite2D" parent="GameOver"]
 position = Vector2(256, 0)
 scale = Vector2(1, 1e-05)
-texture = ExtResource("15_evi74")
+texture = ExtResource("15_qr0uq")
 offset = Vector2(40, 0)
 vframes = 3
 frame = 2
@@ -1015,7 +1014,7 @@ libraries = {
 }
 
 [node name="GameOverMusic" type="AudioStreamPlayer" parent="GameOver"]
-stream = ExtResource("16_hddn2")
+stream = ExtResource("15_q5nud")
 bus = &"Music"
 
 [node name="Water" type="CanvasLayer" parent="."]
@@ -1023,7 +1022,7 @@ layer = 0
 
 [node name="WaterEffect" type="ColorRect" parent="Water"]
 visible = false
-material = SubResource("ShaderMaterial_ocggf")
+material = SubResource("ShaderMaterial_noiid")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1031,6 +1030,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="Water"]
+copy_mode = 2
 
 [node name="WaterOverlay" type="ColorRect" parent="Water"]
 visible = false
@@ -1043,8 +1043,11 @@ grow_vertical = 2
 
 [node name="ElecFlash" type="ColorRect" parent="Water/WaterOverlay"]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="LevelClear/CounterCount" to="." method="_on_CounterCount_timeout"]
