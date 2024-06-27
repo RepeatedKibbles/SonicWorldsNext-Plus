@@ -2,10 +2,10 @@
 
 [ext_resource type="AudioStream" uid="uid://dh4rsaka62ph4" path="res://Audio/SFX/Gimmicks/Switch.wav" id="1"]
 [ext_resource type="Script" path="res://Scripts/Misc/PauseManager.gd" id="2"]
-[ext_resource type="Shader" path="res://Shaders/PauseMenu.gdshader" id="2_ttvxt"]
+[ext_resource type="Shader" path="res://Shaders/PauseMenu.gdshader" id="2_feg3h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4crpv"]
-shader = ExtResource("2_ttvxt")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_50xh2"]
+shader = ExtResource("2_feg3h")
 
 [node name="Pause" type="Control"]
 process_mode = 2
@@ -19,7 +19,7 @@ grow_vertical = 2
 script = ExtResource("2")
 
 [node name="PauseCover" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_4crpv")
+material = SubResource("ShaderMaterial_50xh2")
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0

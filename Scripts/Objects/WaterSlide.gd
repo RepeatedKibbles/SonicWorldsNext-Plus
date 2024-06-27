@@ -40,4 +40,5 @@ func _on_WaterSlide_body_entered(body):
 
 func _on_WaterSlide_body_exited(body):
 	if players.has(body):
+		#body.set_state(body.STATES.NORMAL)
 		players.erase(body)

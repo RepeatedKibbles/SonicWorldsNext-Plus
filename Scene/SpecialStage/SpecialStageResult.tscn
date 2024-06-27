@@ -1,8 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://dl60ab8cdu0iq"]
+[gd_scene load_steps=33 format=3 uid="uid://dl60ab8cdu0iq"]
 
 [ext_resource type="Texture2D" uid="uid://cf4j1ed0nh7oq" path="res://Graphics/Items/ChaosEmeralds.png" id="1"]
 [ext_resource type="AudioStream" uid="uid://cy0i0dbqpb5eu" path="res://Audio/SFX/Misc/Emerald.wav" id="2"]
-[ext_resource type="FontFile" uid="uid://ml62eqfe7avn" path="res://Graphics/Fonts/small_font.png" id="2_1yavg"]
 [ext_resource type="Script" path="res://Scripts/Misc/SpecialStageResult.gd" id="3"]
 
 [sub_resource type="AtlasTexture" id="1"]
@@ -263,8 +262,6 @@ offset_right = 100.0
 offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_1yavg")
-theme_override_font_sizes/font_size = 8
 text = "Special Stage
 
 Press Action 1(Z) to Win
@@ -282,7 +279,6 @@ anchor_bottom = 1.0
 offset_left = -79.5
 offset_top = -31.0
 offset_right = 79.5
-theme_override_fonts/font = ExtResource("2_1yavg")
 text = "Stage 1"
 horizontal_alignment = 1
 uppercase = true

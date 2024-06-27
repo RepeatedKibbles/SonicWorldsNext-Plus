@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3mncfuf6jk7y"]
+[gd_scene load_steps=6 format=3 uid="uid://bkajj53v107my"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ElecParticle.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bmx5ij0fowooi" path="res://Graphics/Items/shield_lightning_spark.png" id="2"]

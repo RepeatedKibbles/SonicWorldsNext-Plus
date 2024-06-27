@@ -7,7 +7,7 @@ var yspeed = 0
 var playerTouch = null
 var isActive = true
 @export_enum("Ring", "Speed Shoes", "Invincibility", "Shield", "Elec Shield", "Fire Shield",
-"Bubble Shield", "Super", "Blue Ring", "Boost", "1up","Eggman") var item = 0
+"Bubble Shield", "Super", "Blue Ring", "Boost", "1up", "Eggman") var item = 0
 var Explosion = preload("res://Entities/Misc/BadnickSmoke.tscn")
 
 
@@ -93,7 +93,7 @@ func destroy():
 					playerTouch.shieldSprite.visible = false # turn off barrier for stars
 					playerTouch.get_node("InvincibilityBarrier").visible = true
 					playerTouch.switch_physics()
-					Global.currentTheme = 0
+					Global.currentTheme = 3
 					Global.effectTheme.stream = Global.themes[Global.currentTheme]
 					Global.effectTheme.play()
 		10: # 1up

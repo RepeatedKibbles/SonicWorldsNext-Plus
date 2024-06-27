@@ -142,6 +142,7 @@ func _physics_process(delta):
 		parent.animator.play("roll")
 		parent.set_state(parent.STATES.ROLL)
 
+
 func _on_FlyBugStop_timeout():
 	parent.sfx[21].stop()
 	parent.sfx[22].stop()
