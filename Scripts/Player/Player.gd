@@ -522,7 +522,7 @@ func _process(delta):
 		if !isSuper:
 			supTime -= delta
 		else:
-			$InvincibilityBarrier.visible = false
+			$InvincibilityBarrier.visible = true
 			# Animate Palette
 			if is_instance_valid(superAnimator):
 				if !superAnimator.is_playing():

@@ -84,7 +84,7 @@ func destroy():
 			playerTouch.set_shield(playerTouch.SHIELDS.BUBBLE)
 		7: # Super
 			playerTouch.rings += 50
-			if !playerTouch.get("isSuper"):
+			if !playerTouch.get("isSuper") and Global.emeralds >= 127:
 				playerTouch.set_state(playerTouch.STATES.SUPER)
 			else:
 				if not Global.emeralds >= 127:
@@ -93,9 +93,6 @@ func destroy():
 					playerTouch.shieldSprite.visible = false # turn off barrier for stars
 					playerTouch.get_node("InvincibilityBarrier").visible = true
 					playerTouch.switch_physics()
-					Global.currentTheme = 3
-					Global.effectTheme.stream = Global.themes[Global.currentTheme]
-					Global.effectTheme.play()
 		10: # 1up
 			Global.life.play()
 			Global.lives += 1
