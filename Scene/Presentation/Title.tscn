@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://qs5dmtxxf1w1"]
+[gd_scene load_steps=9 format=3 uid="uid://qs5dmtxxf1w1"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Title.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://cbloyreqnle13" path="res://Graphics/title/Sonic_Worlds_Next_Logo.png" id="2_qt26u"]
-[ext_resource type="FontFile" uid="uid://ml62eqfe7avn" path="res://Graphics/Fonts/small_font.png" id="3_yuhp3"]
+[ext_resource type="Texture2D" uid="uid://cbloyreqnle13" path="res://Graphics/title/Sonic_Worlds_Next_Logo.png" id="2_oxe0d"]
 [ext_resource type="Texture2D" uid="uid://dt51ojxk80oqh" path="res://Graphics/Items/Rings/Ring.tres" id="4_vmy7g"]
 
 [sub_resource type="Animation" id="2"]
@@ -187,71 +186,71 @@ script = ExtResource("2")
 
 [node name="BackCog" type="Sprite2D" parent="."]
 position = Vector2(156, -39)
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(114, 21, 52, 54)
 
 [node name="BigCog" type="Sprite2D" parent="."]
 position = Vector2(-64, 108)
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(0, 0, 97, 97)
 
 [node name="CogCircle" type="Sprite2D" parent="BigCog"]
 z_index = 1
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(24, 24, 48, 48)
 
 [node name="World" type="Sprite2D" parent="BigCog/CogCircle"]
 z_index = 1
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(181, 29, 39, 38)
 
 [node name="Worlds" type="Sprite2D" parent="."]
 position = Vector2(-130, 125)
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(2, 173, 182, 36)
 
 [node name="Arrow1" type="Sprite2D" parent="Worlds"]
 z_index = -1
 position = Vector2(78.8056, 0)
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(190, 173, 17, 36)
 
 [node name="Arrow2" type="Sprite2D" parent="Worlds"]
 z_index = -1
 position = Vector2(75.8055, 0)
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(214, 173, 15, 36)
 
 [node name="Arrow3" type="Sprite2D" parent="Worlds"]
 z_index = -1
 position = Vector2(64.8055, 0)
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(235, 173, 12, 36)
 
 [node name="Sonic" type="Sprite2D" parent="."]
 position = Vector2(411, 98)
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(150, 107, 140, 38)
 
 [node name="Cog" type="Sprite2D" parent="Sonic"]
 position = Vector2(-24, 0)
 rotation = 0.271425
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(243, 37, 21, 22)
 
 [node name="Next" type="Sprite2D" parent="."]
 position = Vector2(-65, 163)
-texture = ExtResource("2_qt26u")
+texture = ExtResource("2_oxe0d")
 region_enabled = true
 region_rect = Rect2(142, 235, 128, 33)
 
@@ -291,7 +290,6 @@ offset_top = -22.0
 offset_right = 136.0
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_yuhp3")
 text = "v2.0.8 GIT MAIN"
 vertical_alignment = 2
 uppercase = true
@@ -308,7 +306,6 @@ offset_left = -72.0
 offset_top = -11.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_yuhp3")
 text = "2021 2023"
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -320,7 +317,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = 25.0
 offset_top = -24.0
+offset_right = 25.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -337,7 +336,6 @@ offset_right = 47.5
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("3_yuhp3")
 bbcode_enabled = true
 text = "
 [center][wave freq=10.0 amp=30.0]PRESS START[/wave][/center]"
