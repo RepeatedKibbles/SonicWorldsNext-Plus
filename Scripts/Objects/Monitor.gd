@@ -53,7 +53,7 @@ func destroy():
 			$SFX/Ring.play()
 		1: # Speed Shoes
 			if !playerTouch.get("isSuper"):
-				playerTouch.shoeTime = 30
+				playerTouch.shoeTime = 20
 				playerTouch.switch_physics()
 				Global.currentTheme = 1
 				Global.effectTheme.stream = Global.themes[Global.currentTheme]
@@ -63,7 +63,7 @@ func destroy():
 				$SFX/Ring.play()
 		2: # Invincibility
 			if !playerTouch.get("isSuper"):
-				playerTouch.supTime = 30
+				playerTouch.supTime = 20
 				playerTouch.shieldSprite.visible = false # turn off barrier for stars
 				playerTouch.get_node("InvincibilityBarrier").visible = true
 				Global.currentTheme = 0

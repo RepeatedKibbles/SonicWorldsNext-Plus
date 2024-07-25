@@ -421,7 +421,7 @@ func calculate_input(event, action = "gm_action"):
 
 
 func _process(delta):
-	
+
 	# Player 1 input settings and partner AI
 	if playerControl == 1:
 		# Input memory - write the player's input to the inputMemory queue at the current queue position
@@ -1093,7 +1093,8 @@ func get_ring():
 		ringChannel = int(!ringChannel)
 		
 	elif partner != null:
-		partner.get_ring()
+		if partner.playerControl == 1: # error prevention
+			partner.get_ring()
 	
 func kill():
 	if !(get_tree().current_scene is MainGameScene):
@@ -1134,8 +1135,8 @@ func kill():
 
 func respawn():
 	if partner != null:
-		# cancel function if partner is dead
-		if partner.currentState == STATES.DIE:
+		# cancel function if partner is dead or ai controlled
+		if partner.currentState == STATES.DIE || partner.playerControl != 1:
 			return false
 		
 		airTimer = 1
