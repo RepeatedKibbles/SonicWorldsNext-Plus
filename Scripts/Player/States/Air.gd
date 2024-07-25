@@ -27,7 +27,7 @@ func _process(_delta):
 		elif ((parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION2] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1) and !parent.abilityUsed and isJump):
 			# Super actions
 			if parent.isSuper and parent.character == parent.CHARACTERS.SONIC:
-				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and amy only)
+				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and Amy only)
 			# Normal actions
 			else:
 				match (parent.character):
@@ -53,12 +53,16 @@ func _process(_delta):
 										parent.shieldSprite.stop()
 									# disable insta shield
 									parent.shieldSprite.get_node("InstaShieldHitbox/HitBox").disabled = true
+									# Restore Air Control
+									parent.airControl = true
 								
 								# elec shield action
 								parent.SHIELDS.ELEC:
 									parent.sfx[13].play()
 									# set movement upwards
 									parent.movement.y = -5.5*60.0
+									# Restore Air Control
+									parent.airControl = true
 									# generate 4 electric particles and send them out diagonally (rotated for each iteration of i to 4)
 									for i in range(4):
 										var part = elecPart.instantiate()
@@ -82,6 +86,8 @@ func _process(_delta):
 										parent.shieldSprite.flip_h = (parent.direction < 0)
 										# lock camera for a short time
 										parent.lock_camera(16.0/60.0)
+										# Restore Air Control
+										parent.airControl = true
 								
 								# bubble shield actions
 								parent.SHIELDS.BUBBLE:
@@ -94,6 +100,8 @@ func _process(_delta):
 										parent.shieldSprite.play("BubbleAction")
 										# set timer for animation related resets
 										var getTimer = parent.shieldSprite.get_node_or_null("ShieldTimer")
+										# Restore Air Control
+										parent.airControl = true
 										# Start bubble timer
 										if getTimer != null:
 											getTimer.start(0.25)
@@ -121,6 +129,8 @@ func _process(_delta):
 						parent.animator.play("dropDash")
 						# double jump
 						parent.movement.y = -5.5*60.0
+						# Restore Air Control
+						parent.airControl = true
 						
 
 
@@ -141,7 +151,7 @@ func _physics_process(delta):
 		# Cut vertical movement if jump released
 		if !parent.any_action_held_or_pressed() and parent.movement.y < -parent.releaseJmp*60:
 			parent.movement.y = -parent.releaseJmp*60
-		# Drop dash (for sonic / amy)
+		# Drop dash (for Sonic / Amy)
 		if parent.character == parent.CHARACTERS.SONIC or parent.character == parent.CHARACTERS.AMY:
 			
 			if parent.any_action_held_or_pressed() and parent.abilityUsed and (parent.shield <= parent.SHIELDS.NORMAL or parent.isSuper or $"../../InvincibilityBarrier".visible or parent.character == parent.CHARACTERS.AMY):
@@ -152,7 +162,7 @@ func _physics_process(delta):
 				else:
 					if parent.animator.current_animation != "dropDash":
 						parent.animator.play("dropDash")
-			# Drop dash reset (if sonic, hammer keeps swinging for amy)
+			# Drop dash reset (if Sonic, hammer keeps swinging for Amy)
 			elif !parent.any_action_held_or_pressed() and dropTimer > 0:
 				dropTimer = 0
 				if parent.animator.current_animation == "dropDash" and parent.character == parent.CHARACTERS.SONIC:
@@ -172,8 +182,8 @@ func _physics_process(delta):
 	
 	# Reset state if on ground
 	if (parent.ground):
-		#Restore Air Control when landing
-		#(Needed if Rolling control lock is enabled in Roll.gd)
+		# Restore Air Control when landing
+		# (Needed if Rolling control lock is enabled in Roll.gd)
 		parent.airControl = true
 		# Check bounce reaction first
 		if !bounce():
@@ -182,7 +192,7 @@ func _physics_process(delta):
 			# return to normal state
 			parent.set_state(parent.STATES.NORMAL)
 			
-			# Drop dash release (for sonic / amy)
+			# Drop dash release (for Sonic / Amy)
 			if dropTimer >= 1 and (parent.character == parent.CHARACTERS.SONIC or parent.character == parent.CHARACTERS.AMY):
 				# Check if moving forward or back
 				# Forward landing

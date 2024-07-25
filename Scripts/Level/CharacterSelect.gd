@@ -40,7 +40,7 @@ func _input(event):
 				levelID = wrapi(levelID+1,0,levelLabels.size())
 			if inputCue.y < 0:
 				levelID = wrapi(levelID-1,0,levelLabels.size())
-		#Save previous input for next read
+		# Save previous input for next read
 		lastInput = inputCue
 		
 		$UI/Labels/Control/Character.text = characterLabels[characterID]
