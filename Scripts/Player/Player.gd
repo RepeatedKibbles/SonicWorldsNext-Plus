@@ -115,7 +115,6 @@ var Particle = preload("res://Entities/Misc/GenericParticle.tscn")
 var Bubble = preload("res://Entities/Misc/Bubbles.tscn")
 var CountDown = preload("res://Entities/Misc/CountDownTimer.tscn")
 var RotatingParticle = preload("res://Entities/Misc/RotatingParticle.tscn")
-var DropDashDust = preload("res://Entities/Misc/DropDashDust.tscn")
 
 var superSprite = load("res://Graphics/Players/SuperSonic.png")
 @onready var normalSprite = $Sonic/Sprite2D.texture
@@ -421,7 +420,6 @@ func calculate_input(event, action = "gm_action"):
 
 
 func _process(delta):
-
 	# Player 1 input settings and partner AI
 	if playerControl == 1:
 		# Input memory - write the player's input to the inputMemory queue at the current queue position
@@ -522,7 +520,7 @@ func _process(delta):
 		if !isSuper:
 			supTime -= delta
 		else:
-			$InvincibilityBarrier.visible = true
+			$InvincibilityBarrier.visible = false
 			# Animate Palette
 			if is_instance_valid(superAnimator):
 				if !superAnimator.is_playing():
@@ -623,7 +621,6 @@ func _process(delta):
 			if airTimer <= panicTime and snapped(airTimer,1.8) != snapped(airTimer-delta,1.8):
 				if round(airTimer/1.8)-2 >= 0:
 					var count = CountDown.instantiate()
-					sfx[31].play()
 					get_parent().add_child(count)
 					count.countTime = clamp(round(airTimer/1.8)-2,0,5)
 					count.global_position = global_position+Vector2(8*direction,0)
@@ -683,7 +680,7 @@ func _physics_process(delta):
 	# collide with solids if not knuckles layer
 	set_collision_mask_value(19,!character == CHARACTERS.KNUCKLES)
 	# collide with solids if not rolling or not knuckles layer
-	set_collision_mask_value(21,(character != CHARACTERS.KNUCKLES and !attacking and (!isSuper and not character != CHARACTERS.SONIC or not character != CHARACTERS.TAILS or not character != CHARACTERS.AMY) and currentState != STATES.AMYHAMMER))
+	set_collision_mask_value(21,(character != CHARACTERS.KNUCKLES and !attacking))
 	# damage mask bit
 	set_collision_layer_value(20,attacking)
 	# water surface running
@@ -1008,7 +1005,7 @@ func set_hitbox(mask = Vector2.ZERO, forcePoseChange = false):
 func set_shield(setShieldID):
 	magnetShape.disabled = true
 	# verify not in water and shield compatible
-	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC) and !isSuper and !$InvincibilityBarrier.visible:
+	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC):
 		return false
 	
 	shield = setShieldID
