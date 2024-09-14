@@ -50,6 +50,7 @@ func _physics_process(delta):
 				active = false
 				# set player state to air so they can play again
 				Global.players[0].set_state(Global.players[0].STATES.AIR)
+				Global.players[0].airControl = true
 				# turn physics checking back on and restore collision mask
 				Global.players[0].translate = false
 				# give player a bit of velocity in that direction

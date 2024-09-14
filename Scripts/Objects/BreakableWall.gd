@@ -3,14 +3,14 @@ extends StaticBody2D
 var Piece = preload("res://Entities/Misc/BlockPiece.tscn")
 @export var sound = preload("res://Audio/SFX/Gimmicks/Collapse.wav")
 
-@export_enum("Normal","Fragile (CD)")var type = 0
-enum TYPE {NORMAL,CD}
+@export_enum("Normal","Fragile (CD)","Knuckles")var type = 0
+enum TYPE {NORMAL,CD,KNUX}
 
 func physics_collision(body, hitVector):
 	# check hit is either left or right
 	if hitVector.x != 0:
 		# verify if rolling or knuckles
-		if body.animator.current_animation == "roll" and (body.currentState == body.STATES.ROLL and body.ground and abs(body.movement.x) > 4.5*60 or type == TYPE.CD) and !get_collision_layer_value(19) or body.character == Global.CHARACTERS.KNUCKLES:
+		if (body.animator.current_animation == "roll" and (body.currentState == body.STATES.ROLL and body.ground and abs(body.movement.x) > 4.5*60 or type == TYPE.CD) and !get_collision_layer_value(19) or body.character == Global.CHARACTERS.SONIC and body.shield == body.SHIELDS.FIRE and body.abilityUsed or body.character == Global.CHARACTERS.KNUCKLES or body.character == Global.CHARACTERS.AMY and body.animator.current_animation == "dropDash" or body.currentState == body.STATES.AMYHAMMER or body.character == Global.CHARACTERS.SONIC and body.isSuper) or TYPE.KNUX and body.character == Global.CHARACTERS.KNUCKLES:
 			# disable physics altering masks
 			set_collision_layer_value(16,false)
 			set_collision_mask_value(14,false)

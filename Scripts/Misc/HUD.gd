@@ -118,16 +118,18 @@ func _process(delta):
 		if cam != null:
 			# if camera exists place the water's y position based on the screen position as the water is a UI overlay
 			$Water/WaterOverlay.position.y = clamp(Global.waterLevel-GlobalFunctions.getCurrentCamera2D().get_screen_center_position().y+(get_viewport().get_visible_rect().size.y/2),0,get_viewport().get_visible_rect().size.y)
+			$Water/WaterEffect.position.y = clamp(Global.waterLevel-GlobalFunctions.getCurrentCamera2D().get_screen_center_position().y+(get_viewport().get_visible_rect().size.y/2),0,get_viewport().get_visible_rect().size.y)
 		# scale water level to match the visible screen
 		$Water/WaterOverlay.scale.y = clamp(Global.waterLevel-$Water/WaterOverlay.position.y,0,get_viewport().size.y)
 		$Water/WaterOverlay.visible = true
+		$Water/WaterEffect.visible = true
 		
 		# Water Overlay Elec flash
 		if (Global.players.size() > 0):
 			# loop through players
 			for i in Global.players:
 				# check if in water and has elec or fire shield
-				if i.water:
+				if i.water and not i.isSuper and not i.get_node("InvincibilityBarrier").visible:
 					match (i.shield):
 						i.SHIELDS.ELEC:
 							# reset shield do flash

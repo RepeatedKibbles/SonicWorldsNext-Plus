@@ -5,7 +5,7 @@ var dashPower = 12
 func _process(delta):
 	# dust sprite
 	var dash = parent.sprite.get_node("DashDust")
-	dash.visible = true
+	dash.visible = !parent.water
 	dash.flip_h = parent.sprite.flip_h
 	dash.offset.x = abs(dash.offset.x)*sign(-1+int(dash.flip_h)*2)
 	
@@ -22,7 +22,14 @@ func _process(delta):
 	elif(parent.spindashPower < dashPower):
 		parent.animator.play("run")
 	else:
-		parent.animator.play("peelOut")
+		if not parent.water:
+			parent.animator.play("peelOut")
+
+	# using peelout in water section
+	if parent.water:
+		speedCalc = parent.spindashPower*30
+	if parent.water and parent.isSuper:
+		speedCalc = parent.spindashPower*40
 
 
 	# release

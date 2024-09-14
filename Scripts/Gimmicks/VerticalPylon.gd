@@ -160,6 +160,8 @@ func remove_player(player):
 			return
 		player.animator.play("roll")
 		player.set_state(player.STATES.AIR)
+		# Restore Air Control
+		player.airControl = true
 		# Clean out the player from all player-linked arrays.
 		var getIndex = players.find(player)
 		players.erase(player)

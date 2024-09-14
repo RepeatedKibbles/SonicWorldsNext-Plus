@@ -7,7 +7,7 @@ var yspeed = 0
 var playerTouch = null
 var isActive = true
 @export_enum("Ring", "Speed Shoes", "Invincibility", "Shield", "Elec Shield", "Fire Shield",
-"Bubble Shield", "Super", "Blue Ring", "Boost", "1up") var item = 0
+"Bubble Shield", "Super", "Blue Ring", "Boost", "1up", "Eggman") var item = 0
 var Explosion = preload("res://Entities/Misc/BadnickSmoke.tscn")
 
 
@@ -23,6 +23,9 @@ func _process(_delta):
 	# update for editor
 	if (Engine.is_editor_hint()):
 		$Item.frame = item+2
+	# for Eggman monitor
+	if item == 11:
+		$Item.frame = item+6
 
 func destroy():
 	# skip if not activated
@@ -56,6 +59,9 @@ func destroy():
 				Global.currentTheme = 1
 				Global.effectTheme.stream = Global.themes[Global.currentTheme]
 				Global.effectTheme.play()
+			if playerTouch.isSuper:
+				playerTouch.rings += 10
+				$SFX/Ring.play()
 		2: # Invincibility
 			if !playerTouch.get("isSuper"):
 				playerTouch.supTime = 20
@@ -64,6 +70,11 @@ func destroy():
 				Global.currentTheme = 0
 				Global.effectTheme.stream = Global.themes[Global.currentTheme]
 				Global.effectTheme.play()
+			if playerTouch.isSuper:
+				Global.life.play()
+				Global.lives += 1
+				Global.effectTheme.volume_db = -100
+				Global.music.volume_db = -100
 		3: # Shield
 			playerTouch.set_shield(playerTouch.SHIELDS.NORMAL)
 		4: # Elec
@@ -74,13 +85,25 @@ func destroy():
 			playerTouch.set_shield(playerTouch.SHIELDS.BUBBLE)
 		7: # Super
 			playerTouch.rings += 50
-			if !playerTouch.get("isSuper"):
+			if !playerTouch.get("isSuper") and Global.emeralds >= 127:
 				playerTouch.set_state(playerTouch.STATES.SUPER)
+			else:
+				if not Global.emeralds >= 127:
+					playerTouch.shoeTime = 20
+					playerTouch.supTime = 20
+					playerTouch.shieldSprite.visible = false # turn off barrier for stars
+					playerTouch.get_node("InvincibilityBarrier").visible = true
+					playerTouch.switch_physics()
+					Global.currentTheme = 3
+					Global.effectTheme.stream = Global.themes[Global.currentTheme]
+					Global.effectTheme.play()
 		10: # 1up
 			Global.life.play()
 			Global.lives += 1
 			Global.effectTheme.volume_db = -100
 			Global.music.volume_db = -100
+		11: # Eggman
+			playerTouch.hit_player(global_position)
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():

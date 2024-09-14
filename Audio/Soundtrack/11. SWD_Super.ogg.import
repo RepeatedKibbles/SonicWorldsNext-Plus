@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5t8d1c5vkdf3"
+path="res://.godot/imported/11. SWD_Super.ogg-b6e7107279f59a2e530ac2035b765fc8.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Soundtrack/11. SWD_Super.ogg"
+dest_files=["res://.godot/imported/11. SWD_Super.ogg-b6e7107279f59a2e530ac2035b765fc8.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=5.6
+bpm=120.0
+beat_count=80
+bar_beats=4

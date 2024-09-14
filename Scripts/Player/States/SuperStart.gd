@@ -27,7 +27,7 @@ func _process(_delta):
 		activated = true
 		
 		# start super theme
-		Global.currentTheme = 0
+		Global.currentTheme = 3
 		Global.effectTheme.stream = Global.themes[Global.currentTheme]
 		Global.effectTheme.play()
 		# swap sprite if sonic

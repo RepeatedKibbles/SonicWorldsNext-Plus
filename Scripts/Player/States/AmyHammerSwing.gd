@@ -4,7 +4,7 @@ var hammerTime = 1.0
 
 func _physics_process(delta):
 	# if not on floor, set walk animation and return to normal or if hammer time runs out
-	if !parent.ground or hammerTime <= 0 or !parent.animator.is_playing() or parent.horizontalLockTimer > 0:
+	if !parent.ground or parent.pushingWall or !parent.animator.is_playing() or parent.horizontalLockTimer > 0:
 		parent.set_state(parent.STATES.AIR)
 		parent.animator.play("walk")
 		# return null to cancel script

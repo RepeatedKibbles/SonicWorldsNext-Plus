@@ -78,6 +78,8 @@ func _physics_process(delta):
 				if i.currentState != i.STATES.ANIMATION or i.animator.current_animation != setPlayerAnimation:
 					i.set_state(i.STATES.AIR)
 					i.animator.play(setPlayerAnimation)
+					# Restore Air Control
+					i.airControl = true
 
 
 

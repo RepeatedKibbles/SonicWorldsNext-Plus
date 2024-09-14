@@ -26,8 +26,8 @@ func _process(_delta):
 		# Shield actions
 		elif ((parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION2] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1) and !parent.abilityUsed and isJump):
 			# Super actions
-			if parent.isSuper and (parent.character == Global.CHARACTERS.SONIC or parent.character == Global.CHARACTERS.AMY):
-				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and amy only)
+			if parent.isSuper and parent.character == Global.CHARACTERS.SONIC:
+				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and Amy only)
 			# Normal actions
 			else:
 				match (parent.character):
@@ -53,12 +53,16 @@ func _process(_delta):
 										parent.shieldSprite.stop()
 									# disable insta shield
 									parent.shieldSprite.get_node("InstaShieldHitbox/HitBox").disabled = true
+									# Restore Air Control
+									parent.airControl = true
 								
 								# elec shield action
 								parent.SHIELDS.ELEC:
 									parent.sfx[13].play()
 									# set movement upwards
 									parent.movement.y = -5.5*60.0
+									# Restore Air Control
+									parent.airControl = true
 									# generate 4 electric particles and send them out diagonally (rotated for each iteration of i to 4)
 									for i in range(4):
 										var part = elecPart.instantiate()
@@ -82,6 +86,8 @@ func _process(_delta):
 										parent.shieldSprite.flip_h = (parent.direction < 0)
 										# lock camera for a short time
 										parent.lock_camera(16.0/60.0)
+										# Restore Air Control
+										parent.airControl = true
 								
 								# bubble shield actions
 								parent.SHIELDS.BUBBLE:
@@ -94,6 +100,8 @@ func _process(_delta):
 										parent.shieldSprite.play("BubbleAction")
 										# set timer for animation related resets
 										var getTimer = parent.shieldSprite.get_node_or_null("ShieldTimer")
+										# Restore Air Control
+										parent.airControl = true
 										# Start bubble timer
 										if getTimer != null:
 											getTimer.start(0.25)
@@ -119,6 +127,10 @@ func _process(_delta):
 						parent.sfx[30].play()
 						# play dropDash sound
 						parent.animator.play("dropDash")
+						# double jump
+						parent.movement.y = -5.5*60.0
+						# Restore Air Control
+						parent.airControl = true
 						
 
 
@@ -207,7 +219,7 @@ func _physics_process(delta):
 					parent.lock_camera(16.0/60.0)
 					
 					# drop dash dust
-					var dust = parent.Particle.instantiate()
+					var dust = parent.DropDashDust.instantiate()
 					dust.play("DropDash")
 					dust.global_position = parent.global_position+Vector2(0,2).rotated(parent.rotation)
 					dust.scale.x = parent.direction
@@ -269,7 +281,7 @@ func bounce():
 			var getTimer = parent.shieldSprite.get_node_or_null("ShieldTimer")
 			# Start bubble timer
 			if getTimer != null:
-				getTimer.start(0.15)
+				getTimer.start(0.05)
 		parent.abilityUsed = false
 		return true
 	# if no bounce then return false to continue with landing routine

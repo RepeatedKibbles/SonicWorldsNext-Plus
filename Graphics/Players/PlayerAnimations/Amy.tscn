@@ -437,6 +437,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_eeuda"]
 resource_name = "hammerSwing"
 length = 0.783333
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1220,9 +1221,10 @@ autoplay = "idle"
 z_index = 5
 material = ExtResource("1_sk1gs")
 texture = ExtResource("2_vki44")
-offset = Vector2(0, -6)
+offset = Vector2(0, -7)
 hframes = 16
 vframes = 18
+frame = 68
 
 [node name="DashDust" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false

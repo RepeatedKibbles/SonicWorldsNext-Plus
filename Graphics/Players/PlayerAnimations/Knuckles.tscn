@@ -380,7 +380,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [74]
+"values": [73]
 }
 
 [sub_resource type="Animation" id="126"]
@@ -576,7 +576,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [75]
+"values": [74]
 }
 
 [sub_resource type="Animation" id="79"]
@@ -748,7 +748,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="123"]
 resource_name = "slide"
-length = 0.1
+length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -757,10 +757,10 @@ tracks/0/path = NodePath("Sprite2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [76]
+"values": [75, 76]
 }
 
 [sub_resource type="Animation" id="83"]
@@ -793,7 +793,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [73]
+"values": [72]
 }
 
 [sub_resource type="Animation" id="122"]
@@ -1249,6 +1249,7 @@ texture = ExtResource("2")
 offset = Vector2(0, -9)
 hframes = 16
 vframes = 18
+frame = 75
 
 [node name="DashDust" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false

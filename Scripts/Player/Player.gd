@@ -95,6 +95,7 @@ var Particle = preload("res://Entities/Misc/GenericParticle.tscn")
 var Bubble = preload("res://Entities/Misc/Bubbles.tscn")
 var CountDown = preload("res://Entities/Misc/CountDownTimer.tscn")
 var RotatingParticle = preload("res://Entities/Misc/RotatingParticle.tscn")
+var DropDashDust = preload("res://Entities/Misc/DropDashDust.tscn")
 
 var superSprite = load("res://Graphics/Players/SuperSonic.png")
 @onready var normalSprite = $Sonic/Sprite2D.texture
@@ -522,7 +523,7 @@ func _process(delta):
 				isSuper = false
 				superAnimator.play("PowerDown")
 				switch_physics()
-			if Global.currentTheme == 0 and Global.effectTheme.is_playing():
+			if (Global.currentTheme == 0 or Global.currentTheme == 3) and Global.effectTheme.is_playing():
 				Global.music.play()
 				Global.effectTheme.stop()
 	
@@ -598,6 +599,7 @@ func _process(delta):
 			if airTimer <= panicTime and snapped(airTimer,1.8) != snapped(airTimer-delta,1.8):
 				if round(airTimer/1.8)-2 >= 0:
 					var count = CountDown.instantiate()
+					sfx[31].play()
 					get_parent().add_child(count)
 					count.countTime = clamp(round(airTimer/1.8)-2,0,5)
 					count.global_position = global_position+Vector2(8*direction,0)
@@ -657,7 +659,7 @@ func _physics_process(delta):
 	# collide with solids if not knuckles layer
 	set_collision_mask_value(19,!character == Global.CHARACTERS.KNUCKLES)
 	# collide with solids if not rolling or not knuckles layer
-	set_collision_mask_value(21,(character != Global.CHARACTERS.KNUCKLES and !attacking))
+	set_collision_mask_value(21,(character != Global.CHARACTERS.KNUCKLES and !attacking and (!isSuper and not character != Global.CHARACTERS.SONIC or not character != Global.CHARACTERS.TAILS or not character != Global.CHARACTERS.AMY) and currentState != STATES.AMYHAMMER))
 	# damage mask bit
 	set_collision_layer_value(20,attacking)
 	# water surface running
@@ -982,7 +984,7 @@ func set_hitbox(mask = Vector2.ZERO, forcePoseChange = false):
 func set_shield(setShieldID):
 	magnetShape.disabled = true
 	# verify not in water and shield compatible
-	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC):
+	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC) and !isSuper and !$InvincibilityBarrier.visible:
 		return false
 	
 	shield = setShieldID

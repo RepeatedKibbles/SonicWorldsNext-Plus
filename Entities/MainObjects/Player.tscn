@@ -1,4 +1,4 @@
-[gd_scene load_steps=195 format=3 uid="uid://cioq5saowvqxj"]
+[gd_scene load_steps=196 format=3 uid="uid://cioq5saowvqxj"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://d1e4muavtnun6" path="res://Graphics/Players/PlayerAnimations/Sonic.tscn" id="2"]
@@ -66,6 +66,7 @@
 [ext_resource type="AudioStream" uid="uid://c2agly02ferrw" path="res://Audio/SFX/Player/WaterRun.wav" id="63_k1lus"]
 [ext_resource type="Texture2D" uid="uid://b1k615l251fu5" path="res://Graphics/Misc/WaterSurfaceSplash.png" id="64_ovmgw"]
 [ext_resource type="AudioStream" uid="uid://buu4anko53vx2" path="res://Audio/SFX/Objects/ChemJump.wav" id="65_7v2sx"]
+[ext_resource type="AudioStream" uid="uid://clh4v62rtijhv" path="res://Audio/SFX/Player/DrownAlert.wav" id="66_7snde"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 resource_local_to_scene = true
@@ -1498,6 +1499,11 @@ bus = &"SFX"
 [node name="AmyHammer" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("65_7v2sx")
 volume_db = 15.0
+bus = &"SFX"
+
+[node name="DrownAlert" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("66_7snde")
+volume_db = 3.0
 bus = &"SFX"
 
 [node name="CrushSensorLeft" type="Area2D" parent="."]

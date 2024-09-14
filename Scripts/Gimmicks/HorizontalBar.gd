@@ -323,5 +323,7 @@ func remove_player(player):
 		players.erase(player)
 		playersMode.remove_at(getIndex)
 		playersEntryVel.remove_at(getIndex)
+		# Restore Air Control
+		player.airControl = true
 		if player.get_state() == player.STATES.ANIMATION:
 			player.set_state(player.STATES.NORMAL)

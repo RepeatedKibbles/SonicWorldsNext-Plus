@@ -43,7 +43,7 @@ var effectTheme = null
 var drowning = null
 var life = null
 # song themes to play for things like invincibility and speed shoes
-var themes = [preload("res://Audio/Soundtrack/1. SWD_Invincible.ogg"),preload("res://Audio/Soundtrack/2. SWD_SpeedUp.ogg"),preload("res://Audio/Soundtrack/4. SWD_StageClear.ogg")]
+var themes = [preload("res://Audio/Soundtrack/1. SWD_Invincible.ogg"),preload("res://Audio/Soundtrack/2. SWD_SpeedUp.ogg"),preload("res://Audio/Soundtrack/4. SWD_StageClear.ogg"),preload("res://Audio/Soundtrack/11. SWD_Super.ogg")]
 # index for current theme
 var currentTheme = 0
 
