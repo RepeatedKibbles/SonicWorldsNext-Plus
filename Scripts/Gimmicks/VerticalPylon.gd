@@ -159,7 +159,7 @@ func remove_player(player):
 		if (player.currentState == player.STATES.ANIMATION):
 			return
 		player.animator.play("roll")
-		player.set_state(player.STATES.AIR)
+		player.set_state(player.STATES.JUMP)
 		# Restore Air Control
 		player.airControl = true
 		# Clean out the player from all player-linked arrays.

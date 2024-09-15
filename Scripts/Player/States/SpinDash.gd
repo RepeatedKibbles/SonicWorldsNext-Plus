@@ -46,4 +46,4 @@ func _process(delta):
 func _physics_process(_delta):
 	# Gravity
 	if !parent.ground:
-		parent.set_state(parent.STATES.AIR)
+		parent.movement.y += parent.grv/GlobalFunctions.div_by_delta(_delta)

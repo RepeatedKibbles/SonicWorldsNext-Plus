@@ -151,7 +151,7 @@ func _physics_process(delta):
 		# Cut vertical movement if jump released
 		if !parent.any_action_held_or_pressed() and parent.movement.y < -parent.releaseJmp*60:
 			parent.movement.y = -parent.releaseJmp*60
-		# Drop dash (for sonic / amy)
+		# Drop dash (for Sonic / Amy)
 		if parent.character == Global.CHARACTERS.SONIC or parent.character == Global.CHARACTERS.AMY:
 			
 			if parent.any_action_held_or_pressed() and parent.abilityUsed and (parent.shield <= parent.SHIELDS.NORMAL or parent.isSuper or $"../../InvincibilityBarrier".visible or parent.character == Global.CHARACTERS.AMY):
@@ -162,7 +162,7 @@ func _physics_process(delta):
 				else:
 					if parent.animator.current_animation != "dropDash":
 						parent.animator.play("dropDash")
-			# Drop dash reset (if sonic, hammer keeps swinging for amy)
+			# Drop dash reset (if Sonic, hammer keeps swinging for Amy)
 			elif !parent.any_action_held_or_pressed() and dropTimer > 0:
 				dropTimer = 0
 				if parent.animator.current_animation == "dropDash" and parent.character == Global.CHARACTERS.SONIC:
@@ -192,7 +192,7 @@ func _physics_process(delta):
 			# return to normal state
 			parent.set_state(parent.STATES.NORMAL)
 			
-			# Drop dash release (for sonic / amy)
+			# Drop dash release (for Sonic / Amy)
 			if dropTimer >= 1 and (parent.character == Global.CHARACTERS.SONIC or parent.character == Global.CHARACTERS.AMY):
 				# Check if moving forward or back
 				# Forward landing
