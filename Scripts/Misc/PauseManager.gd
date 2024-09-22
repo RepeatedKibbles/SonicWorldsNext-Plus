@@ -98,16 +98,19 @@ func _input(event):
 					0: # cancel
 						set_menu(0)
 					1: # ok
-						set_menu(0)
-						Global.main.wasPaused = false
-						visible = false
-						Global.checkPointTime = 0
-						Global.currentCheckPoint = -1
-						Global.main.change_scene_to_file(null,"FadeOut")
-						#await Global.main.scene_faded
-						Global.effectTheme.stop()
-						Global.bossMusic.stop()
-						Global.main.set_volume(0)
+						# uncomment "#" to lose lives after restart like Sonic CD (2011), Sonic 1 & 2 (2013)
+						#if not Global.lives < 2:
+							set_menu(0)
+							Global.main.wasPaused = false
+							visible = false
+							Global.checkPointTime = 0
+							Global.currentCheckPoint = -1
+							#Global.lives -= 1
+							Global.main.change_scene_to_file(null,"FadeOut")
+							#await Global.main.scene_faded
+							Global.effectTheme.stop()
+							Global.bossMusic.stop()
+							Global.main.set_volume(0)
 			MENUS.QUIT: # quit option
 				match(option): # Options
 					0: # cancel
