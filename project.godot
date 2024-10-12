@@ -14,6 +14,7 @@ config/name="Sonic Worlds Next Plus"
 config/description="Official development repository for the successor to Sonic Worlds Delta with fixes and extras
 4:3 = 320x224
 16:9 = 416x234"
+config/version="v2.0.10 GIT MAIN"
 run/main_scene="res://Scene/Main.tscn"
 config/features=PackedStringArray("4.3")
 boot_splash/bg_color=Color(1, 1, 1, 1)
