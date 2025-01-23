@@ -144,6 +144,11 @@ var camAdjust = Vector2.ZERO
 var cameraDragLerp = 0
 var camLockTime = 0
 
+# used for camera panning
+var panSpeed = 50.00
+var panSmooth := 0.1
+var maxPanSpeed = panSpeed
+
 # boundries
 var limitLeft = 0
 var limitRight = 0
@@ -417,10 +422,10 @@ func _process(delta):
 						# Copy the frame of input from the oldest written portion of the inputMemory
 						# Array into the partner's input for the current frame
 						partner.inputs[i] = inputMemory[memoryPosition][i]
-				
+
 				#TODO: This current implimentation is better than what we had before,
 				#but it's still a little clunky. Will clean up this clode block later. - Ikey Ilex
-				
+	
 				# x distance difference check, try to go to the partner
 				if (partner.inputs[INPUTS.XINPUT] == 0 and partner.inputs[INPUTS.YINPUT] == 0
 					or global_position.distance_to(partner.global_position) > 48 and round(movement.x/300) == 0
@@ -435,7 +440,7 @@ func _process(delta):
 					var testPos = round(global_position.x + (0-direction))
 					if sign((partner.global_position.x - testPos)*direction) > 0:
 						partner.inputs[INPUTS.XINPUT] = sign(0-direction)
-				
+	
 				# Jump if pushing a wall, slower then half speed, on a flat surface and is either normal or jumping
 				if (partner.currentState == STATES.NORMAL or partner.currentState == STATES.JUMP) and abs(partner.movement.x) < top/2.0 and snap_angle(partner.angle) == 0 or (partner.pushingWall != 0 and pushingWall == 0):
 					# check partners position, only jump ever 0.25 seconds (prevent jump spam)
@@ -783,7 +788,15 @@ func _physics_process(delta):
 		if global_position.y > limitBottom:
 			kill()
 	
-	
+		# Camera CD (Help by thefacer (facey) with AI)
+		if abs(movement.x) < 10*60 or STATES.SPINDASH or STATES.PEELOUT:
+			var targetOffset = float(direction) * float(panSpeed)
+			var newOffset = lerp(float(camera.offset.x), targetOffset, 0.1)
+			
+			if abs(newOffset) <= maxPanSpeed:
+				camera.offset.x = newOffset
+			else:
+				camera.offset.x = lerp(camera.offset.x, 0.0, 0.1)
 	
 	
 	# Stop movement at borders
@@ -1105,7 +1118,7 @@ func kill(always = true):
 			var savedPos = partner.global_position
 			partner.respawn()
 			partner.global_position = savedPos
-			
+		
 		collision_layer = 0
 		collision_mask = 0
 		z_index = 100
