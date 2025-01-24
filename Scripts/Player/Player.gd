@@ -144,11 +144,6 @@ var camAdjust = Vector2.ZERO
 var cameraDragLerp = 0
 var camLockTime = 0
 
-# used for camera panning
-var panSpeed = 50.00
-var panSmooth := 0.1
-var maxPanSpeed = panSpeed
-
 # boundries
 var limitLeft = 0
 var limitRight = 0
@@ -788,15 +783,7 @@ func _physics_process(delta):
 		if global_position.y > limitBottom:
 			kill()
 	
-		# Camera CD (Help by thefacer (facey) with AI)
-		if abs(movement.x) < 10*60 or STATES.SPINDASH or STATES.PEELOUT:
-			var targetOffset = float(direction) * float(panSpeed)
-			var newOffset = lerp(float(camera.offset.x), targetOffset, 0.1)
-			
-			if abs(newOffset) <= maxPanSpeed:
-				camera.offset.x = newOffset
-			else:
-				camera.offset.x = lerp(camera.offset.x, 0.0, 0.1)
+	
 	
 	
 	# Stop movement at borders
