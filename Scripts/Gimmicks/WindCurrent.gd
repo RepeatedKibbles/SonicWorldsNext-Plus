@@ -3,7 +3,7 @@ extends Area2D
 var players = []
 @export var speed = 400.0 # default power
 @export var canMove = true
-@export var moveSpeed = 200.0 # player movement power
+@export var moveSpeed = 100.0 # player movement power
 
 signal player_entered
 signal all_players_exited
@@ -74,5 +74,3 @@ func _on_WindCurrent_body_exited(body):
 		# emit signal for players exiting (can be used for giant fans)
 		if players.size() == 0:
 			emit_signal("all_players_exited")
-
-
