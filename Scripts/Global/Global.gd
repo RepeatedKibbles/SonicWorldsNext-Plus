@@ -201,13 +201,26 @@ func load_settings():
 	
 	if file.has_section_key("Volume","SFX"):
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),file.get_value("Volume","SFX"))
+		# Set bus mute state
+		AudioServer.set_bus_mute(
+		AudioServer.get_bus_index("SFX"), # Auidio bus to mute
+		AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")) <= -40.0 # True if < -40.0
+		)
 	
 	if file.has_section_key("Volume","Music"):
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),file.get_value("Volume","Music"))
+		# Set bus mute state
+		AudioServer.set_bus_mute(
+		AudioServer.get_bus_index("Music"), # Auidio bus to mute
+		AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) <= -40.0 # True if < -40.0
+		)
 	
 	if file.has_section_key("Resolution","Zoom"):
 		zoomSize = file.get_value("Resolution","Zoom")
-		get_window().set_size(get_viewport().get_visible_rect().size*zoomSize)
+		var window = get_window()
+		var newSize = Vector2i((get_viewport().get_visible_rect().size*zoomSize).round())
+		window.set_position(window.get_position()+(window.size-newSize)/2)
+		window.set_size(newSize)
 	
 	if file.has_section_key("Resolution","FullScreen"):
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (file.get_value("Resolution","FullScreen")) else Window.MODE_WINDOWED
