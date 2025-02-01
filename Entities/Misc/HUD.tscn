@@ -863,7 +863,7 @@ anchor_top = 0.003
 anchor_right = 1.0
 anchor_bottom = 0.003
 offset_top = -12.352
-offset_right = 4576.0
+offset_right = 4608.0
 offset_bottom = 243.648
 grow_horizontal = 0
 grow_vertical = 2
@@ -1013,6 +1013,7 @@ stream = ExtResource("16_vq3lx")
 bus = &"Music"
 
 [node name="Water" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="WaterEffect" type="ColorRect" parent="Water"]
 visible = false

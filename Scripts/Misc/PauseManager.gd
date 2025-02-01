@@ -98,7 +98,7 @@ func _input(event):
 					0: # cancel
 						set_menu(0)
 					1: # ok
-						# uncomment "#" to lose lives after restart like Sonic CD (2011), Sonic 1 & 2 (2013)
+						# uncomment "#" at "if not Global.lives < 2:" and "Global.lives -= 1" to lose lives after restart like Sonic CD (2011), Sonic 1 & 2 (2013)
 						#if not Global.lives < 2:
 							set_menu(0)
 							Global.main.wasPaused = false
