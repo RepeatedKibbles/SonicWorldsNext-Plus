@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c155bdyqqmmpl"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/Orbinaut.gd" id="1"]
+[ext_resource type="Script" uid="uid://bcibq7h4xfmm4" path="res://Scripts/Enemies/Orbinaut.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://ca8c5sryvf1j2" path="res://Graphics/Enemies/orbinaut.png" id="2"]
-[ext_resource type="Script" path="res://Scripts/Objects/Hazard.gd" id="3"]
+[ext_resource type="Script" uid="uid://deqtq1uk0iw14" path="res://Scripts/Objects/Hazard.gd" id="3"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 16)

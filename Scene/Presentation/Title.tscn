@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://qs5dmtxxf1w1"]
 
-[ext_resource type="Script" path="res://Scripts/Level/Title.gd" id="2"]
+[ext_resource type="Script" uid="uid://jbyyjexmlnp6" path="res://Scripts/Level/Title.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cbloyreqnle13" path="res://Graphics/title/Sonic_Worlds_Next_Logo.png" id="2_qt26u"]
 [ext_resource type="FontFile" uid="uid://ml62eqfe7avn" path="res://Graphics/Fonts/small_font.png" id="3_yuhp3"]
 [ext_resource type="Texture2D" uid="uid://dt51ojxk80oqh" path="res://Graphics/Items/Rings/Ring.tres" id="4_vmy7g"]
@@ -170,8 +170,8 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pb3yv"]
 _data = {
-"RESET": SubResource("2"),
-"TitleAssemble": SubResource("1")
+&"RESET": SubResource("2"),
+&"TitleAssemble": SubResource("1")
 }
 
 [sub_resource type="Curve" id="Curve_x626m"]

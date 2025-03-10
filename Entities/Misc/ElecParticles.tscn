@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cilg0flydqyd0"]
 
-[ext_resource type="Script" path="res://Scripts/Player/ElecParticle.gd" id="1"]
+[ext_resource type="Script" uid="uid://fvmmcih0uitd" path="res://Scripts/Player/ElecParticle.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bmx5ij0fowooi" path="res://Graphics/Items/shield_lightning_spark.png" id="2"]
 
 [sub_resource type="AtlasTexture" id="1"]

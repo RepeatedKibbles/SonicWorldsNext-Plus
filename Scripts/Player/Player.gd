@@ -335,6 +335,7 @@ func _ready():
 	
 	if character == Global.CHARACTERS.AMY:
 		maxCharGroundHeight = 12 # adjust Amy's height distance to prevent clipping off floors
+			
 	
 	# run switch physics to ensure character specific physics
 	switch_physics()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://urapmknlu0s5"]
 
-[ext_resource type="Script" path="res://Scripts/Gimmicks/HorizontalBar.gd" id="1"]
+[ext_resource type="Script" uid="uid://bof0d6vnrx34m" path="res://Scripts/Gimmicks/HorizontalBar.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d1hcoy1ga1m5o" path="res://Graphics/Gimmicks/HorizontalBar.png" id="1_5txwq"]
 [ext_resource type="AudioStream" uid="uid://bfba871gfmv0s" path="res://Audio/SFX/Player/Grab.wav" id="3_u5fuj"]
 

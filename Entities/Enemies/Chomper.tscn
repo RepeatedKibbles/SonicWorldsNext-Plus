@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4oxfl2msl6e6"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/Chomper.gd" id="1"]
+[ext_resource type="Script" uid="uid://47o5qsq425l6" path="res://Scripts/Enemies/Chomper.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bmiileofyj6xf" path="res://Graphics/Enemies/chomper.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]

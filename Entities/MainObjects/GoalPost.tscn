@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c2esop5orct10"]
 
 [ext_resource type="Texture2D" uid="uid://t0a50iu2sqj1" path="res://Graphics/Items/goal_signs.png" id="1"]
-[ext_resource type="Script" path="res://Scripts/Objects/GoalPost.gd" id="2"]
+[ext_resource type="Script" uid="uid://d30nlnqsiwnff" path="res://Scripts/Objects/GoalPost.gd" id="2"]
 [ext_resource type="AudioStream" uid="uid://b188no3hh5d8y" path="res://Audio/SFX/Objects/SignPost.wav" id="3"]
 [ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="4"]
 
@@ -103,12 +103,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jy7ik"]
 _data = {
-"Amy": SubResource("Animation_crdai"),
-"Knuckles": SubResource("5"),
-"RESET": SubResource("2"),
-"Sonic": SubResource("3"),
-"Spinner": SubResource("1"),
-"Tails": SubResource("4")
+&"Amy": SubResource("Animation_crdai"),
+&"Knuckles": SubResource("5"),
+&"RESET": SubResource("2"),
+&"Sonic": SubResource("3"),
+&"Spinner": SubResource("1"),
+&"Tails": SubResource("4")
 }
 
 [node name="GoalPost" type="Sprite2D"]

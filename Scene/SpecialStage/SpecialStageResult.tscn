@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cf4j1ed0nh7oq" path="res://Graphics/Items/ChaosEmeralds.png" id="1"]
 [ext_resource type="AudioStream" uid="uid://cy0i0dbqpb5eu" path="res://Audio/SFX/Misc/Emerald.wav" id="2"]
-[ext_resource type="Script" path="res://Scripts/Misc/SpecialStageResult.gd" id="3"]
+[ext_resource type="Script" uid="uid://4eimytrthkdk" path="res://Scripts/Misc/SpecialStageResult.gd" id="3"]
 
 [sub_resource type="AtlasTexture" id="1"]
 atlas = ExtResource("1")

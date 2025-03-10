@@ -1,6 +1,6 @@
 [gd_scene load_steps=75 format=3 uid="uid://hj3tt0gklwba"]
 
-[ext_resource type="Script" path="res://Scripts/Level/Level.gd" id="2"]
+[ext_resource type="Script" uid="uid://dg1n3ge8wlj6" path="res://Scripts/Level/Level.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://bjavywoj00j1j" path="res://Scene/Zones/BaseZoneAct2.tscn" id="2_8ek7k"]
 [ext_resource type="PackedScene" uid="uid://c30uceea18q1w" path="res://Entities/Misc/HUD.tscn" id="3_hkybi"]
 [ext_resource type="Texture2D" uid="uid://bemwlrblbgn23" path="res://Graphics/Backgrounds/WorldsBackground.png" id="4_ich6n"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cma2mtbqjiqdc" path="res://Entities/Gimmicks/HangingBar.tscn" id="9_twpre"]
 [ext_resource type="Texture2D" uid="uid://8h0afsnvb01o" path="res://Graphics/Tiles/WorldsTiles/PlatformSmall.png" id="10_m5ppr"]
 [ext_resource type="PackedScene" uid="uid://7k14xkpjguop" path="res://Entities/Obstacles/SwingingPlatform.tscn" id="11_wdcc0"]
-[ext_resource type="Script" path="res://Scripts/Objects/CollapsePlatform.gd" id="12_ri3yl"]
+[ext_resource type="Script" uid="uid://cgu8ffkfnm7o3" path="res://Scripts/Objects/CollapsePlatform.gd" id="12_ri3yl"]
 [ext_resource type="TileSet" uid="uid://dn42tsjf760q0" path="res://Graphics/Tiles/MCZPlatform.tres" id="13_biut5"]
 [ext_resource type="PackedScene" uid="uid://dkn7hhll7o4or" path="res://Entities/MainObjects/LayerSwitcher.tscn" id="14_wjddb"]
 [ext_resource type="PackedScene" uid="uid://4q0hpddgto2k" path="res://Entities/Gimmicks/Spring.tscn" id="15_sn1cn"]
@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://fn82q8rojkjl" path="res://Entities/Gimmicks/CorkscrewLoop.tscn" id="23_tu8k4"]
 [ext_resource type="PackedScene" uid="uid://bnn5io8fk2i4h" path="res://Entities/Gimmicks/WaterLevel.tscn" id="24_ppp0m"]
 [ext_resource type="Texture2D" uid="uid://dv1hbrfnqs0pn" path="res://Graphics/Gimmicks/Tube.png" id="25_1s5mn"]
-[ext_resource type="Script" path="res://Scripts/Gimmicks/ZoomTubePath.gd" id="26_1qesq"]
+[ext_resource type="Script" uid="uid://co1vxtjcgyppk" path="res://Scripts/Gimmicks/ZoomTubePath.gd" id="26_1qesq"]
 [ext_resource type="Texture2D" uid="uid://brmyeoxycvj5j" path="res://Graphics/Gimmicks/TubeConnector.png" id="27_c84w5"]
 [ext_resource type="Texture2D" uid="uid://buev0ity81n7o" path="res://Graphics/Gimmicks/TubeEnd.png" id="28_kx8mo"]
 [ext_resource type="PackedScene" uid="uid://bct374kjctkxr" path="res://Entities/Items/Checkpoint.tscn" id="29_0y8qa"]
@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ldunfxhq0he" path="res://Entities/Obstacles/ForceAngleSides.tscn" id="35_5yj8k"]
 [ext_resource type="PackedScene" uid="uid://blwewyk2fnrew" path="res://Entities/Gimmicks/Shutter.tscn" id="36_0g2sp"]
 [ext_resource type="PackedScene" uid="uid://chyrwm1qwvlyt" path="res://Entities/Gimmicks/Switch.tscn" id="37_y7my3"]
-[ext_resource type="Script" path="res://Scripts/Misc/AltSpawn.gd" id="38_8ssba"]
+[ext_resource type="Script" uid="uid://dati6ua6b2an2" path="res://Scripts/Misc/AltSpawn.gd" id="38_8ssba"]
 [ext_resource type="PackedScene" uid="uid://dnbjgwbrkknnu" path="res://Entities/Gimmicks/ConveyorBelt.tscn" id="39_8a2xw"]
 [ext_resource type="PackedScene" uid="uid://bvvxl5bmelnk1" path="res://Entities/Gimmicks/WaterSlide.tscn" id="40_tcbla"]
 [ext_resource type="PackedScene" uid="uid://t0mjpja13x4b" path="res://Entities/Gimmicks/Trampoline.tscn" id="41_ee7ew"]
@@ -60,7 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://cqcgjcw101xxo" path="res://Entities/Enemies/MotoBug.tscn" id="58_oq07j"]
 [ext_resource type="PackedScene" uid="uid://vh0ailk0432j" path="res://Entities/Boss/BossBoundrySetter.tscn" id="59_g4kjd"]
 [ext_resource type="PackedScene" uid="uid://bcoqgftnr4isn" path="res://Entities/Boss/RobotnikTemplate.tscn" id="60_x068e"]
-[ext_resource type="PackedScene" path="res://Entities/Backgrounds/GHZWaterfall.tscn" id="61_cuooh"]
+[ext_resource type="PackedScene" uid="uid://dh8yrljmerk0a" path="res://Entities/Backgrounds/GHZWaterfall.tscn" id="61_cuooh"]
 [ext_resource type="AudioStream" uid="uid://uu55iumak4r5" path="res://Audio/SFX/Ambiance/waterfall.wav" id="62_7xffd"]
 [ext_resource type="Texture2D" uid="uid://cfrumqj5mt4q3" path="res://Graphics/Tiles/WorldsTiles/HydoPipe.png" id="64_d1r0g"]
 [ext_resource type="PackedScene" uid="uid://bbf1sa8l70ygh" path="res://Entities/Gimmicks/fan.tscn" id="65_iomqv"]
@@ -99,8 +99,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kdk5h"]
 _data = {
-"Glow": SubResource("1"),
-"RESET": SubResource("2")
+&"Glow": SubResource("1"),
+&"RESET": SubResource("2")
 }
 
 [sub_resource type="RectangleShape2D" id="6"]

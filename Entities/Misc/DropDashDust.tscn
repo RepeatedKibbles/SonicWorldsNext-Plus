@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bu207ncbrfjm3" path="res://Graphics/Misc/skid_dust.png" id="6_rrcxq"]
 [ext_resource type="Texture2D" uid="uid://bu6a2evw5s7ne" path="res://Graphics/Misc/water_splash.png" id="7_nrkx3"]
 [ext_resource type="Texture2D" uid="uid://7hwanyy5pso6" path="res://Graphics/Misc/SuperSparkles.png" id="8_4ngfg"]
-[ext_resource type="Script" path="res://Scripts/Misc/FreeOnAnimationCompletion.gd" id="9_35t26"]
+[ext_resource type="Script" uid="uid://ccx7sl0jfjyjp" path="res://Scripts/Misc/FreeOnAnimationCompletion.gd" id="9_35t26"]
 
 [sub_resource type="AtlasTexture" id="189"]
 atlas = ExtResource("1_f832l")

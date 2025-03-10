@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bcoqgftnr4isn"]
 
-[ext_resource type="Script" path="res://Scripts/Boss/RobotnikTemplate.gd" id="1"]
+[ext_resource type="Script" uid="uid://cibofbqulj6l8" path="res://Scripts/Boss/RobotnikTemplate.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://bvhfglhmpystw" path="res://Audio/SFX/Boss/Hit.wav" id="2"]
 [ext_resource type="Texture2D" uid="uid://6ds1jcc8jmyf" path="res://Graphics/Boss/Eggmobile.png" id="3"]
 [ext_resource type="AudioStream" uid="uid://beo0rjyvqkyfe" path="res://Audio/SFX/Boss/Explode.wav" id="4"]

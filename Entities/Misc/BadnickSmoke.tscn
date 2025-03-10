@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://b8rfs0y4ldud2"]
 
-[ext_resource type="Script" path="res://Scripts/Misc/BadnickSmoke.gd" id="1"]
+[ext_resource type="Script" uid="uid://cgaonncnbkgi8" path="res://Scripts/Misc/BadnickSmoke.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b0skv4jtn811e" path="res://Graphics/Misc/explosion.png" id="2"]
 [ext_resource type="AudioStream" uid="uid://ivlmvt8mk3u4" path="res://Audio/SFX/Objects/DestroyObject.wav" id="3"]
 [ext_resource type="Texture2D" uid="uid://ckc0rilx6w0dq" path="res://Graphics/Misc/explosion3.png" id="4"]

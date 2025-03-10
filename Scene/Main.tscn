@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://byje3iiukvt4p"]
 
 [ext_resource type="AudioStream" uid="uid://dec4ik84l88go" path="res://Audio/Soundtrack/2. SWD_SpeedUp.ogg" id="1"]
-[ext_resource type="Script" path="res://Scripts/Global/Main.gd" id="2"]
+[ext_resource type="Script" uid="uid://0ft833g8oe2q" path="res://Scripts/Global/Main.gd" id="2"]
 [ext_resource type="AudioStream" uid="uid://b30ai1lqlh32u" path="res://Audio/Soundtrack/3. SWD_1Up.ogg" id="3"]
 [ext_resource type="PackedScene" uid="uid://c58ontqoxjuti" path="res://Scene/Presentation/PoweredByWorlds.tscn" id="4"]
 [ext_resource type="AudioStream" uid="uid://o4f15hnb5thp" path="res://Audio/Soundtrack/7. SWD_Drowning.ogg" id="5"]
@@ -126,11 +126,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iltn5"]
 _data = {
-"FadeOut": SubResource("2"),
-"RESET": SubResource("3"),
-"SetAdd": SubResource("4"),
-"SetSub": SubResource("5"),
-"WhiteOut": SubResource("Animation_rqlip")
+&"FadeOut": SubResource("2"),
+&"RESET": SubResource("3"),
+&"SetAdd": SubResource("4"),
+&"SetSub": SubResource("5"),
+&"WhiteOut": SubResource("Animation_rqlip")
 }
 
 [node name="Main" type="Node2D"]
