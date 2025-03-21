@@ -3,7 +3,7 @@ extends Area2D
 var players = []
 @export var speed = 400.0 # default power
 @export var canMove = true
-@export var moveSpeed = 100.0 # player movement power
+@export var moveSpeed = 200.0 # player movement power
 
 signal player_entered
 signal all_players_exited
@@ -52,16 +52,16 @@ func _physics_process(_delta):
 			
 			# force slide state
 			if i.currentState != i.STATES.ANIMATION or i.animator.current_animation != "current":
-				i.set_state(i.STATES.ANIMATION,i.currentHitbox.ROLL)
 				# check that specific animations aren't playing (related to under water bars)
 				if i.animator.current_animation != "clingVerticalBar" and i.animator.current_animation != "clingVerticalBarOffset":
+					i.set_state(i.STATES.ANIMATION,i.currentHitbox.ROLL)
 					i.animator.play("current")
 
 func _on_WindCurrent_body_entered(body):
 	if !players.has(body):
 		# emit signal for player touches (can be used for giant fans)
 		if players.size() == 0:
-			emit_signal("player_entered")
+			player_entered.emit()
 		players.append(body)
 
 
@@ -73,4 +73,4 @@ func _on_WindCurrent_body_exited(body):
 		players.erase(body)
 		# emit signal for players exiting (can be used for giant fans)
 		if players.size() == 0:
-			emit_signal("all_players_exited")
+			all_players_exited.emit()

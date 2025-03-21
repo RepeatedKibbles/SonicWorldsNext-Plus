@@ -35,10 +35,10 @@ func _physics_process(delta):
 
 func _on_WaterSlide_body_entered(body):
 	if !players.has(body):
-		body.set_state(body.STATES.NORMAL)
 		players.append(body)
 
 
 func _on_WaterSlide_body_exited(body):
 	if players.has(body):
+		body.set_state(body.STATES.NORMAL)
 		players.erase(body)

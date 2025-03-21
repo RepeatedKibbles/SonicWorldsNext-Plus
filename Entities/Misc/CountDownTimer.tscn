@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://1njf2n5mf43y" path="res://Graphics/Misc/CountDown.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://ceangqioyo4uf" path="res://Graphics/Items/air_bubbles.png" id="2"]
-[ext_resource type="Script" uid="uid://xb17jdrsck4j" path="res://Scripts/Misc/BubbleCountDown.gd" id="3"]
+[ext_resource type="Script" uid="uid://dgmlxusf6ju5v" path="res://Scripts/Misc/BubbleCountDown.gd" id="3"]
 
 [sub_resource type="AtlasTexture" id="5"]
 atlas = ExtResource("2")

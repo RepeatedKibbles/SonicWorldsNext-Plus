@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://6a42lup53clm"]
+[gd_scene load_steps=3 format=3 uid="uid://dj52jpn3jwowc"]
 
-[ext_resource type="Script" uid="uid://c02anbuc3nib" path="res://Scripts/Misc/Animal.gd" id="1"]
+[ext_resource type="Script" uid="uid://dpv0xkjgrl1mm" path="res://Scripts/Misc/Animal.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b5cdl1i7foiua" path="res://Graphics/Misc/animals.png" id="2"]
 
 [node name="Animal" type="Node2D"]

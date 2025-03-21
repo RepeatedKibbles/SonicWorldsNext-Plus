@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbgr61vh0hbby"]
+[gd_scene load_steps=4 format=3 uid="uid://dsrn1pt5ff02q"]
 
-[ext_resource type="Script" uid="uid://bjywar44mdwpx" path="res://Scripts/Objects/PhysicsObject.gd" id="1"]
-[ext_resource type="Script" uid="uid://bon57uej7llwo" path="res://Scripts/PropertiesLookup.gd" id="4"]
+[ext_resource type="Script" uid="uid://cu38ouhwh80mo" path="res://Scripts/Objects/PhysicsObject.gd" id="1"]
+[ext_resource type="Script" uid="uid://bynn5d0bn10pg" path="res://Scripts/PropertiesLookup.gd" id="4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(9, 19)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://qs5dmtxxf1w1"]
 
-[ext_resource type="Script" uid="uid://jbyyjexmlnp6" path="res://Scripts/Level/Title.gd" id="2"]
+[ext_resource type="Script" uid="uid://xp6yj6t2ij17" path="res://Scripts/Level/Title.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cbloyreqnle13" path="res://Graphics/title/Sonic_Worlds_Next_Logo.png" id="2_qt26u"]
 [ext_resource type="FontFile" uid="uid://ml62eqfe7avn" path="res://Graphics/Fonts/small_font.png" id="3_yuhp3"]
 [ext_resource type="Texture2D" uid="uid://dt51ojxk80oqh" path="res://Graphics/Items/Rings/Ring.tres" id="4_vmy7g"]
@@ -292,7 +292,7 @@ offset_right = 136.0
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_yuhp3")
-text = "v2.0.10 GIT MAIN"
+text = "v4.4 GIT MAIN"
 vertical_alignment = 2
 uppercase = true
 
@@ -358,7 +358,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="TitleAnimate" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pb3yv")
+&"": SubResource("AnimationLibrary_pb3yv")
 }
 autoplay = "TitleAssemble"
 
@@ -366,8 +366,8 @@ autoplay = "TitleAssemble"
 position = Vector2(152, 112)
 emitting = false
 amount = 32
-preprocess = 0.5
 texture = ExtResource("4_vmy7g")
+preprocess = 0.5
 emission_shape = 2
 emission_sphere_radius = 128.0
 direction = Vector2(0, -1)

@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://cnbx8aqif7hdw" path="res://Audio/SFX/Objects/Spikes.wav" id="1"]
 [ext_resource type="Texture2D" uid="uid://dnxa6qa422huo" path="res://Graphics/Hazards/spikes.png" id="2"]
-[ext_resource type="Script" uid="uid://bsvjpbx5ndhf4" path="res://Scripts/Objects/Spikes.gd" id="3"]
+[ext_resource type="Script" uid="uid://omlnj5m433g4" path="res://Scripts/Objects/Spikes.gd" id="3"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(32, 32)

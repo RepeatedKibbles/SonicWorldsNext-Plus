@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bct374kjctkxr"]
 
 [ext_resource type="Texture2D" uid="uid://b0rrjr0vqj386" path="res://Graphics/Items/starpost.png" id="1"]
-[ext_resource type="Script" uid="uid://dnrfaqdfyo1n4" path="res://Scripts/Objects/Checkpoint.gd" id="2"]
+[ext_resource type="Script" uid="uid://bxiwvpyjpc8s1" path="res://Scripts/Objects/Checkpoint.gd" id="2"]
 [ext_resource type="AudioStream" uid="uid://dydspge4asiqv" path="res://Audio/SFX/Objects/Checkpoint.wav" id="3"]
 
 [sub_resource type="RectangleShape2D" id="1"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://4q0hpddgto2k"]
 
 [ext_resource type="Texture2D" uid="uid://c7218f78hwl8o" path="res://Graphics/Gimmicks/springs_yellow.png" id="1"]
-[ext_resource type="Script" uid="uid://r0ntv3q6brlr" path="res://Scripts/Gimmicks/Spring.gd" id="2"]
+[ext_resource type="Script" uid="uid://q07syodnyjo8" path="res://Scripts/Gimmicks/Spring.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(32, 16)
@@ -153,7 +153,7 @@ region_rect = Rect2(0, 16, 32, 16)
 
 [node name="SpringAnimator" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3avuf")
+&"": SubResource("AnimationLibrary_3avuf")
 }
 
 [connection signal="body_entered" from="DiagonalHitBox" to="." method="_on_Diagonal_body_entered"]

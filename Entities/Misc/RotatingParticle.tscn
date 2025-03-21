@@ -1,51 +1,51 @@
-[gd_scene load_steps=66 format=3 uid="uid://b8tthwvxk5kyh"]
+[gd_scene load_steps=66 format=3 uid="uid://bqx4pgk1tdob5"]
 
 [ext_resource type="Texture2D" uid="uid://bihgasvpr4jyb" path="res://Graphics/Items/invincible_stars.png" id="1"]
-[ext_resource type="Script" uid="uid://b6tjvostx3tyo" path="res://Scripts/Misc/RotatingParticle.gd" id="2"]
+[ext_resource type="Script" uid="uid://duk4o0vuuakqc" path="res://Scripts/Misc/RotatingParticle.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://bu6a2evw5s7ne" path="res://Graphics/Misc/water_splash.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bu207ncbrfjm3" path="res://Graphics/Misc/skid_dust.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://7hwanyy5pso6" path="res://Graphics/Misc/SuperSparkles.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://bcighbbtky5cp" path="res://Graphics/Misc/DropDashDust.png" id="6"]
 
-[sub_resource type="AtlasTexture" id="118"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1d2o"]
 atlas = ExtResource("6")
-region = Rect2(0, 0, 32, 40)
+region = Rect2(0, 0, 32, 33)
 
-[sub_resource type="AtlasTexture" id="119"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipntk"]
 atlas = ExtResource("6")
-region = Rect2(32, 0, 32, 40)
+region = Rect2(32, 0, 32, 33)
 
-[sub_resource type="AtlasTexture" id="120"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4utqe"]
 atlas = ExtResource("6")
-region = Rect2(64, 0, 32, 40)
+region = Rect2(64, 0, 32, 33)
 
-[sub_resource type="AtlasTexture" id="121"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a6kw"]
 atlas = ExtResource("6")
-region = Rect2(96, 0, 32, 40)
+region = Rect2(96, 0, 32, 33)
 
-[sub_resource type="AtlasTexture" id="122"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xdve"]
 atlas = ExtResource("6")
-region = Rect2(128, 0, 32, 40)
+region = Rect2(0, 33, 32, 33)
 
-[sub_resource type="AtlasTexture" id="123"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcjum"]
 atlas = ExtResource("6")
-region = Rect2(0, 40, 32, 40)
+region = Rect2(32, 33, 32, 33)
 
-[sub_resource type="AtlasTexture" id="124"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcl7s"]
 atlas = ExtResource("6")
-region = Rect2(32, 40, 32, 40)
+region = Rect2(64, 33, 32, 33)
 
-[sub_resource type="AtlasTexture" id="125"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm8v5"]
 atlas = ExtResource("6")
-region = Rect2(64, 40, 32, 40)
+region = Rect2(96, 33, 32, 33)
 
-[sub_resource type="AtlasTexture" id="126"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ura1o"]
 atlas = ExtResource("6")
-region = Rect2(96, 40, 32, 40)
+region = Rect2(0, 66, 32, 33)
 
-[sub_resource type="AtlasTexture" id="127"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j1tp"]
 atlas = ExtResource("6")
-region = Rect2(128, 40, 32, 40)
+region = Rect2(32, 66, 32, 33)
 
 [sub_resource type="AtlasTexture" id="149"]
 atlas = ExtResource("1")
@@ -243,38 +243,38 @@ region = Rect2(217, 0, 31, 31)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("118")
+"texture": SubResource("AtlasTexture_d1d2o")
 }, {
 "duration": 1.0,
-"texture": SubResource("119")
+"texture": SubResource("AtlasTexture_ipntk")
 }, {
 "duration": 1.0,
-"texture": SubResource("120")
+"texture": SubResource("AtlasTexture_4utqe")
 }, {
 "duration": 1.0,
-"texture": SubResource("121")
+"texture": SubResource("AtlasTexture_5a6kw")
 }, {
 "duration": 1.0,
-"texture": SubResource("122")
+"texture": SubResource("AtlasTexture_0xdve")
 }, {
 "duration": 1.0,
-"texture": SubResource("123")
+"texture": SubResource("AtlasTexture_bcjum")
 }, {
 "duration": 1.0,
-"texture": SubResource("124")
+"texture": SubResource("AtlasTexture_pcl7s")
 }, {
 "duration": 1.0,
-"texture": SubResource("125")
+"texture": SubResource("AtlasTexture_xm8v5")
 }, {
 "duration": 1.0,
-"texture": SubResource("126")
+"texture": SubResource("AtlasTexture_ura1o")
 }, {
 "duration": 1.0,
-"texture": SubResource("127")
+"texture": SubResource("AtlasTexture_7j1tp")
 }],
-"loop": true,
+"loop": false,
 "name": &"DropDash",
-"speed": 30.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -469,8 +469,6 @@ animations = [{
 
 [node name="GenericParticle" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
-frames = SubResource("157")
-animation = "StarSinglePat2"
-frame = 8
-playing = true
+sprite_frames = SubResource("157")
+animation = &"DropDash"
 script = ExtResource("2")

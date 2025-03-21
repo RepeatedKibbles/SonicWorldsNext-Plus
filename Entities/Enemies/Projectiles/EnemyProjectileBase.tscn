@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://1y734ii31ebf"]
+[gd_scene load_steps=4 format=3 uid="uid://bkgun4bgsnfej"]
 
 [ext_resource type="Texture2D" uid="uid://dxb8f0gyty7av" path="res://Graphics/Enemies/buzzBomberProjectile.png" id="1"]
-[ext_resource type="Script" uid="uid://dor68o3i0rfk2" path="res://Scripts/Enemies/EnemyProjectileBase.gd" id="2"]
+[ext_resource type="Script" uid="uid://p3ua02jwlsrk" path="res://Scripts/Enemies/EnemyProjectileBase.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(4, 4)

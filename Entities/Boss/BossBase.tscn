@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://k84ve3cc70rs"]
+[gd_scene load_steps=5 format=3 uid="uid://4x1wo0fatbd2"]
 
-[ext_resource type="Script" uid="uid://dljuyy4kme0ae" path="res://Scripts/Boss/BossBase.gd" id="1"]
+[ext_resource type="Script" uid="uid://dwa8te26lolrp" path="res://Scripts/Boss/BossBase.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://bvhfglhmpystw" path="res://Audio/SFX/Boss/Hit.wav" id="2"]
 [ext_resource type="Texture2D" uid="uid://6ds1jcc8jmyf" path="res://Graphics/Boss/Eggmobile.png" id="3"]
 

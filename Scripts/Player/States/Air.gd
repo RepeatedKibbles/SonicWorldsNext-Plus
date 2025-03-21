@@ -1,4 +1,3 @@
-
 extends PlayerState
 
 var elecPart = preload("res://Entities/Misc/ElecParticles.tscn")
@@ -27,7 +26,7 @@ func _process(_delta):
 		# Shield actions
 		elif ((parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION2] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1) and !parent.abilityUsed and isJump):
 			# Super actions
-			if parent.isSuper and parent.character == Global.CHARACTERS.SONIC:
+			if parent.isSuper and (parent.character == Global.CHARACTERS.SONIC):
 				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and Amy only)
 			# Normal actions
 			else:
@@ -98,8 +97,6 @@ func _process(_delta):
 										# set movement and bounce reaction
 										parent.movement = Vector2(0,8*60)
 										parent.bounceReaction = 7.5
-										if parent.water:
-											parent.bounceReaction = 4
 										parent.shieldSprite.play("BubbleAction")
 										# set timer for animation related resets
 										var getTimer = parent.shieldSprite.get_node_or_null("ShieldTimer")
@@ -134,7 +131,6 @@ func _process(_delta):
 						parent.movement.y = -5.5*60.0
 						# Restore Air Control
 						parent.airControl = true
-						
 
 
 func _physics_process(delta):
@@ -210,7 +206,7 @@ func _physics_process(delta):
 					# else calculate landing
 					else:
 						parent.movement.x = clamp((parent.movement.x/2) + (dropSpeed[int(parent.isSuper)]*60*parent.direction), -dropMax[int(parent.isSuper)]*60,dropMax[int(parent.isSuper)]*60)
-				# Sonics drop dash handle
+				# Sonic's drop dash handle
 				if parent.character == Global.CHARACTERS.SONIC:
 					# stop vertical movement downard
 					parent.movement.y = min(0,parent.movement.y)

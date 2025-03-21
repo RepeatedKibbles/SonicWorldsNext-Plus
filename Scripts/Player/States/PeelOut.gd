@@ -31,7 +31,6 @@ func _process(delta):
 	if parent.water and parent.isSuper:
 		speedCalc = parent.spindashPower*40
 
-
 	# release
 	if (parent.inputs[parent.INPUTS.YINPUT] >= 0):
 		# Lock camera

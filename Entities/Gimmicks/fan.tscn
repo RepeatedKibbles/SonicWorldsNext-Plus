@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbf1sa8l70ygh"]
 
-[ext_resource type="Script" uid="uid://dr4x0mybmbne0" path="res://Scripts/Gimmicks/Fan.gd" id="1_5mjmq"]
+[ext_resource type="Script" uid="uid://ddj4b6m54dcf4" path="res://Scripts/Gimmicks/Fan.gd" id="1_5mjmq"]
 [ext_resource type="Texture2D" uid="uid://dic8lihkjwmua" path="res://Graphics/Gimmicks/SmallTurbines.png" id="2_dd5q0"]
 [ext_resource type="AudioStream" uid="uid://bbng42jqn5isl" path="res://Audio/SFX/Gimmicks/SmallFan.wav" id="3_206io"]
 
@@ -22,7 +22,7 @@ debug_color = Color(0.666667, 0, 1, 0.501961)
 texture = ExtResource("2_dd5q0")
 offset = Vector2(0, 4)
 vframes = 5
-frame = 1
+frame = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 120)
 

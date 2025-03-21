@@ -3,8 +3,8 @@
 [ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://c05fsbnx0p7xf" path="res://Graphics/Players/Tails.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://dlomjk6vm15ep" path="res://Graphics/Misc/DashDust.png" id="3"]
-[ext_resource type="Script" uid="uid://d2mieao6s1uve" path="res://Scripts/Player/TailsAnimator.gd" id="4"]
-[ext_resource type="Script" uid="uid://cqw3lwgkcbmbl" path="res://Scripts/Player/TailsSpriteSettings.gd" id="5"]
+[ext_resource type="Script" uid="uid://dfrdmfoao7i7g" path="res://Scripts/Player/TailsAnimator.gd" id="4"]
+[ext_resource type="Script" uid="uid://dwcg8hkafy4n4" path="res://Scripts/Player/TailsSpriteSettings.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://dvqglf8dididc" path="res://Graphics/Items/shield_plain.png" id="6_kof51"]
 
 [sub_resource type="Animation" id="86"]

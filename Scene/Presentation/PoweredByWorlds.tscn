@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://botxtfwf3ns1j" path="res://Audio/SFX/Misc/SpecialWarp.wav" id="3"]
 [ext_resource type="Texture2D" uid="uid://cmtdertavy6i4" path="res://Graphics/title/SonicWorldsLogo.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://cy0i0dbqpb5eu" path="res://Audio/SFX/Misc/Emerald.wav" id="5"]
-[ext_resource type="Script" uid="uid://c6rqe0ya06wmb" path="res://Scripts/Level/PoweredByWorlds.gd" id="6"]
+[ext_resource type="Script" uid="uid://06vxf688wvrm" path="res://Scripts/Level/PoweredByWorlds.gd" id="6"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Animation"

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://danqccuseblhs"]
+[gd_scene load_steps=3 format=3 uid="uid://5xsop85cx2xk"]
 
-[ext_resource type="Script" uid="uid://wl02xgaio0tt" path="res://Scripts/Misc/BreakableBlockPiece.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfbvs8clai7ei" path="res://Scripts/Misc/BreakableBlockPiece.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dnmy18lc2iyh6" path="res://Graphics/Obstacles/Blocks/breakable_block.png" id="2"]
 
 [node name="BlockPiece" type="Sprite2D"]

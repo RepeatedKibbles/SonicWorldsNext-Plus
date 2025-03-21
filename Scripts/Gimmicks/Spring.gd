@@ -100,7 +100,7 @@ func physics_collision(body, hitVector):
 		$SpringAnimator.play(animList[animID])
 		Global.play_sound(springSound)
 		
-		# Restore Air Control
+		#Restore Air Control
 		body.airControl = true
 		# Disable pole grabs
 		body.poleGrabID = self
