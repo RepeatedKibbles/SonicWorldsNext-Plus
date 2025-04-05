@@ -4,9 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://qs5dmtxxf1w1" path="res://Scene/Presentation/Title.tscn" id="2_l4fq6"]
 [ext_resource type="Script" uid="uid://bcmt1dehwhmt7" path="res://Scripts/Objects/StateMovers/StateMoverPositional.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://c30uceea18q1w" path="res://Entities/Misc/HUD.tscn" id="4"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://b7ikjbxdr66rn" path="res://Scripts/Objects/StateMovers/StateMoverMaster.gd" id="5"]
 [ext_resource type="Script" uid="uid://ceb6h5vock1eh" path="res://Tools/Editor/disposal.gd" id="5_bdrgf"]
 [ext_resource type="Script" uid="uid://dyevcclbffcpm" path="res://Scripts/Objects/StateMovers/StateMoverPathFollower.gd" id="6"]
+=======
+[ext_resource type="Script" path="res://Scripts/Objects/StateMovers/StateMoverMaster.gd" id="5"]
+[ext_resource type="Script" path="res://Tools/Editor/disposal.gd" id="5_bdrgf"]
+[ext_resource type="Script" path="res://Scripts/Objects/StateMovers/StateMoverPathFollower.gd" id="6"]
+>>>>>>> 26b22f666e8360c780280b0a1089daf6545791a6
 [ext_resource type="TileSet" uid="uid://b52aenq8bhfsf" path="res://Tileset/Worlds/WorldsTileMap.tres" id="6_1cyhs"]
 [ext_resource type="FontFile" uid="uid://db34gx0mhx148" path="res://Graphics/Fonts/JetBrainsMono-Regular.ttf" id="6_owcub"]
 [ext_resource type="PackedScene" uid="uid://cxxmrbgw17gnw" path="res://Entities/Gimmicks/CNZBarrel.tscn" id="7"]
@@ -26,20 +32,33 @@
 [ext_resource type="Texture2D" uid="uid://bemwlrblbgn23" path="res://Graphics/Backgrounds/WorldsBackground.png" id="25"]
 [ext_resource type="AudioStream" uid="uid://dh4rsaka62ph4" path="res://Audio/SFX/Gimmicks/Switch.wav" id="26_750k6"]
 [ext_resource type="PackedScene" uid="uid://dh346sb5sjgmo" path="res://Entities/Gimmicks/MonkeyBar/ChainedMonkeyBar.tscn" id="27_obgon"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://tyex3bjrk80h" path="res://Tools/Gameplay/LayerController.gd" id="28_0mv3i"]
 [ext_resource type="Script" uid="uid://svndg2vpw6oa" path="res://Tools/Audio/AudioStream2DController.gd" id="28_qm53g"]
+=======
+[ext_resource type="Script" path="res://Tools/Gameplay/LayerController.gd" id="28_0mv3i"]
+[ext_resource type="Script" path="res://Tools/Audio/AudioStream2DController.gd" id="28_qm53g"]
+>>>>>>> 26b22f666e8360c780280b0a1089daf6545791a6
 [ext_resource type="PackedScene" uid="uid://btna3kqcoupda" path="res://Entities/Gimmicks/MonkeyBar/MonkeyBar.tscn" id="28_usl31"]
 [ext_resource type="PackedScene" uid="uid://bleoc0gltofoh" path="res://Entities/Gimmicks/Teleporter.tscn" id="30_hr13y"]
 [ext_resource type="PackedScene" uid="uid://di85tknpw5cf0" path="res://Entities/Gimmicks/HorizontalSlider.tscn" id="31_x0wx6"]
 [ext_resource type="AudioStream" uid="uid://ewf3mg6kdb4j" path="res://Audio/SFX/Gimmicks/ChainLift.wav" id="32_hp7tg"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://ofq1b18lm61v" path="res://Scripts/Gimmicks/MonkeyBar/horizontal_slider.gd" id="33_8dlmw"]
+=======
+[ext_resource type="Script" path="res://Scripts/Gimmicks/MonkeyBar/horizontal_slider.gd" id="33_8dlmw"]
+>>>>>>> 26b22f666e8360c780280b0a1089daf6545791a6
 [ext_resource type="PackedScene" uid="uid://xpsg8eoppqbo" path="res://Entities/Gimmicks/MonkeyBar/Hook.tscn" id="33_ix8uv"]
 [ext_resource type="PackedScene" uid="uid://c2esop5orct10" path="res://Entities/MainObjects/GoalPost.tscn" id="34"]
 [ext_resource type="PackedScene" uid="uid://chyrwm1qwvlyt" path="res://Entities/Gimmicks/Switch.tscn" id="36_bann4"]
 [ext_resource type="PackedScene" uid="uid://dasp221fqgrno" path="res://Entities/Obstacles/Platform.tscn" id="38"]
 [ext_resource type="PackedScene" uid="uid://cfteqnft5ynr7" path="res://Entities/Hazards/Spikes.tscn" id="39_13rhf"]
 [ext_resource type="PackedScene" uid="uid://c1n8wnllp8pk2" path="res://Entities/Items/SpecialStageRing.tscn" id="40_mjl70"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://du81f36nvo0on" path="res://Entities/Backgrounds/GHZWaterfall.tscn" id="41_mosa4"]
+=======
+[ext_resource type="PackedScene" path="res://Entities/Backgrounds/GHZWaterfall.tscn" id="41_mosa4"]
+>>>>>>> 26b22f666e8360c780280b0a1089daf6545791a6
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Glow"
@@ -1089,8 +1108,13 @@ travelDistance = 252
 [connection signal="target_reached" from="HookSliderAssembly/HookSlider/MobileHook/RetractibleChain" to="HookSliderAssembly/HookSlider" method="send_to_target" binds= [615]]
 [connection signal="pressed" from="Switch" to="ChainedMonkeyBar/RetractibleChain" method="set_default_target" binds= [170]]
 [connection signal="pressed" from="Switch" to="ChainedMonkeyBar/RetractibleChain" method="send_to_height" binds= [609]]
+<<<<<<< HEAD
 [connection signal="pressed" from="Switch2" to="ChainedMonkeyBar/RetractibleChain" method="set_home_height" binds= [170]]
 [connection signal="pressed" from="Switch2" to="ChainedMonkeyBar/RetractibleChain" method="set_default_target" binds= [0]]
+=======
+[connection signal="pressed" from="Switch2" to="ChainedMonkeyBar/RetractibleChain" method="set_default_target" binds= [0]]
+[connection signal="pressed" from="Switch2" to="ChainedMonkeyBar/RetractibleChain" method="set_home_height" binds= [170]]
+>>>>>>> 26b22f666e8360c780280b0a1089daf6545791a6
 [connection signal="pressed" from="Switch2" to="ChainedMonkeyBar/RetractibleChain" method="send_to_height" binds= [170]]
 
 [editable path="ChainedMonkeyBar2"]

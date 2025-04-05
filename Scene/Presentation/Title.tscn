@@ -309,7 +309,11 @@ offset_top = -11.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_yuhp3")
+<<<<<<< HEAD
 text = "2021-2025"
+=======
+text = "2021 2025"
+>>>>>>> 26b22f666e8360c780280b0a1089daf6545791a6
 horizontal_alignment = 2
 vertical_alignment = 2
 
