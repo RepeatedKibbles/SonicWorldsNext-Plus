@@ -23,10 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 hinting=1
 subpixel_positioning=1
-<<<<<<< HEAD
 keep_rounding_remainders=true
-=======
->>>>>>> 26b22f666e8360c780280b0a1089daf6545791a6
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

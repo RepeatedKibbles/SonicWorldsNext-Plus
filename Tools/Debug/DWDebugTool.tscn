@@ -1,10 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://b2n5ptpbq5ysg"]
 
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://dmxx5wesmkur7" path="res://Tools/Debug/DWDebugTool.gd" id="1_8ihaf"]
-=======
-[ext_resource type="Script" path="res://Tools/Debug/DWDebugTool.gd" id="1_8ihaf"]
->>>>>>> 26b22f666e8360c780280b0a1089daf6545791a6
 [ext_resource type="TileSet" uid="uid://b52aenq8bhfsf" path="res://Tileset/Worlds/WorldsTileMap.tres" id="1_n6fbn"]
 
 [node name="DWDebugTool" type="Node2D"]
