@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbf1sa8l70ygh"]
 
-[ext_resource type="Script" uid="uid://ddj4b6m54dcf4" path="res://Scripts/Gimmicks/Fan.gd" id="1_5mjmq"]
+[ext_resource type="Script" uid="uid://dy7xgu2mguc8i" path="res://Scripts/Gimmicks/Fan.gd" id="1_5mjmq"]
 [ext_resource type="Texture2D" uid="uid://dic8lihkjwmua" path="res://Graphics/Gimmicks/SmallTurbines.png" id="2_dd5q0"]
 [ext_resource type="AudioStream" uid="uid://bbng42jqn5isl" path="res://Audio/SFX/Gimmicks/SmallFan.wav" id="3_206io"]
 

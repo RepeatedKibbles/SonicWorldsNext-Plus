@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnwubi6v51d4j"]
+[gd_scene load_steps=7 format=3 uid="uid://du81f36nvo0on"]
 
 [ext_resource type="Texture2D" uid="uid://c22rne52kgp8m" path="res://Graphics/Backgrounds/GHZWaterfall/waterfall_top.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://c72aiocuafrcs" path="res://Graphics/Backgrounds/GHZWaterfall/waterfall_base_f1.png" id="2"]
-[ext_resource type="Script" uid="uid://bw0fso5i7sbr7" path="res://Scripts/Backgrounds/GHZWaterfall.gd" id="3"]
+[ext_resource type="Script" uid="uid://cgd6jwlxkhrsq" path="res://Scripts/Backgrounds/GHZWaterfall.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://c1ihd8pa6cmfm" path="res://Graphics/Backgrounds/GHZWaterfall/waterfall_base_f4.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://dgepfg45nnq3" path="res://Graphics/Backgrounds/GHZWaterfall/waterfall_base_f3.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://dk5feye43wmqa" path="res://Graphics/Backgrounds/GHZWaterfall/waterfall_base_f2.png" id="6"]

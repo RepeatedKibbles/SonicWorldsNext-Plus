@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://braiivlqhtg6v"]
+[gd_scene load_steps=4 format=3 uid="uid://brmyodk74pljg"]
 
-[ext_resource type="Script" uid="uid://sqwt3apvcxne" path="res://Scripts/Enemies/EnemyBase.gd" id="1"]
+[ext_resource type="Script" uid="uid://br6glkmtpmlk5" path="res://Scripts/Enemies/EnemyBase.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://ca8c5sryvf1j2" path="res://Graphics/Enemies/orbinaut.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]

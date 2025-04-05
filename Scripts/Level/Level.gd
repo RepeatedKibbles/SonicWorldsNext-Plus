@@ -65,3 +65,7 @@ func level_reset_data(playCard = true):
 	# if global hud and play card, run hud ready script
 	if playCard and is_instance_valid(Global.hud):
 		$HUD._ready()
+
+
+func _on_WaterSlide_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

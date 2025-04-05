@@ -6,7 +6,7 @@ var elecPart = preload("res://Entities/Misc/ElecParticles.tscn")
 
 # drop dash variables
 var dropSpeed = [8,12] #the base speed for a drop dash, second is super
-var dropMax = [12,13] #the top speed for a drop dash, second is super
+var dropMax = [12,13]   #the top speed for a drop dash, second is super
 var dropTimer = 0
 
 var lockDir = false
@@ -27,7 +27,7 @@ func _process(_delta):
 		elif ((parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION2] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1) and !parent.abilityUsed and isJump):
 			# Super actions
 			if parent.isSuper and (parent.character == Global.CHARACTERS.SONIC):
-				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and Amy only)
+				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and amy only)
 			# Normal actions
 			else:
 				match (parent.character):
@@ -150,7 +150,7 @@ func _physics_process(delta):
 		# Cut vertical movement if jump released
 		if !parent.any_action_held_or_pressed() and parent.movement.y < -parent.releaseJmp*60:
 			parent.movement.y = -parent.releaseJmp*60
-		# Drop dash (for Sonic / Amy)
+		# Drop dash (for sonic / amy)
 		if parent.character == Global.CHARACTERS.SONIC or parent.character == Global.CHARACTERS.AMY:
 			
 			if parent.any_action_held_or_pressed() and parent.abilityUsed and (parent.shield <= parent.SHIELDS.NORMAL or parent.isSuper or $"../../InvincibilityBarrier".visible or parent.character == Global.CHARACTERS.AMY):
@@ -161,7 +161,7 @@ func _physics_process(delta):
 				else:
 					if parent.animator.current_animation != "dropDash":
 						parent.animator.play("dropDash")
-			# Drop dash reset (if Sonic, hammer keeps swinging for Amy)
+			# Drop dash reset (if sonic, hammer keeps swinging for amy)
 			elif !parent.any_action_held_or_pressed() and dropTimer > 0:
 				dropTimer = 0
 				if parent.animator.current_animation == "dropDash" and parent.character == Global.CHARACTERS.SONIC:
@@ -191,7 +191,7 @@ func _physics_process(delta):
 			# return to normal state
 			parent.set_state(parent.STATES.NORMAL)
 			
-			# Drop dash release (for Sonic / Amy)
+			# Drop dash release (for sonic / amy)
 			if dropTimer >= 1 and (parent.character == Global.CHARACTERS.SONIC or parent.character == Global.CHARACTERS.AMY):
 				# Check if moving forward or back
 				# Forward landing
@@ -206,7 +206,7 @@ func _physics_process(delta):
 					# else calculate landing
 					else:
 						parent.movement.x = clamp((parent.movement.x/2) + (dropSpeed[int(parent.isSuper)]*60*parent.direction), -dropMax[int(parent.isSuper)]*60,dropMax[int(parent.isSuper)]*60)
-				# Sonic's drop dash handle
+				# Sonics drop dash handle
 				if parent.character == Global.CHARACTERS.SONIC:
 					# stop vertical movement downard
 					parent.movement.y = min(0,parent.movement.y)

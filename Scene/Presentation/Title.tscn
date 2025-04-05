@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://qs5dmtxxf1w1"]
 
-[ext_resource type="Script" uid="uid://xp6yj6t2ij17" path="res://Scripts/Level/Title.gd" id="2"]
+[ext_resource type="Script" uid="uid://kyet1vch8afm" path="res://Scripts/Level/Title.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cbloyreqnle13" path="res://Graphics/title/Sonic_Worlds_Next_Logo.png" id="2_qt26u"]
 [ext_resource type="FontFile" uid="uid://ml62eqfe7avn" path="res://Graphics/Fonts/small_font.png" id="3_yuhp3"]
 [ext_resource type="Texture2D" uid="uid://dt51ojxk80oqh" path="res://Graphics/Items/Rings/Ring.tres" id="4_vmy7g"]
@@ -309,7 +309,7 @@ offset_top = -11.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_yuhp3")
-text = "2021 2023"
+text = "2021-2025"
 horizontal_alignment = 2
 vertical_alignment = 2
 
@@ -320,9 +320,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 25.0
+offset_left = 15.0
 offset_top = -24.0
-offset_right = 25.0
+offset_right = 15.0
 grow_horizontal = 2
 grow_vertical = 0
 

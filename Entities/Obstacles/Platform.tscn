@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dasp221fqgrno"]
 
-[ext_resource type="Script" uid="uid://c1q4mhq011mc6" path="res://Scripts/Objects/Platform.gd" id="1"]
-[ext_resource type="Script" uid="uid://b1byxpvk6hj62" path="res://Scripts/Objects/PlatformChild.gd" id="2"]
+[ext_resource type="Script" uid="uid://b60kakplow3t7" path="res://Scripts/Objects/Platform.gd" id="1"]
+[ext_resource type="Script" uid="uid://cr764lbvye4e0" path="res://Scripts/Objects/PlatformChild.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 resource_local_to_scene = true

@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://b52aenq8bhfsf"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://b52aenq8bhfsf"]
 
 [ext_resource type="Texture2D" uid="uid://peu6hqmlsdmd" path="res://Graphics/Tiles/WorldsTiles/TilesetDefault.png" id="1_6a5a5"]
 [ext_resource type="Texture2D" uid="uid://bu0hr0tsbovcg" path="res://Graphics/Tiles/WorldsTiles/TilesetHigh.png" id="2_qliju"]
 [ext_resource type="Texture2D" uid="uid://dsrtigca8pae2" path="res://Graphics/Tiles/WorldsTiles/TilesetLow.png" id="3_yrg7w"]
 [ext_resource type="Texture2D" uid="uid://jhcoxi6mbm8s" path="res://Graphics/Tiles/WorldsTiles/TilesetPlatform.png" id="4_2s0hy"]
 [ext_resource type="Texture2D" uid="uid://brxhu5oqknmd6" path="res://Graphics/Tiles/WorldsTiles/TilesetBack.png" id="5_p0tg6"]
+[ext_resource type="Texture2D" uid="uid://cavhisrssm21l" path="res://Graphics/Tiles/Misc/RippedDoodads.png" id="6_lbh2y"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_qn5fl"]
 tile_data = PackedInt32Array(131072, 917504, 0, 196608, 917504, 1, 262144, 917504, 0, 327680, 917504, 1, 393216, 917504, 0, 458752, 917504, 1, 65537, 917504, 0, 131073, 917504, 3, 196609, 983040, 1, 262145, 983040, 0, 327681, 917504, 2, 393217, 917504, 3, 458753, 983040, 1, 2, 917504, 0, 65538, 983040, 2, 131074, 983040, 3, 196610, 917504, 1, 262146, 917504, 0, 327682, 983040, 2, 393218, 983040, 3, 458754, 917504, 1, 3, 983040, 0, 65539, 983040, 1, 131075, 983040, 0, 196611, 917504, 2, 262147, 917504, 3, 327683, 983040, 1, 393219, 983040, 0, 458755, 983040, 1, 131076, 917504, 0, 196612, 983040, 2, 262148, 983040, 3, 327684, 917504, 1, 393220, 917504, 0, 458756, 917504, 1, 65541, 917504, 0, 131077, 983040, 2, 196613, 983040, 1, 262149, 983040, 0, 327685, 917504, 2, 393221, 917504, 3, 458757, 983040, 1, 65542, 983040, 0, 131078, 983040, 1, 262150, 917504, 0, 327686, 983040, 2, 393222, 983040, 3, 458758, 917504, 1, 262151, 983040, 0, 327687, 983040, 1, 393223, 983040, 0, 458759, 983040, 1)
@@ -9561,6 +9562,25 @@ texture = ExtResource("1_6a5a5")
 14:90/0 = 0
 15:90/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gl45"]
+texture = ExtResource("6_lbh2y")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 15
 physics_layer_0/collision_mask = 15
@@ -9575,6 +9595,7 @@ sources/2 = SubResource("TileSetAtlasSource_c5rw3")
 sources/3 = SubResource("TileSetAtlasSource_cstg3")
 sources/4 = SubResource("TileSetAtlasSource_jkflm")
 sources/5 = SubResource("TileSetAtlasSource_tmpv4")
+sources/7 = SubResource("TileSetAtlasSource_4gl45")
 pattern_0 = SubResource("TileMapPattern_qn5fl")
 pattern_1 = SubResource("TileMapPattern_qy2dr")
 pattern_2 = SubResource("TileMapPattern_nawd3")

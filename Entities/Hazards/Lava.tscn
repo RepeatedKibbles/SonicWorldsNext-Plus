@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8bt0u45oqhe6"]
 
-[ext_resource type="Script" uid="uid://brja1r5bjcppf" path="res://Scripts/Objects/Lava.gd" id="2"]
+[ext_resource type="Script" uid="uid://c5a6tbxvjd0j1" path="res://Scripts/Objects/Lava.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://d2boiuwbrsx7o" path="res://Graphics/Hazards/LavaTiles3.png" id="2_la61x"]
 [ext_resource type="Texture2D" uid="uid://d2d6btnsclelg" path="res://Graphics/Hazards/LavaTop3.png" id="3_ktl37"]
 

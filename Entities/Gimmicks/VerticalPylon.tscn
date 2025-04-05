@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://3qpa54q3wjoh"]
 
 [ext_resource type="Texture2D" uid="uid://dbs3csa84c8lh" path="res://Graphics/Gimmicks/FBZPylonCenter.png" id="1"]
-[ext_resource type="Script" uid="uid://bgdqnklgfq4q1" path="res://Scripts/Gimmicks/VerticalPylon.gd" id="2"]
+[ext_resource type="Script" uid="uid://c4l1b5661xfqc" path="res://Scripts/Gimmicks/VerticalPylon.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://c0uoatd1qn8nj" path="res://Graphics/Gimmicks/FBZPylon.png" id="3"]
 
 [sub_resource type="Animation" id="1"]
@@ -61,7 +61,7 @@ script = ExtResource("2")
 position = Vector2(0, -65)
 texture = ExtResource("1")
 hframes = 3
-frame = 2
+frame = 1
 region_enabled = true
 region_rect = Rect2(0, 0, 48, 96)
 
@@ -70,14 +70,14 @@ position = Vector2(0, -7.5)
 texture = ExtResource("3")
 hframes = 3
 vframes = 2
-frame = 5
+frame = 4
 
 [node name="FBZ_Pylon_Top" type="Sprite2D" parent="."]
 position = Vector2(0, -121.5)
 texture = ExtResource("3")
 hframes = 3
 vframes = 2
-frame = 2
+frame = 1
 
 [node name="FBZ_Pylon_Animator" type="AnimationPlayer" parent="."]
 callback_mode_method = 1

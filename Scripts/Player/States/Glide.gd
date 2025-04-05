@@ -151,8 +151,6 @@ func _physics_process(delta):
 			parent.sfx[26].play()
 			parent.animator.play("climb")
 			parent.movement = Vector2.ZERO
-			# Restore Air Control
-			parent.airControl = true
 		
 		# prevent getting stuck on corners
 		parent.horizontalSensor.position.y = (parent.get_node("HitBox").shape.size.y/2)-1

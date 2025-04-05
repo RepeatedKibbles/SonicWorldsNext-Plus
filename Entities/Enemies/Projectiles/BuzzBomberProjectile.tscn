@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://gosgf5p807mw"]
+[gd_scene load_steps=9 format=3 uid="uid://bx80i0n62ratp"]
 
-[ext_resource type="Script" uid="uid://p3ua02jwlsrk" path="res://Scripts/Enemies/EnemyProjectileBase.gd" id="1"]
+[ext_resource type="Script" uid="uid://crikc53546sfu" path="res://Scripts/Enemies/EnemyProjectileBase.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dxb8f0gyty7av" path="res://Graphics/Enemies/buzzBomberProjectile.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
