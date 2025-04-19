@@ -267,11 +267,7 @@ func _reset_air():
 
 func _add_score(subtractFrom,delta):
 	# Normally we add 100 points per frame at 60 FPS, but player's framerate may
-<<<<<<< Updated upstream
 	# be different. To accommodate for that, we count the number of points based
-=======
-	# be different. To accomodate for that, we count the number of points based
->>>>>>> Stashed changes
 	# on time passed since the previous frame.
 	accumulatedDelta += delta
 	var standardDelta = 1.0 / 60.0
@@ -296,12 +292,8 @@ func _on_CounterCount_timeout(delta):
 	elif ringBonus > 0:
 		ringBonus = _add_score(ringBonus,delta)
 	else:
-<<<<<<< Updated upstream
 		# Don't stop the tick sound abruptly, just disable looping,
 		# so it stops by itself after it plays until the end once
-=======
-		# Don't stop the tick sound abruptly, just make it play until the end once
->>>>>>> Stashed changes
 		$LevelClear/Counter.stream.loop_mode = AudioStreamWAV.LOOP_DISABLED
 		# stop counter timer and play score sound
 		$LevelClear/CounterCount.stop()
