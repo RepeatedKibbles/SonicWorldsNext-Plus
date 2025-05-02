@@ -271,8 +271,8 @@ func _ready():
 	get_parent().call_deferred("add_child", (camera))
 	camera.enabled = (playerControl == 1)
 	var viewSize = get_viewport_rect().size
-	camera.drag_left_margin =   camDist.x/viewSize.x
-	camera.drag_right_margin =  camDist.x/viewSize.x
+	camera.drag_left_margin =   camDist.x/viewSize.x # make this 0
+	camera.drag_right_margin =  camDist.x/viewSize.x # this too
 	camera.drag_top_margin =    camDist.y/viewSize.y
 	camera.drag_bottom_margin = camDist.y/viewSize.y
 	camera.drag_horizontal_enabled = true
@@ -1296,15 +1296,26 @@ func cam_update(forceMove = false):
 		Global.CHARACTERS.TAILS:
 			match($HitBox.shape.size):
 				currentHitbox.ROLL:
-					camAdjust = Vector2(0,-1)
+					camAdjust.y = -1
 				_:
-					camAdjust = Vector2.ZERO
+					camAdjust.y = 0
 		_: # default
 			match($HitBox.shape.size):
 				currentHitbox.ROLL:
-					camAdjust = Vector2(0,-5)
+					camAdjust.y = -5
 				_:
-					camAdjust = Vector2.ZERO
+					camAdjust.y = 0
+
+	# Extended Camera
+	if currentState == STATES.SPINDASH or currentState == STATES.PEELOUT: # charging a spindash or peelout
+		camAdjust.x += direction*2
+	elif movement.x >= 6*60: # running right
+		camAdjust.x += 2 # move right
+	elif movement.x <= -6*60: # running left
+		camAdjust.x -= 2
+	elif camAdjust.x != 0: # the check for 0 is here to prevent it moving past 0
+		camAdjust.x -= sign(camAdjust.x)*2 # move back to center if not any of this
+	camAdjust.x = clamp(camAdjust.x, -64, 64) # stop at 64 pixels
 
 	# Camera lock
 	# remove round() if you are not making a pixel perfect game
