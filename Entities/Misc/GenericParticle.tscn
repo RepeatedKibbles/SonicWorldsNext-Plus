@@ -1,7 +1,7 @@
 [gd_scene load_steps=88 format=3 uid="uid://dmrtm7r6hfbfr"]
 
 [ext_resource type="Texture2D" uid="uid://bihgasvpr4jyb" path="res://Graphics/Items/invincible_stars.png" id="1"]
-[ext_resource type="Script" uid="uid://4ns843m5fn7p" path="res://Scripts/Misc/FreeOnAnimationCompletion.gd" id="2"]
+[ext_resource type="Script" uid="uid://dsx7hs0iidls1" path="res://Scripts/Misc/FreeOnAnimationCompletion.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://bu6a2evw5s7ne" path="res://Graphics/Misc/water_splash.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bu207ncbrfjm3" path="res://Graphics/Misc/skid_dust.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bcighbbtky5cp" path="res://Graphics/Misc/DropDashDust.png" id="5"]
@@ -623,6 +623,7 @@ animations = [{
 }]
 
 [node name="GenericParticle" type="AnimatedSprite2D"]
+z_index = 1
 sprite_frames = SubResource("157")
 script = ExtResource("2")
 
