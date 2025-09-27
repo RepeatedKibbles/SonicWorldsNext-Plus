@@ -623,7 +623,7 @@ animations = [{
 }]
 
 [node name="GenericParticle" type="AnimatedSprite2D"]
-z_index = 1
+z_index = 5
 sprite_frames = SubResource("157")
 script = ExtResource("2")
 
