@@ -1766,7 +1766,7 @@ position = Vector2(7088, 944)
 position = Vector2(9328, 496)
 
 [node name="BossBoundrySetter" parent="Enemies" instance=ExtResource("59_g4kjd")]
-position = Vector2(9872, 80)
+position = Vector2(9873, 80)
 bossPath = NodePath("../Robotnik")
 keepRightLocked = false
 lockTop = false
@@ -1777,7 +1777,7 @@ ratchetScrollLeft = true
 position = Vector2(9872, 40)
 
 [node name="GHZWaterfall" parent="." instance=ExtResource("61_cuooh")]
-z_index = -51
+z_index = 10
 position = Vector2(1088, 752)
 width = 6.0
 height = 13.0

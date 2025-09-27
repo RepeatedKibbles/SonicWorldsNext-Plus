@@ -10,6 +10,12 @@ func _process(_delta):
 		parent.sprite.flip_v = true
 		parent.sprite.offset.y = 4
 	
+	# roll
+	if parent.inputs[parent.INPUTS.YINPUT] == 1 and parent.inputs[parent.INPUTS.XINPUT] == 0 and not parent.animator.current_animation == "roll":
+		parent.animator.play("roll")
+		parent.set_state(parent.STATES.ROLL)
+		parent.sfx[1].play()
+	
 
 func _physics_process(delta):
 	# gravity
