@@ -11,11 +11,16 @@ config_version=5
 [application]
 
 config/name="Sonic Worlds Next"
+<<<<<<< HEAD
 config/description="Official development repository for the successor to Sonic Worlds Delta with fixes and extras (including unnecessary stuff)
 4:3 = 320x224
 16:9 = 398x224"
 run/main_scene="res://Scene/Presentation/PoweredByWorlds.tscn"
 config/features=PackedStringArray("4.5")
+=======
+run/main_scene="res://Scene/Presentation/PoweredByWorlds.tscn"
+config/features=PackedStringArray("4.3")
+>>>>>>> 5b4f6e48a665e1bdd9c9ba8840e826057adfb361
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://icon.png"
 config/icon="res://icon.png"

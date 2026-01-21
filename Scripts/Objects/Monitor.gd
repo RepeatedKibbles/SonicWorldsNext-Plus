@@ -115,6 +115,14 @@ func set_destroyed():
 	$Animator.play("DestroyMonitor")
 
 
+
+func set_destroyed():
+	# deactivate
+	isActive = false
+	physics = false
+	$Animator.play("DestroyMonitor")
+
+
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
 		# if physics are on make em fall

@@ -863,8 +863,14 @@ anchor_left = 1.0
 anchor_top = 0.003
 anchor_right = 1.0
 anchor_bottom = 0.003
+<<<<<<< HEAD
 offset_top = -12.352001
 offset_right = 4896.0
+=======
+offset_left = -32.0
+offset_top = -12.352
+offset_right = 4832.0
+>>>>>>> 5b4f6e48a665e1bdd9c9ba8840e826057adfb361
 offset_bottom = 243.648
 grow_horizontal = 0
 grow_vertical = 2
