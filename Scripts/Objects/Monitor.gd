@@ -17,6 +17,8 @@ func _ready():
 	# Life Icon (life icons are a special case)
 	if item == 10 and !Engine.is_editor_hint():
 		$Item.frame = item+1+Global.PlayerChar1
+	if !Engine.is_editor_hint() and Global.nodeMemory.has(get_path()):
+		set_destroyed()
 	
 
 func _process(_delta):
@@ -45,6 +47,7 @@ func destroy():
 	# play destruction animation
 	$Animator.play("DestroyMonitor")
 	$SFX/Destroy.play()
+	Global.nodeMemory.append(get_path())
 	# wait for animation to finish
 	await $Animator.animation_changed
 	# enable effect
@@ -85,7 +88,7 @@ func destroy():
 			playerTouch.set_shield(playerTouch.SHIELDS.BUBBLE)
 		7: # Super
 			playerTouch.rings += 50
-			if !playerTouch.get("isSuper") and Global.emeralds >= 127:
+			if !playerTouch.get("isSuper"):
 				playerTouch.set_state(playerTouch.STATES.SUPER)
 			else:
 				if not Global.emeralds >= 127:
@@ -104,6 +107,13 @@ func destroy():
 			Global.music.volume_db = -100
 		11: # Eggman
 			playerTouch.hit_player(global_position)
+
+func set_destroyed():
+	# deactivate
+	isActive = false
+	physics = false
+	$Animator.play("DestroyMonitor")
+
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():

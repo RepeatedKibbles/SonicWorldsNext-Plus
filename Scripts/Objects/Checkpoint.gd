@@ -18,7 +18,6 @@ func activate():
 	$Spinner.queue("flash")
 	active = true
 	Global.currentCheckPoint = checkPointID
-	Global.checkPointTime = Global.levelTime
 	
 	# set checkpoint to self (and set any checkpoitns with a lower ID to active)
 	for i in Global.checkPoints:

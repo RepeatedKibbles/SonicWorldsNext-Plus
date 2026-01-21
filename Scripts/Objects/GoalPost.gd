@@ -6,14 +6,17 @@ var player = null
 
 func _physics_process(_delta):
 	# check if player.x position is greater then the post
-	if Global.players[0].global_position.x > global_position.x and Global.players[0].global_position.y <= global_position.y and Global.stageClearPhase == 0:
+	if Global.players and Global.players[0].global_position.x > global_position.x and Global.players[0].global_position.y <= global_position.y and Global.stageClearPhase == 0:
 		# set player variable
 		player = Global.players[0]
 		
 		# Camera limit set
 		player.limitLeft = global_position.x -screenXSize/2
-		player.limitRight = global_position.x +(screenXSize/2)+48
+		player.limitRight = global_position.x +(screenXSize/2)+60
+		
 		getCam = player.camera
+		
+		Main.sceneCanPause = false
 		
 		# play spinner
 		$Animator.play("Spinner")

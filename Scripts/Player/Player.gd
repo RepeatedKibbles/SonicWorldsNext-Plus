@@ -164,6 +164,7 @@ var direction = scale.x
 
 # Ground speed is mostly used for timing and animations, there isn't any functionality to it.
 var groundSpeed = 0
+var ground_angle: float = 0.0
 
 enum INPUTS {XINPUT, YINPUT, ACTION, ACTION2, ACTION3, SUPER, PAUSE}
 # Input control, 0 = 0ff, 1 = pressed, 2 = held
@@ -264,6 +265,7 @@ func _ready():
 	# Disable and enable states
 	set_state(currentState)
 	Global.players.append(self)
+	
 	var _con = connect("connectFloor",Callable(self,"land_floor"))
 	_con = connect("connectCeiling",Callable(self,"touch_ceiling"))
 	
@@ -291,7 +293,7 @@ func _ready():
 			inputMemory.append(inputs.duplicate(true))
 		# Partner (if player character 2 isn't none)
 		if Global.PlayerChar2 != Global.CHARACTERS.NONE:
-			print("Invoked")
+			#print("Invoked")
 			partner = Player.instantiate()
 			partner.playerControl = 0
 			partner.z_index = z_index-1
@@ -339,11 +341,23 @@ func _ready():
 		if Global.currentCheckPoint == i.checkPointID:
 			global_position = i.global_position+Vector2(0,8)
 			camera.global_position = i.global_position+Vector2(0,8)
-			Global.levelTime = Global.checkPointTime
 		else:
 			Global.levelTime = 0
 	
-	
+	if Global.bonus_stage_saved_position:
+		global_position = Global.bonus_stage_saved_position
+		camera.global_position = global_position
+		Global.bonus_stage_saved_position = Vector2.ZERO
+		rings = Global.bonus_stage_saved_rings
+		Global.bonus_stage_saved_rings = 0
+		Global.levelTime = Global.checkPointTime
+		
+		while ring1upCounter < rings:
+			ring1upCounter += 100
+		
+		Global.bonus_stage_saved_time = 0
+		Global.bonus_stage_saved_position = Vector2.ZERO
+		Global.bonus_stage_saved_rings = 0
 	
 	# Character settings
 	var skin = playerskins[max(min(character-1,playerskins.size()),0)]
@@ -479,7 +493,7 @@ func _process(delta):
 			
 	
 	# Sprite2D rotation handling
-	if (ground):
+	if ground:
 		spriteRotation = rad_to_deg(angle)+rad_to_deg(gravityAngle)+90
 	else:
 		if (spriteRotation+90 >= 180):
@@ -492,8 +506,8 @@ func _process(delta):
 		if (Global.smoothRotation):
 			sprite.rotation = deg_to_rad(spriteRotation-90)-rotation-gravityAngle
 		else:
-			# check if player rotation is greater then 45 degrees or current angle doesn't match the gravity's angle or not on the floor
-			if abs(spriteRotation-90) >= 32 or rotation != gravityAngle or !ground:
+			# check if the charcter's angle is too shallow to rotate and the player is grounded, otherwise, do.
+			if abs(spriteRotation-90) > 35 or rotation != gravityAngle or !ground:
 				sprite.rotation = deg_to_rad(snapped(spriteRotation,45)-90)-rotation-gravityAngle
 			else:
 				sprite.rotation = -rotation-gravityAngle
@@ -539,7 +553,7 @@ func _process(delta):
 				isSuper = false
 				superAnimator.play("PowerDown")
 				switch_physics()
-			if (Global.currentTheme == 0 or Global.currentTheme == 3) and Global.effectTheme.is_playing():
+			if Global.currentTheme == 0 and Global.effectTheme.is_playing():
 				Global.music.play()
 				Global.effectTheme.stop()
 	
@@ -1056,6 +1070,7 @@ func hit_player(damagePoint = global_position, damageType = 0, soundID = 6):
 		if water:
 			movement = movement*0.5
 
+		angle = 0
 		force_detach()
 		disconect_from_floor()
 		set_state(STATES.HIT)
@@ -1108,9 +1123,9 @@ func get_ring():
 			partner.get_ring()
 	
 func kill(always = true):
-	if !(get_tree().current_scene is MainGameScene) and always == false:
-		sfx[6].play()
-		return false
+	#if !(get_tree().current_scene is MainGameScene) and always == false:
+	#	sfx[6].play()
+	#	return false
 	if currentState != STATES.DIE:
 		disconect_from_floor()
 		supTime = 0
@@ -1150,7 +1165,7 @@ func kill(always = true):
 		set_state(STATES.DIE,currentHitbox.NORMAL)
 		
 		if playerControl == 1:
-			Global.main.sceneCanPause = false # stop the ability to pause
+			Main.sceneCanPause = false # stop the ability to pause
 
 func respawn():
 	if partner != null:

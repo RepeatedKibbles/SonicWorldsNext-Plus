@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1xhc4uh26inb"]
 
 [ext_resource type="AudioStream" uid="uid://dh4rsaka62ph4" path="res://Audio/SFX/Gimmicks/Switch.wav" id="1"]
-[ext_resource type="Script" uid="uid://b7ouet1sek8m1" path="res://Scripts/Misc/PauseManager.gd" id="2"]
-[ext_resource type="Shader" path="res://Shaders/PauseMenu.gdshader" id="2_rghkx"]
+[ext_resource type="Script" uid="uid://r0q7xabpvcll" path="res://Scripts/Misc/PauseManager.gd" id="2"]
+[ext_resource type="Shader" uid="uid://f03je8ajxqbh" path="res://Shaders/PauseMenu.gdshader" id="2_rghkx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ciogh"]
 shader = ExtResource("2_rghkx")

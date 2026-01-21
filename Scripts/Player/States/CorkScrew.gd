@@ -15,7 +15,6 @@ func _process(_delta):
 		parent.animator.play("roll")
 		parent.set_state(parent.STATES.ROLL)
 		parent.sfx[1].play()
-	
 
 func _physics_process(delta):
 	# gravity

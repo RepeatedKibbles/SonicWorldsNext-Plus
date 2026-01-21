@@ -26,7 +26,7 @@ func _process(_delta):
 		# Shield actions
 		elif ((parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION2] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1) and !parent.abilityUsed and isJump):
 			# Super actions
-			if parent.isSuper and (parent.character == Global.CHARACTERS.SONIC):
+			if parent.isSuper and parent.character == Global.CHARACTERS.SONIC:
 				parent.abilityUsed = true # has to be set to true for drop dash (Sonic and amy only)
 			# Normal actions
 			else:

@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://qs5dmtxxf1w1"]
+[gd_scene load_steps=14 format=3 uid="uid://qs5dmtxxf1w1"]
 
-[ext_resource type="Script" uid="uid://kyet1vch8afm" path="res://Scripts/Level/Title.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/Level/Title.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cbloyreqnle13" path="res://Graphics/title/Sonic_Worlds_Next_Logo.png" id="2_qt26u"]
 [ext_resource type="FontFile" uid="uid://ml62eqfe7avn" path="res://Graphics/Fonts/small_font.png" id="3_yuhp3"]
-[ext_resource type="Texture2D" uid="uid://dt51ojxk80oqh" path="res://Graphics/Items/Rings/Ring.tres" id="4_vmy7g"]
 
 [sub_resource type="Animation" id="2"]
 length = 0.001
@@ -170,9 +169,32 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pb3yv"]
 _data = {
-&"RESET": SubResource("2"),
-&"TitleAssemble": SubResource("1")
+"RESET": SubResource("2"),
+"TitleAssemble": SubResource("1")
 }
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6itur"]
+load_path = "res://.godot/imported/Ring1.png-fb5ab0cce1bd26a39f572b6418b429cd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m5vlh"]
+load_path = "res://.godot/imported/Ring2.png-ea83b0052bbb253e7263642c4ec7295e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2xnxj"]
+load_path = "res://.godot/imported/Ring3.png-77b461c632ba98d299b05a2c6f223303.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h4dls"]
+load_path = "res://.godot/imported/Ring4.png-73ec6bdb945f68af0e854d6bb69ea7cd.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7ffju"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = SubResource("CompressedTexture2D_6itur")
+frame_1/texture = SubResource("CompressedTexture2D_m5vlh")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("CompressedTexture2D_2xnxj")
+frame_2/duration = 1.0
+frame_3/texture = SubResource("CompressedTexture2D_h4dls")
+frame_3/duration = 1.0
 
 [sub_resource type="Curve" id="Curve_x626m"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -292,7 +314,7 @@ offset_right = 136.0
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_yuhp3")
-text = "v4.4 GIT MAIN"
+text = "v4.3 GIT MAIN"
 vertical_alignment = 2
 uppercase = true
 
@@ -309,7 +331,7 @@ offset_top = -11.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_yuhp3")
-text = "2021-2025"
+text = "2021 2025"
 horizontal_alignment = 2
 vertical_alignment = 2
 
@@ -320,9 +342,7 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 15.0
 offset_top = -24.0
-offset_right = 15.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -358,7 +378,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="TitleAnimate" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_pb3yv")
+"": SubResource("AnimationLibrary_pb3yv")
 }
 autoplay = "TitleAssemble"
 
@@ -366,8 +386,8 @@ autoplay = "TitleAssemble"
 position = Vector2(152, 112)
 emitting = false
 amount = 32
-texture = ExtResource("4_vmy7g")
 preprocess = 0.5
+texture = SubResource("AnimatedTexture_7ffju")
 emission_shape = 2
 emission_sphere_radius = 128.0
 direction = Vector2(0, -1)

@@ -19,6 +19,7 @@ var menusText = [
 "scale x1",
 "full screen off",
 "smooth rotation off",
+"time tracking",
 "controls",
 "back",],
 # menu 2 (restart menu confirm)
@@ -71,10 +72,10 @@ func _input(event):
 			MENUS.MAIN: # main menu
 				match(option): # Options
 					0: # continue
-						if Global.main.wasPaused:
+						if Main.wasPaused:
 							# give frame so game doesn't immedaitely unpause
 							await get_tree().process_frame
-							Global.main.wasPaused = false
+							Main.wasPaused = false
 							get_tree().paused = false
 							visible = false
 					_: # Set menu to option
@@ -87,14 +88,17 @@ func _input(event):
 					4: # smooth rotation
 						Global.smoothRotation = (Global.smoothRotation + 1) % 2
 						$PauseMenu/VBoxContainer.get_child(option+1).get_child(0).text = update_text(option+1)
-					5: # control menu
+					5: # time tracking
+						Global.time_tracking = ((Global.time_tracking + 1) % Global.TIME_TRACKING_MODES.size()) as Global.TIME_TRACKING_MODES
+						$PauseMenu/VBoxContainer.get_child(option+1).get_child(0).text = update_text(option+1)
+					6: # control menu
 						Global.save_settings()
 						set_menu(0)
 						$"../ControllerMenu".visible = true
 						visible = false
-						Global.main.wasPaused = false
+						Main.wasPaused = false
 						get_tree().paused = true
-					6: # back
+					7: # back
 						Global.save_settings()
 						set_menu(0)
 			MENUS.RESTART: # reset level
@@ -105,23 +109,25 @@ func _input(event):
 						# uncomment "#" at "if not Global.lives < 2:" and "Global.lives -= 1" to lose lives after restart like Sonic CD (2011), Sonic 1 & 2 (2013)
 						#if not Global.lives < 2:
 							set_menu(0)
-							Global.main.wasPaused = false
+							Main.wasPaused = false
 							visible = false
 							Global.checkPointTime = 0
 							Global.currentCheckPoint = -1
 							#Global.lives -= 1
-							Global.main.change_scene_to_file(null,"FadeOut")
-							#await Global.main.scene_faded
+							Main.change_scene(Global.currentZone,"FadeOut",1,true)
+							await Main.scene_faded
 							Global.effectTheme.stop()
 							Global.bossMusic.stop()
-							Global.main.set_volume(0)
+							Global.music.stop()
+							Main.set_volume(0)
 			MENUS.QUIT: # quit option
 				match(option): # Options
 					0: # cancel
 						set_menu(0)
 					1: # ok
 						await get_tree().process_frame
-						Global.main.reset_game()
+						Main.reset_game()
+						set_menu(0)
 
 func do_lateral_input():
 
@@ -216,5 +222,7 @@ func update_text(textRow = 0):
 			return "full screen "+onOff[int(((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)))]
 		5: # Smooth Rotation
 			return "smooth rotation " + onOff[Global.smoothRotation]
+		6: # Time tracking
+			return "time tracking " + Global.TIME_TRACKING_MODES.find_key(Global.time_tracking).capitalize().to_lower()
 		_: # Default
 			return menusText[menu][textRow]

@@ -110,6 +110,8 @@ func disconnect_player(player : PlayerChar) -> void:
 	player.set_state(player.STATES.JUMP)
 	player.unset_gimmick_var("brachiate_target_cur")
 	player_dismounted.emit(player)
+	# Restore Air Control
+	player.airControl = true
 	pass
 
 ## Takes a value on a linear distribution from 0 to 1 and spits out

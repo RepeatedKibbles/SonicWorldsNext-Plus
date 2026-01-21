@@ -3,7 +3,7 @@
 # Sonic Worlds Next
 ![Logo](https://github.com/Techokami/SonicWorldsNext/blob/main/icon.png)
 
-This is the official development repository for the successor to Sonic Worlds Delta. This is also fork of Sonic Worlds Next that has improvement over originial repository.
+This is the official development repository for the successor to Sonic Worlds Delta. This is also fork of Sonic Worlds Next that has improvement over the originial repository.
 
 This uses [Godot 4.5](https://godotengine.org/) to implement a 2D Sonic the Hedgehog-like framework, intended for use in creating fangame projects and original game projects. Like Godot, the code within this repository is provided under the MIT License.
  if you use godot 3 use the [Godot 3 Branch here](https://github.com/Techokami/SonicWorldsNext/tree/Sonic-Worlds-Next-Godot-3), but please be aware that it isn't actively developed.

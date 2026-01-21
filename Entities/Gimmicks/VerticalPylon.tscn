@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://3qpa54q3wjoh"]
 
 [ext_resource type="Texture2D" uid="uid://dbs3csa84c8lh" path="res://Graphics/Gimmicks/FBZPylonCenter.png" id="1"]
-[ext_resource type="Script" uid="uid://c4l1b5661xfqc" path="res://Scripts/Gimmicks/VerticalPylon.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/Gimmicks/VerticalPylon.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://c0uoatd1qn8nj" path="res://Graphics/Gimmicks/FBZPylon.png" id="3"]
 
 [sub_resource type="Animation" id="1"]
@@ -48,10 +48,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lyh0a"]
 _data = {
-&"main": SubResource("1")
+"main": SubResource("1")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tu7ap"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfk3b"]
 size = Vector2(12, 96)
 
 [node name="FBZ_Pylon_Controller" type="Node2D"]
@@ -61,7 +61,7 @@ script = ExtResource("2")
 position = Vector2(0, -65)
 texture = ExtResource("1")
 hframes = 3
-frame = 1
+frame = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 48, 96)
 
@@ -70,19 +70,19 @@ position = Vector2(0, -7.5)
 texture = ExtResource("3")
 hframes = 3
 vframes = 2
-frame = 4
+frame = 5
 
 [node name="FBZ_Pylon_Top" type="Sprite2D" parent="."]
 position = Vector2(0, -121.5)
 texture = ExtResource("3")
 hframes = 3
 vframes = 2
-frame = 1
+frame = 2
 
 [node name="FBZ_Pylon_Animator" type="AnimationPlayer" parent="."]
 callback_mode_method = 1
 libraries = {
-&"": SubResource("AnimationLibrary_lyh0a")
+"": SubResource("AnimationLibrary_lyh0a")
 }
 
 [node name="FBZ_Pylon_Area" type="Area2D" parent="."]
@@ -91,7 +91,7 @@ collision_mask = 4096
 
 [node name="FBZ_Pylon_Collision" type="CollisionShape2D" parent="FBZ_Pylon_Area"]
 position = Vector2(0, -65)
-shape = SubResource("RectangleShape2D_tu7ap")
+shape = SubResource("RectangleShape2D_cfk3b")
 
 [connection signal="body_entered" from="FBZ_Pylon_Area" to="." method="_on_FBZ_Pylon_Area_body_entered"]
 [connection signal="body_exited" from="FBZ_Pylon_Area" to="." method="_on_FBZ_Pylon_Area_body_exited"]

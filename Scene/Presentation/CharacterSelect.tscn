@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bemwlrblbgn23" path="res://Graphics/Backgrounds/WorldsBackground.png" id="2"]
 [ext_resource type="FontFile" uid="uid://ml62eqfe7avn" path="res://Graphics/Fonts/small_font.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://c05fsbnx0p7xf" path="res://Graphics/Players/Tails.png" id="4"]
-[ext_resource type="Script" uid="uid://yjnksnxyhvee" path="res://Scripts/Level/CharacterSelect.gd" id="5"]
+[ext_resource type="Script" path="res://Scripts/Level/CharacterSelect.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://bfesqgvh63scg" path="res://Graphics/Players/Amy.png" id="6_nah0p"]
 [ext_resource type="Texture2D" uid="uid://cndrds5482vh5" path="res://Graphics/Players/Knuckles.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dhygmoxun35w1" path="res://Graphics/Fonts/arrows_small_font.png" id="9"]
@@ -212,8 +212,8 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wio08"]
 _data = {
-&"Animate": SubResource("1"),
-&"RESET": SubResource("2")
+"Animate": SubResource("1"),
+"RESET": SubResource("2")
 }
 
 [node name="CharacterSelect" type="Node2D"]

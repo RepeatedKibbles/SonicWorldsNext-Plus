@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://msycxndhmuin"]
 
 [ext_resource type="Texture2D" uid="uid://b7fiakcwbo2rt" path="res://Graphics/Obstacles/Blocks/moving_block_2.png" id="1"]
-[ext_resource type="Script" uid="uid://b4pqyxk3whwnq" path="res://Scripts/Objects/InvisibleBarrier.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/Objects/InvisibleBarrier.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(32, 32)

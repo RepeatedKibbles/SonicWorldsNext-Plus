@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://kobbay7ehwah"]
 
-[ext_resource type="Script" uid="uid://bv0uho5wxyys5" path="res://Scripts/Gimmicks/MonkeyBar/RetractableChain.gd" id="1_hc1ee"]
+[ext_resource type="Script" path="res://Scripts/Gimmicks/MonkeyBar/RetractableChain.gd" id="1_hc1ee"]
 [ext_resource type="AudioStream" uid="uid://o4sr077jns0" path="res://Audio/SFX/Gimmicks/CableLift.wav" id="2_6pw4x"]
-[ext_resource type="Script" uid="uid://svndg2vpw6oa" path="res://Tools/Audio/AudioStream2DController.gd" id="3_kbwxo"]
+[ext_resource type="Script" path="res://Tools/Audio/AudioStream2DController.gd" id="3_kbwxo"]
 
 [node name="RetractibleChain" type="Node2D"]
 script = ExtResource("1_hc1ee")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://1njf2n5mf43y" path="res://Graphics/Misc/CountDown.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://ceangqioyo4uf" path="res://Graphics/Items/air_bubbles.png" id="2"]
-[ext_resource type="Script" uid="uid://bc78fyl0hn3aa" path="res://Scripts/Misc/BubbleCountDown.gd" id="3"]
+[ext_resource type="Script" uid="uid://cghnynd0aj7i0" path="res://Scripts/Misc/BubbleCountDown.gd" id="3"]
 
 [sub_resource type="AtlasTexture" id="5"]
 atlas = ExtResource("2")
@@ -368,6 +368,7 @@ animations = [{
 [node name="BubbleCountDown" type="AnimatedSprite2D"]
 z_index = 100
 sprite_frames = SubResource("19")
+animation = &"new_animation"
 autoplay = "default"
 script = ExtResource("3")
 

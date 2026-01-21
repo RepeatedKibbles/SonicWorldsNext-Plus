@@ -90,3 +90,5 @@ func _process(_delta):
 		parent.animator.play("roll")
 		parent.animator.advance(0)
 		parent.set_state(parent.STATES.JUMP)
+		# Restore Air Control
+		parent.airControl = true

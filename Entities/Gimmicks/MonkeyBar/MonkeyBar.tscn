@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://btna3kqcoupda"]
 
-[ext_resource type="Script" uid="uid://kfsetn2oro66" path="res://Scripts/Gimmicks/MonkeyBar/MonkeyBar.gd" id="1_4gcsp"]
+[ext_resource type="Script" uid="uid://bgcsevoicdr54" path="res://Scripts/Gimmicks/MonkeyBar/MonkeyBar.gd" id="1_4gcsp"]
 [ext_resource type="Texture2D" uid="uid://bjof6o7bmi80f" path="res://Graphics/Gimmicks/FBZMonkeyBar.png" id="2_likc6"]
 [ext_resource type="AudioStream" uid="uid://bfba871gfmv0s" path="res://Audio/SFX/Player/Grab.wav" id="3_7nlb7"]
-[ext_resource type="Script" uid="uid://svndg2vpw6oa" path="res://Tools/Audio/AudioStream2DController.gd" id="4_k4ep7"]
+[ext_resource type="Script" uid="uid://20djmuu3kdnm" path="res://Tools/Audio/AudioStream2DController.gd" id="4_k4ep7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jv0b"]
 size = Vector2(16, 10)
