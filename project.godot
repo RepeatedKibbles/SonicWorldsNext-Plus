@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Sonic Worlds Next"
+config/name="Sonic Worlds Next Plus"
 config/description="Official development repository for the successor to Sonic Worlds Delta with fixes and extras (including unnecessary stuff)
 4:3 = 320x224
 16:9 = 398x224"
