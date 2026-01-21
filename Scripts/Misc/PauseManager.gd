@@ -106,7 +106,6 @@ func _input(event):
 					0: # cancel
 						set_menu(0)
 					1: # ok
-<<<<<<< HEAD
 						# uncomment "#" at "if not Global.lives < 2:" and "Global.lives -= 1" to lose lives after restart like Sonic CD (2011), Sonic 1 & 2 (2013)
 						#if not Global.lives < 2:
 							set_menu(0)
@@ -121,19 +120,6 @@ func _input(event):
 							Global.bossMusic.stop()
 							Global.music.stop()
 							Main.set_volume(0)
-=======
-						set_menu(0)
-						Main.wasPaused = false
-						visible = false
-						Global.checkPointTime = 0
-						Global.currentCheckPoint = -1
-						Main.change_scene(Global.currentZone,"FadeOut",1,true)
-						await Main.scene_faded
-						Global.effectTheme.stop()
-						Global.bossMusic.stop()
-						Global.music.stop()
-						Main.set_volume(0)
->>>>>>> 5b4f6e48a665e1bdd9c9ba8840e826057adfb361
 			MENUS.QUIT: # quit option
 				match(option): # Options
 					0: # cancel

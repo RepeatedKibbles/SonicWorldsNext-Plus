@@ -58,12 +58,8 @@ var life = null
 var themes = [
 	preload("res://Audio/Soundtrack/1. SWD_Invincible.ogg"),
 	preload("res://Audio/Soundtrack/2. SWD_SpeedUp.ogg"),
-<<<<<<< HEAD
 	preload("res://Audio/Soundtrack/4. SWD_StageClear.ogg"),
 	preload("res://Audio/Soundtrack/11. SWD_Super.ogg")]
-=======
-	preload("res://Audio/Soundtrack/4. SWD_StageClear.ogg")]
->>>>>>> 5b4f6e48a665e1bdd9c9ba8840e826057adfb361
 # index for current theme
 var currentTheme = 0
 

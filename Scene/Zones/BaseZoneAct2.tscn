@@ -1,12 +1,7 @@
 [gd_scene load_steps=46 format=4 uid="uid://bjavywoj00j1j"]
 
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://bajkhxm4in8l6" path="res://Scripts/Level/Level.gd" id="2"]
 [ext_resource type="Script" uid="uid://bax00oqd3rn4x" path="res://Scripts/Objects/StateMovers/StateMoverPositional.gd" id="3"]
-=======
-[ext_resource type="Script" path="res://Scripts/Level/Level.gd" id="2"]
-[ext_resource type="Script" path="res://Scripts/Objects/StateMovers/StateMoverPositional.gd" id="3"]
->>>>>>> 5b4f6e48a665e1bdd9c9ba8840e826057adfb361
 [ext_resource type="PackedScene" uid="uid://c30uceea18q1w" path="res://Entities/Misc/HUD.tscn" id="4"]
 [ext_resource type="Script" uid="uid://bi37hcdm87aom" path="res://Scripts/Objects/StateMovers/StateMoverMaster.gd" id="5"]
 [ext_resource type="Script" uid="uid://dlhes7ujy35ah" path="res://Tools/Editor/disposal.gd" id="5_bdrgf"]
