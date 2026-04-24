@@ -27,6 +27,8 @@ func _ready():
 	Global.life = get_node_or_null("Music/Life")
 	# initialize game data using global reset (it's better then assigning variables twice)
 	reset_game_values()
+	# Warning prevention.
+	scene_faded.connect(_on_scene_faded)
 
 func _process(delta):
 	# verify scene isn't paused
@@ -98,7 +100,10 @@ func change_scene(scene: String, fade_anim: String = "FadeOut", length: float = 
 	get_tree().paused = false
 	$GUI/Pause.hide()
 	Global.music.stop()
-	get_tree().change_scene_to_file(scene)
+	if scene:
+		get_tree().change_scene_to_file(scene)
+	else:
+		get_tree().reload_current_scene()
 	# reset data level data, if reset data is true
 	if resetData:
 		clear_dynamic_level_variables()
@@ -143,6 +148,8 @@ func reset_game_values():
 	Global.nodeMemory.clear()
 	Global.nextZone = "res://Scene/Zones/BaseZone.tscn"
 
+func _on_scene_faded():
+	pass
 
 # executed when life sound has finished
 func _on_Life_finished():
