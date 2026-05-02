@@ -28,10 +28,10 @@ func _process(delta):
 			
 			# add ring to node memory so you can't farm the ring
 			Global.nodeMemory.append(get_path())
-			Global.bonus_stage_saved_position = global_position
-			Global.bonus_stage_saved_rings = Global.players[0].rings
-			Global.bonus_stage_saved_time = Global.levelTime
 			
+			Global.bonus_stage_data = [
+			global_position,Global.players[0].rings,Global.levelTime]
+			Global.currentZone = get_tree().current_scene.scene_file_path
 			# fade to new scene
 			Main.change_scene("res://Scene/SpecialStage/SpecialStageResult.tscn","WhiteOut",1,false)
 			# wait for scene to fade

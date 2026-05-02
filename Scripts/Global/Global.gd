@@ -11,12 +11,9 @@ var currentCheckPoint: int = -1
 ## the current level time when touching a Checkpoint or special ring
 var checkPointTime: float = 0
 
-## Saved position when accessing a special stage
-var bonus_stage_saved_position: Vector2 = Vector2.ZERO
-## Ring count when accessing a special stage
-var bonus_stage_saved_rings: int = 0
-## Time when accessing a special stage
-var bonus_stage_saved_time: float = 0.0
+
+## Special Stage Saved Data. Store Global Position, Ring Count, Time.
+var bonus_stage_data: Array[Variant] = []
 
 ## the starting room, this is loaded on game resets, you may want to change this
 var startScene: String = "res://Scene/Presentation/Title.tscn"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c4rueg1m78f3o"]
+[gd_scene load_steps=24 format=4 uid="uid://c4rueg1m78f3o"]
 
 [ext_resource type="Script" path="res://Scripts/Level/Level.gd" id="1_n16vo"]
 [ext_resource type="PackedScene" uid="uid://cioq5saowvqxj" path="res://Entities/MainObjects/Player.tscn" id="1_pnju3"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bbaayty1jgegk" path="res://Entities/Enemies/Coconuts.tscn" id="15_cp1bx"]
 [ext_resource type="PackedScene" uid="uid://b4oxfl2msl6e6" path="res://Entities/Enemies/Chomper.tscn" id="17_qi0hv"]
 [ext_resource type="Texture2D" uid="uid://js02e51lkwhp" path="res://Graphics/Enemies/Masher.png" id="18_0htxr"]
+[ext_resource type="PackedScene" uid="uid://c1n8wnllp8pk2" path="res://Entities/Items/SpecialStageRing.tscn" id="21_hdg13"]
 [ext_resource type="PackedScene" uid="uid://beuvy68prxg4t" path="res://Entities/Enemies/Buzzer.tscn" id="22_hgcj5"]
 
 [node name="EmeraldHill" type="Node2D"]
@@ -452,7 +453,7 @@ position = Vector2(6336, 680)
 checkPointID = 1
 
 [node name="Checkpoint3" parent="Items" instance=ExtResource("13_3ei32")]
-position = Vector2(8832, 364)
+position = Vector2(8832, -64)
 checkPointID = 2
 
 [node name="Monitor" parent="Items" instance=ExtResource("14_hlslr")]
@@ -499,6 +500,9 @@ item = 10
 
 [node name="Monitor13" parent="Items" instance=ExtResource("14_hlslr")]
 position = Vector2(8896, 882)
+
+[node name="GiantRing" parent="Items" instance=ExtResource("21_hdg13")]
+position = Vector2(8832, 320)
 
 [node name="GoalPost" parent="Items" instance=ExtResource("13_b07pd")]
 position = Vector2(10880, 768)
