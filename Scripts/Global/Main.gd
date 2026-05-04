@@ -124,9 +124,7 @@ func clear_dynamic_level_variables():
 		Global.currentCheckPoint = -1
 		Global.levelTime = 0
 		Global.timerActive = false
-	Global.bonus_stage_saved_position = Vector2.ZERO
-	Global.bonus_stage_saved_rings = 0
-	Global.bonus_stage_saved_time = 0.0
+	Global.bonus_stage_data.clear()
 	Global.checkPointTime = 0
 	Global.globalTimer = 0
 	Global.stageClearPhase = 0

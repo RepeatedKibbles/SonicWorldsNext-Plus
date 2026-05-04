@@ -344,20 +344,14 @@ func _ready():
 		else:
 			Global.levelTime = 0
 	
-	if Global.bonus_stage_saved_position:
-		global_position = Global.bonus_stage_saved_position
+	if Global.bonus_stage_data:
+		global_position = Global.bonus_stage_data.pop_front()
 		camera.global_position = global_position
-		Global.bonus_stage_saved_position = Vector2.ZERO
-		rings = Global.bonus_stage_saved_rings
-		Global.bonus_stage_saved_rings = 0
-		Global.levelTime = Global.checkPointTime
+		rings = Global.bonus_stage_data.pop_front()
+		Global.levelTime = Global.bonus_stage_data.pop_front()
 		
 		while ring1upCounter < rings:
 			ring1upCounter += 100
-		
-		Global.bonus_stage_saved_time = 0
-		Global.bonus_stage_saved_position = Vector2.ZERO
-		Global.bonus_stage_saved_rings = 0
 	
 	# Character settings
 	var skin = playerskins[max(min(character-1,playerskins.size()),0)]
