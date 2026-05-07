@@ -1,15 +1,15 @@
 [gd_scene load_steps=48 format=4 uid="uid://bjavywoj00j1j"]
 
-[ext_resource type="Script" uid="uid://bajkhxm4in8l6" path="res://Scripts/Level/Level.gd" id="2"]
-[ext_resource type="Script" uid="uid://bax00oqd3rn4x" path="res://Scripts/Objects/StateMovers/StateMoverPositional.gd" id="3"]
+[ext_resource type="Script" path="res://Scripts/Level/Level.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/Objects/StateMovers/StateMoverPositional.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://c30uceea18q1w" path="res://Entities/Misc/HUD.tscn" id="4"]
-[ext_resource type="Script" uid="uid://bi37hcdm87aom" path="res://Scripts/Objects/StateMovers/StateMoverMaster.gd" id="5"]
-[ext_resource type="Script" uid="uid://dlhes7ujy35ah" path="res://Tools/Editor/disposal.gd" id="5_bdrgf"]
-[ext_resource type="Script" uid="uid://b5ehg6rhu1h5n" path="res://Scripts/Objects/StateMovers/StateMoverPathFollower.gd" id="6"]
+[ext_resource type="Script" path="res://Scripts/Objects/StateMovers/StateMoverMaster.gd" id="5"]
+[ext_resource type="Script" path="res://Tools/Editor/disposal.gd" id="5_bdrgf"]
+[ext_resource type="Script" path="res://Scripts/Objects/StateMovers/StateMoverPathFollower.gd" id="6"]
 [ext_resource type="TileSet" uid="uid://b52aenq8bhfsf" path="res://Tileset/Worlds/WorldsTileMap.tres" id="6_1cyhs"]
 [ext_resource type="FontFile" uid="uid://db34gx0mhx148" path="res://Graphics/Fonts/JetBrainsMono-Regular.ttf" id="6_owcub"]
 [ext_resource type="PackedScene" uid="uid://cxxmrbgw17gnw" path="res://Entities/Gimmicks/CNZBarrel.tscn" id="7"]
-[ext_resource type="Script" uid="uid://ix66g0vpwn4a" path="res://Scripts/Objects/StateMovers/StateMoverTranslational.gd" id="8"]
+[ext_resource type="Script" path="res://Scripts/Objects/StateMovers/StateMoverTranslational.gd" id="8"]
 [ext_resource type="PackedScene" uid="uid://msycxndhmuin" path="res://Entities/Obstacles/InvisibleBarrier.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://dggjdwwkl527b" path="res://Entities/Items/Ring.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://ra3mqewhj6kl" path="res://Entities/Hazards/Saw.tscn" id="11"]
@@ -18,20 +18,20 @@
 [ext_resource type="Texture2D" uid="uid://dwvek120iiiv" path="res://Graphics/Obstacles/Walls/shutterCNZ.png" id="14"]
 [ext_resource type="PackedScene" uid="uid://gklj3ebdwveu" path="res://Entities/Items/Monitor.tscn" id="15"]
 [ext_resource type="PackedScene" uid="uid://cioq5saowvqxj" path="res://Entities/MainObjects/Player.tscn" id="18"]
-[ext_resource type="Script" uid="uid://dwf3hprb50hbp" path="res://Scripts/Objects/CollapseLayer.gd" id="21_fdxp4"]
+[ext_resource type="Script" path="res://Scripts/Objects/CollapseLayer.gd" id="21_fdxp4"]
 [ext_resource type="PackedScene" uid="uid://urapmknlu0s5" path="res://Entities/Gimmicks/HorizontalBar.tscn" id="22_ethvu"]
 [ext_resource type="PackedScene" uid="uid://4q0hpddgto2k" path="res://Entities/Gimmicks/Spring.tscn" id="23_n1r7l"]
 [ext_resource type="Texture2D" uid="uid://b4cw5q2u4jyb8" path="res://Graphics/Gimmicks/HorizontalBarAlt.png" id="24_ipqgj"]
 [ext_resource type="Texture2D" uid="uid://bemwlrblbgn23" path="res://Graphics/Backgrounds/WorldsBackground.png" id="25"]
 [ext_resource type="AudioStream" uid="uid://dh4rsaka62ph4" path="res://Audio/SFX/Gimmicks/Switch.wav" id="26_750k6"]
 [ext_resource type="PackedScene" uid="uid://dh346sb5sjgmo" path="res://Entities/Gimmicks/MonkeyBar/ChainedMonkeyBar.tscn" id="27_obgon"]
-[ext_resource type="Script" uid="uid://bq21nxk1r471j" path="res://Tools/Gameplay/LayerController.gd" id="28_0mv3i"]
-[ext_resource type="Script" uid="uid://20djmuu3kdnm" path="res://Tools/Audio/AudioStream2DController.gd" id="28_qm53g"]
+[ext_resource type="Script" path="res://Tools/Gameplay/LayerController.gd" id="28_0mv3i"]
+[ext_resource type="Script" path="res://Tools/Audio/AudioStream2DController.gd" id="28_qm53g"]
 [ext_resource type="PackedScene" uid="uid://btna3kqcoupda" path="res://Entities/Gimmicks/MonkeyBar/MonkeyBar.tscn" id="28_usl31"]
 [ext_resource type="PackedScene" uid="uid://bleoc0gltofoh" path="res://Entities/Gimmicks/Teleporter.tscn" id="30_hr13y"]
 [ext_resource type="PackedScene" uid="uid://di85tknpw5cf0" path="res://Entities/Gimmicks/HorizontalSlider.tscn" id="31_x0wx6"]
 [ext_resource type="AudioStream" uid="uid://ewf3mg6kdb4j" path="res://Audio/SFX/Gimmicks/ChainLift.wav" id="32_hp7tg"]
-[ext_resource type="Script" uid="uid://dvnj8oonxob1u" path="res://Scripts/Gimmicks/MonkeyBar/horizontal_slider.gd" id="33_8dlmw"]
+[ext_resource type="Script" path="res://Scripts/Gimmicks/MonkeyBar/horizontal_slider.gd" id="33_8dlmw"]
 [ext_resource type="PackedScene" uid="uid://xpsg8eoppqbo" path="res://Entities/Gimmicks/MonkeyBar/Hook.tscn" id="33_ix8uv"]
 [ext_resource type="PackedScene" uid="uid://chyrwm1qwvlyt" path="res://Entities/Gimmicks/Switch.tscn" id="36_bann4"]
 [ext_resource type="PackedScene" uid="uid://dasp221fqgrno" path="res://Entities/Obstacles/Platform.tscn" id="38"]
@@ -75,8 +75,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_48kib"]
 _data = {
-&"Glow": SubResource("1"),
-&"RESET": SubResource("2")
+"Glow": SubResource("1"),
+"RESET": SubResource("2")
 }
 
 [sub_resource type="Curve2D" id="3"]
@@ -124,7 +124,7 @@ act = 2
 
 [node name="Animate" type="AnimationPlayer" parent="ParallaxBackground"]
 libraries = {
-&"": SubResource("AnimationLibrary_48kib")
+"": SubResource("AnimationLibrary_48kib")
 }
 autoplay = "Glow"
 
