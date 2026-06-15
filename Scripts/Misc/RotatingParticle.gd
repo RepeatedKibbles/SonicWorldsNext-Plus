@@ -13,4 +13,4 @@ func _process(delta):
 	#translate(velocity*0.5*delta)
 	time += delta
 	if time > 0.3:
-		queue_free()
+		get_parent().queue_free()
