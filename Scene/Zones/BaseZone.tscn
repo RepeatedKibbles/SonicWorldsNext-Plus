@@ -1611,6 +1611,14 @@ item = 2
 position = Vector2(5440, 480)
 item = 10
 
+[node name="Monitor3" parent="Monitors" instance=ExtResource("8_8svvy")]
+position = Vector2(184, 752)
+item = 7
+
+[node name="Monitor17" parent="Monitors" instance=ExtResource("8_8svvy")]
+position = Vector2(157, 751)
+item = 2
+
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="Spikes" parent="Hazards" instance=ExtResource("50_mtg26")]
