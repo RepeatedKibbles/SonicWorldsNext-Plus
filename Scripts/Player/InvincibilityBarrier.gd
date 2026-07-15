@@ -8,9 +8,9 @@ const STAR_FRAME_ARR: Array[Array] = [
 	[1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2],
 	[0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1],
 ]
-const STAR_ANGLE_OFFSETS : Array[float] = [0, 118, 0, 82]
+const STAR_ANGLE_OFFSETS : Array[float] = [0, 118.125, 0, 81.5625]
 const STAR_ROTATION_RADIUS: int = 16
-const POSITION_QUEUE_LENGTH: int = 8
+const POSITION_QUEUE_LENGTH: int = 12
 
 var player: PlayerChar
 var player_position_queue: Array[Vector2]
@@ -47,11 +47,11 @@ func _physics_process(delta: float) -> void:
 	
 	star_position_arr[0] = player.centerReference.global_position
 	for i: int in range(1, star_position_arr.size()):
-		var multiplier: int = POSITION_QUEUE_LENGTH / star_position_arr.size()
-		star_position_arr[i] = player_position_queue[(memory_position - i * multiplier) % POSITION_QUEUE_LENGTH]
+		var offset_multiplier: int = POSITION_QUEUE_LENGTH / star_position_arr.size()
+		star_position_arr[i] = player_position_queue[(memory_position - i * offset_multiplier) % POSITION_QUEUE_LENGTH]
 	
-	star_rotation[0] = fmod(star_rotation[0] + 144 * player.direction * delta * 60, 360) 
-	star_rotation[1] = fmod(star_rotation[1] + 16 * player.direction * delta * 60, 360)
+	star_rotation[0] = fmod(star_rotation[0] + 101.25 * player.direction * delta * 60, 360) 
+	star_rotation[1] = fmod(star_rotation[1] + 11.25 * player.direction * delta * 60, 360)
 	
 	for star: Sprite2D in stars:
 		var star_index: int = stars.find(star)
