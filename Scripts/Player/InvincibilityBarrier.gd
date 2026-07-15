@@ -47,7 +47,8 @@ func _physics_process(delta: float) -> void:
 	
 	star_position_arr[0] = player.centerReference.global_position
 	for i: int in range(1, star_position_arr.size()):
-		star_position_arr[i] = player_position_queue[(memory_position - i * 2) % POSITION_QUEUE_LENGTH]
+		var multiplier: int = POSITION_QUEUE_LENGTH / star_position_arr.size()
+		star_position_arr[i] = player_position_queue[(memory_position - i * multiplier) % POSITION_QUEUE_LENGTH]
 	
 	star_rotation[0] = fmod(star_rotation[0] + 144 * player.direction * delta * 60, 360) 
 	star_rotation[1] = fmod(star_rotation[1] + 16 * player.direction * delta * 60, 360)
