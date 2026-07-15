@@ -9,6 +9,7 @@ const STAR_FRAME_ARR: Array[Array] = [
 	[0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1],
 ]
 const STAR_ANGLE_OFFSETS : Array[float] = [180, 0, 298, 118, 180, 0, 262, 82]
+const STAR_ROTATION_RADIUS: int = 16
 const POSITION_QUEUE_LENGTH: int = 8
 
 var player: PlayerChar
@@ -58,7 +59,7 @@ func _physics_process(delta: float) -> void:
 		var star_pair_num = floori(star_index / 2)
 		var frame_arr_size = STAR_FRAME_ARR[star_pair_num].size()
 		var angle = deg_to_rad(star_rotation[int(star_index >= 2)] + STAR_ANGLE_OFFSETS[star_index])
-		var draw_pos = Vector2(cos(angle), sin(angle)) * 16
+		var draw_pos = Vector2(cos(angle), sin(angle)) * STAR_ROTATION_RADIUS
 		star.global_position = draw_pos + star_trail_offset[star_pair_num]
 		star.frame = STAR_FRAME_ARR[star_pair_num][(star_frame[int(star_pair_num == 1)] + frame_arr_size * int(star_index % 2 == 0 and star_index > 0) / 2) % frame_arr_size]
 	
