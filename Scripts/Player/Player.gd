@@ -126,6 +126,7 @@ var reflective = false # used for reflecting projectiles
 # State array
 @onready var stateList = $States.get_children()
 
+@onready var invincibility_barrier: Node2D = $InvincibilityBarrier
 
 # Animation related
 @onready var animator = $Sonic/PlayerAnimation
@@ -520,6 +521,7 @@ func _process(delta):
 		if !isSuper:
 			supTime -= delta
 		else:
+			invincibility_barrier.visible = false
 			# Animate Palette
 			if is_instance_valid(superAnimator):
 				if !superAnimator.is_playing():
@@ -538,6 +540,7 @@ func _process(delta):
 		if (supTime <= 0):
 			if (shield != SHIELDS.NONE):
 				shieldSprite.visible = true
+			invincibility_barrier.visible = false
 			# turn off super palette and physics (if super)
 			if is_instance_valid(superAnimator) and isSuper:
 				isSuper = false
@@ -1026,6 +1029,8 @@ func set_shield(setShieldID):
 			shieldSprite.visible = false
 
 
+func show_invincibility_barrier() -> void:
+	invincibility_barrier.visible = true
 
 # see Global for damage types, 0 = none, 1 = Fire, 2 = Elec, 3 = Water
 func hit_player(damagePoint = global_position, damageType = 0, soundID = 6):

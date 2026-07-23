@@ -1,6 +1,5 @@
-class_name InvincibilityBarrier
 extends Node2D
-## A class for invincibility barriers that controls stars that spin around the player's position
+## A script for the invincibility barrier that controls stars that spin around the player's position
 
 ## An array of arrays that store the frames to cycle through
 var STAR_FRAME_ARR: Array[PackedByteArray] = [
@@ -17,7 +16,7 @@ const STAR_ROTATION_RADIUS: int = 11
 const POSITION_QUEUE_LENGTH: int = 12
 
 ## The player that owns this barrier
-var player: PlayerChar
+@onready var player: PlayerChar = get_parent()
 ## A circular queue that stores the player's position
 var player_position_queue: PackedVector2Array
 ## The index of the current position in the queue
@@ -36,22 +35,16 @@ var star_frame: Array[int]
 var stars: Array[Sprite2D]
 
 
-## A function that spawns invincibility stars
-static func create_invincibility_stars(player_owner: PlayerChar) -> void:
-	# Spawn an instance of the barrier
-	var invincibility_barrier: InvincibilityBarrier = \
-			preload("res://Entities/Misc/InvincibilityBarrier.tscn").instantiate()
-	# Add the barrier as a child to the player store them in the player variable of the instance
-	player_owner.add_child(invincibility_barrier)
-	invincibility_barrier.player = player_owner
+# Initialize the barrier
+func _ready() -> void:
 	# Resize some arrays
-	invincibility_barrier.player_position_queue.resize(POSITION_QUEUE_LENGTH)
-	invincibility_barrier.star_position_arr.resize(4)
-	invincibility_barrier.star_angle.resize(2)
-	invincibility_barrier.star_frame.resize(2)
+	player_position_queue.resize(POSITION_QUEUE_LENGTH)
+	star_position_arr.resize(4)
+	star_angle.resize(2)
+	star_frame.resize(2)
 	# Append the child nodes that represent the stars of this barrier instance to the stars array
-	for star: Sprite2D in invincibility_barrier.get_children():
-		invincibility_barrier.stars.append(star)
+	for star: Sprite2D in get_children():
+		stars.append(star)
 
 
 func _physics_process(delta: float) -> void:
@@ -60,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	# and since the barrier is a child of the player, the barrier will rotate along with them,
 	# so either we parent the barrier to smth else in the static function, like the level, for example,
 	# or set the barrier's global rotation to 0 every frame to prevent rotation, just like here.
-	# The problem with the second method, tho, is that when the player jumps from a left wall,
+	# The problem with the second method, tho, is that when the player jumps from a left or right wall,
 	# their rotation is reset, which causes the barrier to rotate for a frame before resetting its rotation..
 	global_rotation = 0
 	
@@ -75,6 +68,10 @@ func _physics_process(delta: float) -> void:
 	memory_index = (memory_index + 1) % POSITION_QUEUE_LENGTH
 	
 	# Always set the position of first pair to the player's position
+	# Useless fun fact: for whatever reason, when the player obtains invincibility, the trail stars rotate
+	# around the origin point of the current scene for some time before instantly going to the player,
+	# which can make it look like each pair gradually appears right after getting invincibility
+	# (writing the word 'invincibility' everytime gets very annoying..)
 	star_position_arr[0] = player.centerReference.global_position
 	# Iterate over the array of the star trail positions and set the positions of the star trails
 	# to the player's position frames ago and offset them so that the farthest pair from the player
@@ -116,8 +113,3 @@ func _physics_process(delta: float) -> void:
 		star.global_position = star_relative_position + star_position_arr[star_pair_num]
 		# Animate the star
 		star.frame = frame_arr[(star_frame[frame_index] + frame_increment) % frame_arr.size()]
-	
-	# Delete if the player has no invincibility, or if the player is super since there's no need
-	# to keep it if the player is super..
-	if player.supTime <= 0 or player.isSuper:
-		queue_free()

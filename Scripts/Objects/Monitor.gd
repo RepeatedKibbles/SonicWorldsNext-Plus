@@ -61,10 +61,9 @@ func destroy():
 				Global.effectTheme.play()
 		2: # Invincibility
 			if !playerTouch.get("isSuper"):
-				if playerTouch.supTime <= 0:
-					playerTouch.shieldSprite.visible = false # turn off barrier for stars
-					InvincibilityBarrier.create_invincibility_stars(playerTouch)
 				playerTouch.supTime = 20
+				playerTouch.shieldSprite.visible = false # turn off barrier for stars
+				playerTouch.show_invincibility_barrier()
 				Global.currentTheme = 0
 				Global.effectTheme.stream = Global.themes[Global.currentTheme]
 				Global.effectTheme.play()
