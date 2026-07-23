@@ -1,28 +1,26 @@
 extends Node2D
 ## A script for the invincibility barrier that controls stars that spin around the player's position
 
-## An array of arrays that store the frames to cycle through
-var STAR_FRAME_ARR: Array[PackedByteArray] = [
-	PackedByteArray([7, 4, 6, 4, 4, 6, 4, 7, 4, 6, 6, 4]),
-	PackedByteArray([2, 3, 4, 5, 6, 7, 6, 5, 4, 3]),
-	PackedByteArray([1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2]),
-	PackedByteArray([0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]),
-]
-## An array of values used to offset the stars for each pair
+## An array of values used to offset the rotation angle of the stars for each pair
 const STAR_ANGLE_OFFSETS: Array[float] = [0, 118.125, 0, 81.5625]
 ## The radius of rotation around the player
 const STAR_ROTATION_RADIUS: int = 11
 ## The length of the circular queue used to store the player's position
 const POSITION_QUEUE_LENGTH: int = 12
 
-## The player that owns this barrier
-@onready var player: PlayerChar = get_parent()
+## An array of arrays that store the frames to cycle through
+var star_frame_arr: Array[PackedByteArray] = [
+	PackedByteArray([7, 4, 6, 4, 4, 6, 4, 7, 4, 6, 6, 4]),
+	PackedByteArray([2, 3, 4, 5, 6, 7, 6, 5, 4, 3]),
+	PackedByteArray([1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2]),
+	PackedByteArray([0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]),
+]
 ## A circular queue that stores the player's position
 var player_position_queue: PackedVector2Array
 ## The index of the current position in the queue
 var memory_index: int
 
-## An array that stores the positions of star pairs
+## An array that stores the coordinates used to position the star pairs and offset them using the circular queue
 var star_position_arr: PackedVector2Array
 ## An array that stores angles used to rotate the stars
 ## The size of the array determines how many variations of angles that can be stored
@@ -33,6 +31,9 @@ var star_frame: Array[int]
 
 ## An array of Sprite2Ds representing stars to iterate over
 var stars: Array[Sprite2D]
+
+## The player that owns this barrier
+@onready var player: PlayerChar = get_parent()
 
 
 # Initialize the barrier
@@ -48,13 +49,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	# Don't do anything AT ALL if the barrier ain't visible..
+	if not visible:
+		return
+	
 	# Bug: The player's PhysicsObject is rotated based on the current collision mode, for example,
 	# if the player goes from a slope to the left or right wall, the player will be rotated,
 	# and since the barrier is a child of the player, the barrier will rotate along with them,
-	# so either we parent the barrier to smth else in the static function, like the level, for example,
-	# or set the barrier's global rotation to 0 every frame to prevent rotation, just like here.
-	# The problem with the second method, tho, is that when the player jumps from a left or right wall,
-	# their rotation is reset, which causes the barrier to rotate for a frame before resetting its rotation..
+	# that's why the barrier's global rotation is reset to 0 every frame to prevent rotation, just like here.
+	# The problem, tho, is that when the player jumps from a left or right wall, their rotation is reset,
+	# which causes the barrier to rotate for a frame before resetting its rotation..
 	global_rotation = 0
 	
 	# Increment the frame indices
@@ -68,10 +72,8 @@ func _physics_process(delta: float) -> void:
 	memory_index = (memory_index + 1) % POSITION_QUEUE_LENGTH
 	
 	# Always set the position of first pair to the player's position
-	# Useless fun fact: for whatever reason, when the player obtains invincibility, the trail stars rotate
-	# around the origin point of the current scene for some time before instantly going to the player,
-	# which can make it look like each pair gradually appears right after getting invincibility
-	# (writing the word 'invincibility' everytime gets very annoying..)
+	# If we didn't do that, this pair will stop for some time before returning to the player,
+	# and we don't want that to happen..
 	star_position_arr[0] = player.centerReference.global_position
 	# Iterate over the array of the star trail positions and set the positions of the star trails
 	# to the player's position frames ago and offset them so that the farthest pair from the player
@@ -96,7 +98,7 @@ func _physics_process(delta: float) -> void:
 		# Is the index number even or not?
 		var is_index_even: bool = star_index % 2 == 0
 		# The array that's used to animate the current pair
-		var frame_arr: PackedByteArray = STAR_FRAME_ARR[star_pair_num]
+		var frame_arr: PackedByteArray = star_frame_arr[star_pair_num]
 		# The index that points to a variation of a frame
 		var frame_index: int = int(star_pair_num == 1)
 		# The increment of the frame
