@@ -1,9 +1,8 @@
-[gd_scene load_steps=133 format=3 uid="uid://cioq5saowvqxj"]
+[gd_scene load_steps=131 format=3 uid="uid://cioq5saowvqxj"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://d1e4muavtnun6" path="res://Graphics/Players/PlayerAnimations/Sonic.tscn" id="2"]
 [ext_resource type="AudioStream" uid="uid://bx5cur6r54lbo" path="res://Audio/SFX/Player/Jump.wav" id="3"]
-[ext_resource type="Script" path="res://Scripts/PropertiesLookup.gd" id="4"]
 [ext_resource type="AudioStream" uid="uid://iomtgrpokl66" path="res://Audio/SFX/Player/SpindashRev.wav" id="5"]
 [ext_resource type="Script" path="res://Scripts/Player/States/Normal.gd" id="6"]
 [ext_resource type="Script" path="res://Scripts/Player/States/Air.gd" id="7"]
@@ -31,10 +30,9 @@
 [ext_resource type="AudioStream" uid="uid://102ccd6hxw40" path="res://Audio/SFX/Player/FireShield.wav" id="28"]
 [ext_resource type="AudioStream" uid="uid://brx7f8tiaovws" path="res://Audio/SFX/Player/BubbleShield.wav" id="29"]
 [ext_resource type="AudioStream" uid="uid://jceiiu00puui" path="res://Audio/SFX/Player/FireUse.wav" id="30"]
+[ext_resource type="PackedScene" uid="uid://cvyeq2nvmn5lw" path="res://Entities/Misc/InvincibilityBarrier.tscn" id="30_on6sw"]
 [ext_resource type="AudioStream" uid="uid://7u7x1vfk4let" path="res://Audio/SFX/Player/ElecUse.wav" id="31"]
-[ext_resource type="Script" path="res://Scripts/Player/InvincibilityBarrier.gd" id="31_jltab"]
 [ext_resource type="AudioStream" uid="uid://j82xa85ycfx6" path="res://Audio/SFX/Player/InstShield.wav" id="32"]
-[ext_resource type="Texture2D" uid="uid://bihgasvpr4jyb" path="res://Graphics/Items/invincible_stars.png" id="32_ykcub"]
 [ext_resource type="AudioStream" uid="uid://dmwqv4rtqnk0n" path="res://Audio/SFX/Gimmicks/Splash.wav" id="34"]
 [ext_resource type="Script" path="res://Scripts/Player/States/CorkScrew.gd" id="35"]
 [ext_resource type="Script" path="res://Scripts/Player/States/JumpCancel.gd" id="36"]
@@ -815,9 +813,6 @@ script = ExtResource("62")
 process_priority = 1
 script = ExtResource("18_l6lpm")
 
-[node name="PhysicsLookUp" type="Node" parent="."]
-script = ExtResource("4")
-
 [node name="SkidDustTimer" type="Timer" parent="."]
 
 [node name="SparkleTimer" type="Timer" parent="."]
@@ -893,42 +888,7 @@ disabled = true
 [node name="ScreenCheck" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(2.6, 2.7)
 
-[node name="InvincibilityBarrier" type="Node2D" parent="."]
-visible = false
-z_index = 7
-script = ExtResource("31_jltab")
-
-[node name="GenericParticle" type="Sprite2D" parent="InvincibilityBarrier"]
-texture = ExtResource("32_ykcub")
-hframes = 8
-
-[node name="GenericParticle2" type="Sprite2D" parent="InvincibilityBarrier"]
-texture = ExtResource("32_ykcub")
-hframes = 8
-
-[node name="GenericParticle3" type="Sprite2D" parent="InvincibilityBarrier"]
-texture = ExtResource("32_ykcub")
-hframes = 8
-
-[node name="GenericParticle4" type="Sprite2D" parent="InvincibilityBarrier"]
-texture = ExtResource("32_ykcub")
-hframes = 8
-
-[node name="GenericParticle5" type="Sprite2D" parent="InvincibilityBarrier"]
-texture = ExtResource("32_ykcub")
-hframes = 8
-
-[node name="GenericParticle6" type="Sprite2D" parent="InvincibilityBarrier"]
-texture = ExtResource("32_ykcub")
-hframes = 8
-
-[node name="GenericParticle7" type="Sprite2D" parent="InvincibilityBarrier"]
-texture = ExtResource("32_ykcub")
-hframes = 8
-
-[node name="GenericParticle8" type="Sprite2D" parent="InvincibilityBarrier"]
-texture = ExtResource("32_ykcub")
-hframes = 8
+[node name="InvincibilityBarrier" parent="." instance=ExtResource("30_on6sw")]
 
 [node name="SFX" type="Node" parent="."]
 
