@@ -71,5 +71,6 @@ func _on_ForceAngleSides_body_exited(body):
 		# remove angle rotation index
 		var getIndex = players.find(body)
 		contactPoint.remove_at(getIndex)
-		
+		# Restore Air Control
+		body.airControl = true
 		players.erase(body)

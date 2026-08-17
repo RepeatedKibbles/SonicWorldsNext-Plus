@@ -331,18 +331,21 @@ offset_top = -11.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_yuhp3")
-text = "2021 2025"
+text = "2021-2026"
 horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="PressStart" type="Control" parent="CanvasLayer/Labels"]
 modulate = Color(1, 0.831373, 0, 1)
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = 16.0
 offset_top = -24.0
+offset_right = 16.0
 grow_horizontal = 2
 grow_vertical = 0
 

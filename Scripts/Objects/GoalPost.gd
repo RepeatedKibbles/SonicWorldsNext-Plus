@@ -12,8 +12,7 @@ func _physics_process(_delta):
 		
 		# Camera limit set
 		player.limitLeft = global_position.x -screenXSize/2
-		player.limitRight = global_position.x +(screenXSize/2)+60
-		
+		player.limitRight = global_position.x +(screenXSize/2)+48
 		getCam = player.camera
 		
 		Main.sceneCanPause = false
