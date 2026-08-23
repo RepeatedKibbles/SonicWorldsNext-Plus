@@ -30,7 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://102ccd6hxw40" path="res://Audio/SFX/Player/FireShield.wav" id="28"]
 [ext_resource type="AudioStream" uid="uid://brx7f8tiaovws" path="res://Audio/SFX/Player/BubbleShield.wav" id="29"]
 [ext_resource type="AudioStream" uid="uid://jceiiu00puui" path="res://Audio/SFX/Player/FireUse.wav" id="30"]
-[ext_resource type="PackedScene" uid="uid://cvyeq2nvmn5lw" path="res://Entities/Misc/InvincibilityBarrier.tscn" id="30_on6sw"]
+[ext_resource type="Script" path="res://Scripts/Player/InvincibilityBarrier.gd" id="30_hf44w"]
 [ext_resource type="AudioStream" uid="uid://7u7x1vfk4let" path="res://Audio/SFX/Player/ElecUse.wav" id="31"]
 [ext_resource type="AudioStream" uid="uid://j82xa85ycfx6" path="res://Audio/SFX/Player/InstShield.wav" id="32"]
 [ext_resource type="AudioStream" uid="uid://dmwqv4rtqnk0n" path="res://Audio/SFX/Gimmicks/Splash.wav" id="34"]
@@ -888,7 +888,9 @@ disabled = true
 [node name="ScreenCheck" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(2.6, 2.7)
 
-[node name="InvincibilityBarrier" parent="." instance=ExtResource("30_on6sw")]
+[node name="InvincibilityBarrier" type="Node2D" parent="."]
+scale = Vector2(2.6, 2.7)
+script = ExtResource("30_hf44w")
 
 [node name="SFX" type="Node" parent="."]
 
