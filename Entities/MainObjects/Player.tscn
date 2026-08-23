@@ -891,6 +891,7 @@ scale = Vector2(2.6, 2.7)
 [node name="InvincibilityBarrier" type="Node2D" parent="."]
 visible = false
 top_level = true
+z_index = 7
 script = ExtResource("30_hf44w")
 
 [node name="SFX" type="Node" parent="."]
