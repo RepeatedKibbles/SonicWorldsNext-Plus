@@ -1,14 +1,15 @@
 extends Node2D
-## A script for the invincibility barrier that controls stars that spin around the player's position
+## A script for the invincibility barrier that draws stars that spin around the player's position
 
-## An array of values used to offset the rotation angle of the stars for each pair
-const STAR_ANGLE_OFFSETS: Array[float] = [0, 118.125, 0, 81.5625]
 ## The number of stars
 const STAR_NUM: int = 8
+## An array of values used to offset the rotation angle of the stars for each pair
+const STAR_ANGLE_OFFSETS: Array[float] = [0, 118.125, 0, 81.5625]
 ## The radius of rotation around the player
 const STAR_ROTATION_RADIUS: int = 16
 ## The length of the circular queue used to store the player's position
 const POSITION_QUEUE_LENGTH: int = 12
+## The region rects of each star frame
 const REGIONS: Array[Rect2] = [
 	Rect2(0, 0, 31, 31),
 	Rect2(31, 0, 31, 31),
@@ -41,11 +42,9 @@ var star_angle: Array[float]
 ## The size of the array determines how many variations of frames that can be stored
 var star_frame: Array[int]
 
-## An array of Sprite2Ds representing stars to iterate over
-var stars: Array[Sprite2D]
-
 ## The player that owns this barrier
 @onready var player: PlayerChar = get_parent()
+## The full spritesheet that has the star frames
 @onready var star_spritesheet: Texture2D = preload("res://Graphics/Items/invincible_stars.png")
 
 
@@ -53,12 +52,9 @@ var stars: Array[Sprite2D]
 func _ready() -> void:
 	# Resize some arrays
 	player_position_queue.resize(POSITION_QUEUE_LENGTH)
-	star_position_arr.resize(ceili(STAR_NUM))
+	star_position_arr.resize(ceili(STAR_NUM / 2))
 	star_angle.resize(2)
 	star_frame.resize(2)
-	# Append the child nodes that represent the stars of this barrier instance to the stars array
-	for star: Sprite2D in get_children():
-		stars.append(star)
 
 
 func _physics_process(delta: float) -> void:
