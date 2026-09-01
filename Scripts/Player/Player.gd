@@ -96,8 +96,11 @@ var ringChannel = 0
 var Particle = preload("res://Entities/Misc/GenericParticle.tscn")
 var Bubble = preload("res://Entities/Misc/Bubbles.tscn")
 var CountDown = preload("res://Entities/Misc/CountDownTimer.tscn")
+<<<<<<< HEAD
 var RotatingParticle = preload("res://Entities/Misc/RotatingParticle.tscn")
 var DropDashDust = preload("res://Entities/Misc/DropDashDust.tscn")
+=======
+>>>>>>> 5730e8e7dbb5e783db610bcd976d069bd33fab89
 
 var superSprite = load("res://Graphics/Players/SuperSonic.png")
 @onready var normalSprite = $Sonic/Sprite2D.texture
@@ -128,6 +131,7 @@ var reflective = false # used for reflecting projectiles
 # State array
 @onready var stateList = $States.get_children()
 
+@onready var invincibility_barrier: Node2D = $InvincibilityBarrier
 
 # Animation related
 @onready var animator = $Sonic/PlayerAnimation
@@ -522,7 +526,7 @@ func _process(delta):
 		if !isSuper:
 			supTime -= delta
 		else:
-			$InvincibilityBarrier.visible = false
+			invincibility_barrier.visible = false
 			# Animate Palette
 			if is_instance_valid(superAnimator):
 				if !superAnimator.is_playing():
@@ -541,7 +545,7 @@ func _process(delta):
 		if (supTime <= 0):
 			if (shield != SHIELDS.NONE):
 				shieldSprite.visible = true
-			$InvincibilityBarrier.visible = false
+			invincibility_barrier.visible = false
 			# turn off super palette and physics (if super)
 			if is_instance_valid(superAnimator) and isSuper:
 				isSuper = false
@@ -583,25 +587,6 @@ func _process(delta):
 		Global.bossMusic.volume_db = -100
 		Global.music.volume_db = -100
 
-	#Rotating stars
-	if ($InvincibilityBarrier.visible):
-		var stars = $InvincibilityBarrier.get_children()
-		for i in stars:
-			i.position = i.position.rotated(deg_to_rad(360*delta*4))
-			i.visible = visible
-
-		if (fmod(Global.globalTimer,0.1)+delta > 0.1) and visible:
-			var star = RotatingParticle.instantiate()
-			var starPart = star.get_node("GenericParticle")
-			star.global_position = global_position
-			starPart.getTarget = self
-			starPart.direction = -direction
-			get_parent().add_child(star)
-			var options = ["StarSingle","StarSinglePat2","default"]
-			starPart.play(options[round(randf()*2)])
-			starPart.frame = randf_range(0,2)
-			starPart.velocity = velocity
-			starPart.position = stars[0].global_position-global_position
 
 	# Animator
 	if currentState != STATES.PEELOUT:
@@ -1031,7 +1016,7 @@ func set_shield(setShieldID):
 	
 	shield = setShieldID
 	# make shield visible if not super and the invincibility barrier isn't going
-	shieldSprite.visible = !isSuper and !$InvincibilityBarrier.visible
+	shieldSprite.visible = supTime <= 0
 	match (shield):
 		SHIELDS.NORMAL:
 			shieldSprite.play("Default")
@@ -1050,6 +1035,8 @@ func set_shield(setShieldID):
 			shieldSprite.visible = false
 
 
+func show_invincibility_barrier() -> void:
+	invincibility_barrier.visible = true
 
 # see Global for damage types, 0 = none, 1 = Fire, 2 = Elec, 3 = Water
 func hit_player(damagePoint = global_position, damageType = 0, soundID = 6):
