@@ -96,11 +96,7 @@ var ringChannel = 0
 var Particle = preload("res://Entities/Misc/GenericParticle.tscn")
 var Bubble = preload("res://Entities/Misc/Bubbles.tscn")
 var CountDown = preload("res://Entities/Misc/CountDownTimer.tscn")
-<<<<<<< HEAD
-var RotatingParticle = preload("res://Entities/Misc/RotatingParticle.tscn")
 var DropDashDust = preload("res://Entities/Misc/DropDashDust.tscn")
-=======
->>>>>>> 5730e8e7dbb5e783db610bcd976d069bd33fab89
 
 var superSprite = load("res://Graphics/Players/SuperSonic.png")
 @onready var normalSprite = $Sonic/Sprite2D.texture
@@ -587,7 +583,6 @@ func _process(delta):
 		Global.bossMusic.volume_db = -100
 		Global.music.volume_db = -100
 
-
 	# Animator
 	if currentState != STATES.PEELOUT:
 		handle_animation_speed()
@@ -1011,7 +1006,7 @@ func set_hitbox(mask = Vector2.ZERO, forcePoseChange = false):
 func set_shield(setShieldID):
 	magnetShape.disabled = true
 	# verify not in water and shield compatible
-	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC) and !isSuper and !$InvincibilityBarrier.visible:
+	if water and (setShieldID == SHIELDS.FIRE or setShieldID == SHIELDS.ELEC) and !isSuper and !$invincibility_barrier.visible:
 		return false
 	
 	shield = setShieldID
@@ -1033,7 +1028,6 @@ func set_shield(setShieldID):
 			sfx[12].play()
 		_: # disable
 			shieldSprite.visible = false
-
 
 func show_invincibility_barrier() -> void:
 	invincibility_barrier.visible = true

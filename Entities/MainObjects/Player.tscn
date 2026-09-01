@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=196 format=3 uid="uid://cioq5saowvqxj"]
-=======
-[gd_scene load_steps=131 format=3 uid="uid://cioq5saowvqxj"]
->>>>>>> 5730e8e7dbb5e783db610bcd976d069bd33fab89
+[gd_scene load_steps=132 format=3 uid="uid://cioq5saowvqxj"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://d1e4muavtnun6" path="res://Graphics/Players/PlayerAnimations/Sonic.tscn" id="2"]
@@ -61,11 +57,11 @@
 [ext_resource type="Script" path="res://Scripts/Player/States/Glide.gd" id="59"]
 [ext_resource type="AudioStream" uid="uid://78gy6s87pbbo" path="res://Audio/SFX/Player/Land.wav" id="60"]
 [ext_resource type="AudioStream" uid="uid://uaa5twt8odin" path="res://Audio/SFX/Player/Slide.wav" id="61"]
+[ext_resource type="AudioStream" uid="uid://clh4v62rtijhv" path="res://Audio/SFX/Player/DrownAlert.wav" id="61_js374"]
 [ext_resource type="Script" path="res://Scripts/Player/States/WallClimb.gd" id="62"]
 [ext_resource type="AudioStream" uid="uid://c2agly02ferrw" path="res://Audio/SFX/Player/WaterRun.wav" id="63_k1lus"]
 [ext_resource type="Texture2D" uid="uid://b1k615l251fu5" path="res://Graphics/Misc/WaterSurfaceSplash.png" id="64_ovmgw"]
 [ext_resource type="AudioStream" uid="uid://buu4anko53vx2" path="res://Audio/SFX/Objects/ChemJump.wav" id="65_7v2sx"]
-[ext_resource type="AudioStream" uid="uid://clh4v62rtijhv" path="res://Audio/SFX/Player/DrownAlert.wav" id="66_ocdfc"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 resource_local_to_scene = true
@@ -1030,7 +1026,7 @@ volume_db = 15.0
 bus = &"SFX"
 
 [node name="DrownAlert" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("66_ocdfc")
+stream = ExtResource("61_js374")
 volume_db = 3.0
 bus = &"SFX"
 
