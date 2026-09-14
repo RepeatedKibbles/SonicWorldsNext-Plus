@@ -137,7 +137,7 @@ func reset_game_values():
 	Global.score = 0
 	Global.continues = 0
 	Global.levelTime = 0
-	Global.emeralds = 0
+	Global.emeralds = 128
 	Global.specialStageID = 0
 	Global.checkPoints = []
 	Global.checkPointTime = 0
