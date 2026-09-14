@@ -96,7 +96,7 @@ size = Vector2(128, 24)
 
 [node name="BaseZoneAct2" type="Node2D"]
 script = ExtResource("2")
-nextZone = "res://Scene/Zones/emerald_hill_zone.tscn"
+nextZone = "res://Scene/Zones/EmeraldHillZone.tscn"
 animal1 = 2
 animal2 = 3
 defaultLeftBoundry = 0
@@ -1114,8 +1114,13 @@ position = Vector2(4480, 400)
 [connection signal="pressed" from="Entities/Switch" to="Gimmicks/ChainedMonkeyBar/RetractibleChain" method="set_default_target" binds= [170]]
 [connection signal="pressed" from="Entities/Switch" to="Gimmicks/ChainedMonkeyBar/RetractibleChain" method="send_to_height" binds= [609]]
 [connection signal="pressed" from="Entities/Switch2" to="Gimmicks/ChainedMonkeyBar/RetractibleChain" method="set_default_target" binds= [0]]
+<<<<<<< HEAD
 [connection signal="pressed" from="Entities/Switch2" to="Gimmicks/ChainedMonkeyBar/RetractibleChain" method="set_home_height" binds= [170]]
 [connection signal="pressed" from="Entities/Switch2" to="Gimmicks/ChainedMonkeyBar/RetractibleChain" method="send_to_height" binds= [170]]
+=======
+[connection signal="pressed" from="Entities/Switch2" to="Gimmicks/ChainedMonkeyBar/RetractibleChain" method="send_to_height" binds= [170]]
+[connection signal="pressed" from="Entities/Switch2" to="Gimmicks/ChainedMonkeyBar/RetractibleChain" method="set_home_height" binds= [170]]
+>>>>>>> d99390279504b23ea0766b5e9c29faa05f625d49
 [connection signal="target_reached" from="Gimmicks/ChainedMonkeyBar9/RetractibleChain" to="Gimmicks/ChainedMonkeyBar9/SwitchPlayer" method="do_play"]
 [connection signal="target_reached" from="Gimmicks/ChainedMonkeyBar9/RetractibleChain" to="Gimmicks/HookSliderAssembly/HookSlider/MobileHook/RetractibleChain" method="send_home"]
 [connection signal="target_reached" from="Gimmicks/ChainedMonkeyBar9/RetractibleChain" to="Gimmicks/HookSliderAssembly/HookSlider" method="send_to_target" binds= [-313]]
